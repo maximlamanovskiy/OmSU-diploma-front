@@ -1,0 +1,18 @@
+.schedule-header {
+  background-color: #087f24;
+  color: #fff;
+  display: grid;
+  grid-column-end: end;
+  grid-column-start: 1;
+}
+
+.schedule-header__element {
+  border: solid 1px #000;
+  display: grid;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.schedule-header__header-text {
+  margin: 0.5vh 0;
+}

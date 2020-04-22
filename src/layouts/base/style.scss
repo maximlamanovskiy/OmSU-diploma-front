@@ -1,0 +1,14 @@
+.base-main {
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 80%;
+  z-index: 1;
+}
+
+.base-main__content {
+  box-sizing: border-box;
+  flex-grow: 1;
+}

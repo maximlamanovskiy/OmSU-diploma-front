@@ -1,0 +1,23 @@
+.time-block-info {
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  grid-column-end: 1;
+  grid-column-start: 1;
+  justify-content: center;
+}
+
+.time-block-info__text {
+  display: flex;
+  font-size: 22px;
+  justify-content: center;
+  line-height: 28px;
+}
+
+.time-block-info__delimiter {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  line-height: 10px;
+}

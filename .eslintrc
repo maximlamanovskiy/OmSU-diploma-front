@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [],
+  "extends": ["airbnb", "prettier", "plugin:react/recommended"],
+  "rules": {
+    "one-var": "off",
+    "react/jsx-uses-vars": "error",
+    "import/no-unresolved": 0,
+    "import/extensions": ["error", "never"],
+    "react/no-multi-comp": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-underscore-dangle": 0,
+    "import/prefer-default-export": 0,
+    "react/destructuring-assignment": "off"
+  },
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "window": true,
+    "YAML": true
+  }
+}

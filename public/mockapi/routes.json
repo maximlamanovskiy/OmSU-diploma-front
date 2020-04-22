@@ -1,0 +1,5 @@
+{
+  "/schedule/groups/*": "/schedule-groups",
+  "/schedule/lecturers/*": "/schedule-lecturers",
+  "/buildings/:id/classrooms?page=:page&size=:size": "/classrooms-with-meta"
+}

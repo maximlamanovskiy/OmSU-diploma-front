@@ -1,0 +1,37 @@
+.lesson-compact {
+  align-items: center;
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-transform: none;
+  width: 100%;
+  word-break: break-word;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.lesson-compact__message {
+  color: #000;
+}
+
+.lesson-compact__type {
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+.lesson-compact__name {
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 0;
+}
+
+.lesson-compact__lecturer {
+  font-size: 14px;
+  margin: 0;
+}

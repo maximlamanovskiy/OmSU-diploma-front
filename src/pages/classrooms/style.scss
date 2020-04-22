@@ -1,0 +1,28 @@
+.classrooms-page {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.classrooms-page__content {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.classrooms {
+  display: flex;
+  flex-flow: row wrap;
+  height: 85%;
+  justify-content: center;
+  margin: 3vh 0 0;
+  padding: 0;
+}
+
+.classrooms-page__message {
+  color: #000;
+  font-size: 7vh;
+  line-height: 7.5vh;
+  margin: auto;
+}

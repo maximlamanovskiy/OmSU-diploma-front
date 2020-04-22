@@ -1,0 +1,47 @@
+.field {
+  border: 0;
+  font-family: Roboto, Constantia, sans-serif;
+  outline: 0;
+}
+
+.label-block__field {
+  border-bottom: 1px solid #5e5e5e;
+  font-size: 3.5vh;
+  font-weight: 400;
+  height: 6vh;
+  line-height: 4vh;
+  margin-top: 0.8vh;
+  transition: all 0.2s;
+
+  &:focus {
+    border-color: #4caf51;
+    box-shadow: none;
+    caret-color: #4caf51;
+    color: #4caf51;
+  }
+}
+
+.label-block__field_error {
+  border-bottom: 1px solid #b00020;
+  box-shadow: none;
+  color: #b00020;
+}
+
+.base-field {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #000;
+  height: 6vh;
+  min-height: 40px;
+
+  &:focus {
+    border-color: #087f24;
+    color: #000;
+  }
+}
+
+.base-field__text {
+  height: 20vh;
+}

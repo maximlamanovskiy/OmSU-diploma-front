@@ -1,0 +1,162 @@
+{
+  "layouts": {
+    "nonAuth": {
+      "links": {
+        "login": "Вход",
+        "register": "Регистрация"
+      }
+    },
+    "base": {
+      "sideBar": {
+        "classrooms": "Аудитории",
+        "schedule": "Расписание"
+      }
+    }
+  },
+  "pages": {
+    "sign": {
+      "labels": {
+        "email": "Электронная почта",
+        "password": "Пароль",
+        "studentId": "Номер студентческого билета"
+      },
+      "errors": {
+        "userNameOrPassword": "Неверный адрес электронной почты или пароль",
+        "invalidEmail": "Недопустимый адрес электронной почты",
+        "invalidStudentId": "Недопустимый номер студентческого билета",
+        "invalidPassword": "Пароль должен быть длиннее 6 символов и не содержать пробелов"
+      },
+      "buttons": {
+        "login": "Войти",
+        "registration": "Регистрация"
+      },
+      "links": {
+        "student": "Студент",
+        "lecturer": "Преподаватель"
+      }
+    },
+    "classrooms": {
+      "buttons": {
+        "next-page": "Следующая страница",
+        "prev-page": "Предыдущая страница",
+        "edit": "Изменить",
+        "occupy": "Занять"
+      },
+      "messages": {
+        "no-filter": "Задайте фильтр, чтобы увидеть аудитории",
+        "no-classrooms": "Нет аудиторий подходящих под этот фильтр"
+      }
+    },
+    "classroom": {
+      "header": {
+        "number": "Аудитория №%{number}",
+        "statuses": {
+          "free": " - Свободна",
+          "selected": " - Выбрана",
+          "occupied": " - Занята"
+        }
+      },
+      "occupation": {
+        "date": "Дата",
+        "time": "Время",
+        "lecturer": "Преподаватель",
+        "group": "Группа",
+        "comment": "Комментарий",
+        "interval": "Интервал",
+        "intervals": {
+          "none": "Нет",
+          "every": "Всегда",
+          "even": "Четные",
+          "odd": "Нечетные"
+        },
+        "require": " - это мероприятие является обязательным"
+      },
+      "footer": {
+        "buttons": {
+          "back": "Назад",
+          "free": "Освободить",
+          "occupy": "Занять",
+          "delete": "Удалить",
+          "save": "Сохранить"
+        }
+      },
+      "messages": {
+        "unable-occupy": "Ошибка занятия аудитории!\nВсе поля должны быть заполенены!",
+        "unable-update": "Ошибка изменения аудитории!\nВсе поля должны быть заполенены!"
+      },
+      "edit": {
+        "classroom-number": "Номер аудитории"
+      }
+    }
+  },
+  "components": {
+    "classroom": {
+      "number": "Аудитория №%{number}"
+    },
+    "filter": {
+      "options": {
+        "which-schedule": {
+          "group": "Группы",
+          "course": "Курса",
+          "lecturer": "Преподавателя"
+        },
+        "courses": {
+          "first": "Первый",
+          "second": "Второй",
+          "third": "Третий",
+          "fourth": "Четвертый",
+          "fifth": "Пятый",
+          "sixth": "Шестой"
+        }
+      },
+      "labels": {
+        "which-schedule": "Выберите тип расписания",
+        "department": "Выберите кафедру",
+        "lecturer": "Выберите преподавателя",
+        "faculty": "Выберите факультет",
+        "course": "Выберите курс",
+        "group": "Выберите группу",
+        "year": "Введите учебный год",
+        "semester": "Выберите семестер",
+        "classroom-number": "Введите номер аудитории",
+        "building": "Выберите корпус"
+      },
+      "default-select-message": "Выбрать...",
+      "no-options-message": "Ничего нет",
+      "buttons": {
+        "apply-schedule": "Показать расписание",
+        "apply-classrooms": "Подобрать аудитории"
+      }
+    },
+    "schedule": {
+      "no-schedule-message": "Нет расписания подходящего под этот фильтр",
+      "no-filter-message": "Задайте фильтр, чтобы увидеть расписание",
+      "week": {
+        "monday": "Понедельник",
+        "tuesday": "Вторник",
+        "wednesday": "Среда",
+        "thursday": "Четверг",
+        "friday": "Пятница",
+        "saturday": "Суббота",
+        "sunday": "Воскресенье"
+      },
+      "lessons": {
+        "optional": "по выбору",
+        "even": ", ч/н",
+        "odd": ", н/н",
+        "every": " ",
+        "even-full": ", четная неделя",
+        "odd-full": ", нечетная неделя",
+        "every-full": " ",
+        "building": "корпус:",
+        "classroom": "аудитория:",
+        "from": "с",
+        "to": "по"
+      }
+    },
+    "date-range-selector": {
+      "start-date": "Дата начала",
+      "end-date": "Дата конца"
+    }
+  }
+}

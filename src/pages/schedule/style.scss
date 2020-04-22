@@ -1,0 +1,23 @@
+.schedule {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.schedule__hide-filter {
+  background: inherit;
+  display: block;
+  font-size: 32px;
+  left: calc(25% + 10px);
+  line-height: 28px;
+  padding: 0 5px;
+  position: absolute;
+  top: 2px;
+  transition: all 0.8s;
+}
+
+.schedule__hide-filter_close {
+  left: 10px;
+}

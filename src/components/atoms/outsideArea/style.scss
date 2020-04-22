@@ -1,0 +1,21 @@
+.outside-area {
+  background-color: rgba(102, 102, 102, 0.5);
+  border: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  outline: none;
+  position: fixed;
+  top: 0;
+  transition: background-color 0.5s;
+  width: 100%;
+  z-index: 3;
+}
+
+.outside-area_hide {
+  background-color: inherit;
+}
+
+.outside-area_not-displayed {
+  display: none;
+}

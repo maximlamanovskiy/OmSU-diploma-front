@@ -1,0 +1,26 @@
+.classroom-compact {
+  align-items: center;
+  align-self: flex-start;
+  background-color: #4caf51;
+  border: 1px solid #087f24;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-size: 200%;
+  height: 7.5vh;
+  justify-content: center;
+  margin: 10px 25px;
+  min-height: 40px;
+  min-width: 89px;
+  position: relative;
+  width: 9vw;
+
+  &:hover::before {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus::before {
+    background: rgba(0, 0, 0, 0.12);
+  }
+}

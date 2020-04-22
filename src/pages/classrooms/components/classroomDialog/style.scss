@@ -1,0 +1,39 @@
+.classroom-dialog__classroom {
+  height: 50%;
+  left: 30%;
+  top: 25%;
+  width: 40%;
+}
+
+.classroom-dialog__header {
+  border-bottom: 2px solid #087f24;
+  font-size: 4vh;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.classroom-dialog__date-picker {
+  align-self: center;
+  font-size: 3vh;
+  height: 4vh;
+  line-height: 3.5vh;
+  width: auto;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+.classroom-dialog__info-sections {
+  display: flex;
+  flex-direction: row;
+  height: 26vh;
+  justify-content: space-around;
+  overflow: auto;
+}
+
+.classroom-dialog__buttons-footer {
+  height: 10%;
+  margin: auto auto 15px;
+  width: 85%;
+}

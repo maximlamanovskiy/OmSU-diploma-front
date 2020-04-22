@@ -1,0 +1,9 @@
+{
+  "login": "/login",
+  "register": "/register",
+  "root": "/",
+  "classroom": "/classroom",
+  "classrooms": "/classrooms",
+  "editClassroom": "/edit_classroom",
+  "schedule": "/schedule"
+}

@@ -1,0 +1,162 @@
+{
+  "layouts": {
+    "nonAuth": {
+      "links": {
+        "login": "Sign In",
+        "register": "Sign Up"
+      }
+    },
+    "base": {
+      "sideBar": {
+        "classrooms": "Classrooms",
+        "schedule": "Schedule"
+      }
+    }
+  },
+  "pages": {
+    "sign": {
+      "labels": {
+        "email": "Email",
+        "password": "Password",
+        "studentId": "Students ID"
+      },
+      "errors": {
+        "userNameOrPassword": "Invalid email or password",
+        "invalidEmail": "Invalid email",
+        "invalidStudentId": "Invalid student ID",
+        "invalidPassword": "Password must contains 6 symbols and no spaces"
+      },
+      "buttons": {
+        "login": "Login",
+        "registration": "Registration"
+      },
+      "links": {
+        "student": "Student",
+        "lecturer": "Lecturer"
+      }
+    },
+    "classrooms": {
+      "buttons": {
+        "next-page": "Next page",
+        "prev-page": "Previous page",
+        "edit": "Edit",
+        "occupy": "Occupy"
+      },
+      "messages": {
+        "no-filter": "Set filter for see classrooms",
+        "no-classrooms": "No classrooms for such filter"
+      }
+    },
+    "classroom": {
+      "header": {
+        "number": "Auditory №%{number}",
+        "statuses": {
+          "free": " - Free",
+          "selected": " - Selected",
+          "occupied": " - Occupied"
+        }
+      },
+      "occupation": {
+        "date": "Date",
+        "time": "Time",
+        "lecturer": "Lecturer",
+        "group": "Group",
+        "comment": "Commentary",
+        "interval": "Interval",
+        "intervals": {
+          "none": "None",
+          "every": "Every",
+          "even": "Even",
+          "odd": "Odd"
+        },
+        "require": " - this event is required"
+      },
+      "footer": {
+        "buttons": {
+          "back": "Back",
+          "free": "Free",
+          "occupy": "Occupy",
+          "delete": "Delete",
+          "save": "Save"
+        }
+      },
+      "messages": {
+        "unable-occupy": "Unable to occupy auditory!\nAll fields should be not empty!",
+        "unable-update": "Unable to update auditory!\nAll fields should be not empty!"
+      },
+      "edit": {
+        "classroom-number": "Classroom number"
+      }
+    }
+  },
+  "components": {
+    "classroom": {
+      "number": "Auditory №%{number}"
+    },
+    "filter": {
+      "options": {
+        "which-schedule": {
+          "group": "Group",
+          "course": "Course",
+          "lecturer": "Lecturer"
+        },
+        "courses": {
+          "first": "First",
+          "second": "Second",
+          "third": "Third",
+          "fourth": "Fourth",
+          "fifth": "Fifth",
+          "sixth": "Sixth"
+        }
+      },
+      "labels": {
+        "which-schedule": "Select schedule type",
+        "department": "Select department",
+        "lecturer": "Select lecturer",
+        "faculty": "Select faculty",
+        "course": "Select course",
+        "group": "Select group",
+        "year": "Enter academic year",
+        "semester": "Select semester",
+        "classroom-number": "Enter classroom number",
+        "building": "Select building"
+      },
+      "default-select-message": "Select...",
+      "no-options-message": "No options",
+      "buttons": {
+        "apply-schedule": "Show schedule",
+        "apply-classrooms": "Show classrooms"
+      }
+    },
+    "schedule": {
+      "no-schedule-message": "There is no schedule for such filter",
+      "no-filter-message": "Set filter to see schedule",
+      "week": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "lessons": {
+        "optional": "optional",
+        "even": ", e/w",
+        "odd": ", o/w",
+        "every": " ",
+        "even-full": ", even week",
+        "odd-full": ", odd week",
+        "every-full": " ",
+        "building": "building:",
+        "classroom": "classroom:",
+        "from": "from",
+        "to": "to"
+      }
+    },
+    "date-range-selector": {
+      "start-date": "Start date",
+      "end-date": "End date"
+    }
+  }
+}

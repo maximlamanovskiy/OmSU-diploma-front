@@ -1,0 +1,2524 @@
+{
+  "whoiam": {
+    "isAuthorized": true
+  },
+  "timeblocks": [
+    {
+      "id": 1,
+      "timeFrom": "08:00",
+      "timeTo": "09:35"
+    },
+    {
+      "id": 2,
+      "timeFrom": "09:45",
+      "timeTo": "11:20"
+    },
+    {
+      "id": 3,
+      "timeFrom": "11:30",
+      "timeTo": "13:05"
+    },
+    {
+      "id": 4,
+      "timeFrom": "13:45",
+      "timeTo": "15:20"
+    },
+    {
+      "id": 5,
+      "timeFrom": "15:30",
+      "timeTo": "17:05"
+    },
+    {
+      "id": 6,
+      "timeFrom": "17:15",
+      "timeTo": "18:50"
+    },
+    {
+      "id": 7,
+      "timeFrom": "19:00",
+      "timeTo": "20:35"
+    }
+  ],
+  "classrooms-with-meta": {
+    "classrooms": [
+      {
+        "id": 1,
+        "classroomNumber": "100",
+        "occupationInfo": [
+          {
+            "id": 1,
+            "timeFrom": "8:00",
+            "timeTo": "9:35",
+            "lecturer": "Petrov",
+            "group": "FRN-404",
+            "reason": "Some comment"
+          },
+          {
+            "id": 2,
+            "timeFrom": "9:45",
+            "timeTo": "11:20",
+            "lecturer": "Vasilev",
+            "group": "BCK-500",
+            "reason": "Meow was here"
+          }
+        ],
+        "tags": [
+          {
+            "id": 1,
+            "tag": "Маленькая"
+          },
+          {
+            "id": 2,
+            "tag": "Светлая"
+          },
+          {
+            "id": 3,
+            "tag": "Компьютерная"
+          },
+          {
+            "id": 4,
+            "tag": "Компьютерная1"
+          },
+          {
+            "id": 5,
+            "tag": "Компьютерная2"
+          },
+          {
+            "id": 6,
+            "tag": "Компьютерная3"
+          },
+          {
+            "id": 7,
+            "tag": "Компьютерная4"
+          },
+          {
+            "id": 8,
+            "tag": "Компьютерная5"
+          },
+          {
+            "id": 9,
+            "tag": "Компьютерная6"
+          },
+          {
+            "id": 10,
+            "tag": "Компьютерная7"
+          },
+          {
+            "id": 11,
+            "tag": "Компьютерная8"
+          },
+          {
+            "id": 12,
+            "tag": "Компьютерная9"
+          },
+          {
+            "id": 13,
+            "tag": "Компьютерная10"
+          },
+          {
+            "id": 14,
+            "tag": "Компьютерная11"
+          },
+          {
+            "id": 15,
+            "tag": "Компьютерная12"
+          },
+          {
+            "id": 16,
+            "tag": "Компьютерная13"
+          },
+          {
+            "id": 17,
+            "tag": "Компьютерная14"
+          },
+          {
+            "id": 18,
+            "tag": "Компьютерная15"
+          },
+          {
+            "id": 19,
+            "tag": "Компьютерная16"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "classroomNumber": "101",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 3,
+        "classroomNumber": "120a",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 4,
+        "classroomNumber": "210",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 5,
+        "classroomNumber": "215",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 6,
+        "classroomNumber": "219a",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 7,
+        "classroomNumber": "300",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 8,
+        "classroomNumber": "301",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 9,
+        "classroomNumber": "303",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 10,
+        "classroomNumber": "321",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 11,
+        "classroomNumber": "404",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 12,
+        "classroomNumber": "404b",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 13,
+        "classroomNumber": "410",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 14,
+        "classroomNumber": "423",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 15,
+        "classroomNumber": "500",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 16,
+        "classroomNumber": "502",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 17,
+        "classroomNumber": "503",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 18,
+        "classroomNumber": "555",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 19,
+        "classroomNumber": "602",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 20,
+        "classroomNumber": "603",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 21,
+        "classroomNumber": "605",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 22,
+        "classroomNumber": "610",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 23,
+        "classroomNumber": "620",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 24,
+        "classroomNumber": "700",
+        "occupationInfo": [],
+        "tags": []
+      },
+      {
+        "id": 25,
+        "classroomNumber": "701",
+        "occupationInfo": [],
+        "tags": []
+      }
+    ],
+    "metaInfo": {
+      "next": true,
+      "prev": true
+    }
+  },
+  "classrooms": [
+    {
+      "id": 1,
+      "classroomNumber": "100",
+      "occupationInfo": [
+        {
+          "id": 1,
+          "timeFrom": "8:00",
+          "timeTo": "9:35",
+          "lecturer": "Petrov",
+          "group": "FRN-404",
+          "reason": "Some comment"
+        },
+        {
+          "id": 2,
+          "timeFrom": "9:45",
+          "timeTo": "11:20",
+          "lecturer": "Vasilev",
+          "group": "BCK-500",
+          "reason": "Meow was here"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "tag": "Маленькая"
+        },
+        {
+          "id": 2,
+          "tag": "Светлая"
+        },
+        {
+          "id": 3,
+          "tag": "Компьютерная"
+        },
+        {
+          "id": 4,
+          "tag": "Компьютерная1"
+        },
+        {
+          "id": 5,
+          "tag": "Компьютерная2"
+        },
+        {
+          "id": 6,
+          "tag": "Компьютерная3"
+        },
+        {
+          "id": 7,
+          "tag": "Компьютерная4"
+        },
+        {
+          "id": 8,
+          "tag": "Компьютерная5"
+        },
+        {
+          "id": 9,
+          "tag": "Компьютерная6"
+        },
+        {
+          "id": 10,
+          "tag": "Компьютерная7"
+        },
+        {
+          "id": 11,
+          "tag": "Компьютерная8"
+        },
+        {
+          "id": 12,
+          "tag": "Компьютерная9"
+        },
+        {
+          "id": 13,
+          "tag": "Компьютерная10"
+        },
+        {
+          "id": 14,
+          "tag": "Компьютерная11"
+        },
+        {
+          "id": 15,
+          "tag": "Компьютерная12"
+        },
+        {
+          "id": 16,
+          "tag": "Компьютерная13"
+        },
+        {
+          "id": 17,
+          "tag": "Компьютерная14"
+        },
+        {
+          "id": 18,
+          "tag": "Компьютерная15"
+        },
+        {
+          "id": 19,
+          "tag": "Компьютерная16"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "classroomNumber": "101",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 3,
+      "classroomNumber": "120a",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 4,
+      "classroomNumber": "210",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 5,
+      "classroomNumber": "215",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 6,
+      "classroomNumber": "219a",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 7,
+      "classroomNumber": "300",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 8,
+      "classroomNumber": "301",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 9,
+      "classroomNumber": "303",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 10,
+      "classroomNumber": "321",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 11,
+      "classroomNumber": "404",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 12,
+      "classroomNumber": "404b",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 13,
+      "classroomNumber": "410",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 14,
+      "classroomNumber": "423",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 15,
+      "classroomNumber": "500",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 16,
+      "classroomNumber": "502",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 17,
+      "classroomNumber": "503",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 18,
+      "classroomNumber": "555",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 19,
+      "classroomNumber": "602",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 20,
+      "classroomNumber": "603",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 21,
+      "classroomNumber": "605",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 22,
+      "classroomNumber": "610",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 23,
+      "classroomNumber": "620",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 24,
+      "classroomNumber": "700",
+      "occupationInfo": [],
+      "tags": []
+    },
+    {
+      "id": 25,
+      "classroomNumber": "701",
+      "occupationInfo": [],
+      "tags": []
+    }
+  ],
+  "faculties": [
+    {
+      "id": 1,
+      "name": "Институт математики и информационных технологий"
+    },
+    {
+      "id": 2,
+      "name": "Химический факультет"
+    },
+    {
+      "id": 3,
+      "name": "Юридический факультет"
+    },
+    {
+      "id": 4,
+      "name": "Экономический факультет"
+    },
+    {
+      "id": 5,
+      "name": "Факультет компьютерных наук"
+    }
+  ],
+  "chairs": [
+    {
+      "id": 1,
+      "chair": "Кафедра компьютерной математики и программирования",
+      "facultyId": 1
+    },
+    {
+      "id": 2,
+      "chair": "Кафедра алгебры и математического анализа",
+      "facultyId": 1
+    },
+    {
+      "id": 3,
+      "chair": "Кафедра программного обеспечения и защиты информации",
+      "facultyId": 1
+    },
+    {
+      "id": 4,
+      "chair": "Кафедра аналитической химии",
+      "facultyId": 2
+    },
+    {
+      "id": 5,
+      "chair": "Кафедра неорганической химии",
+      "facultyId": 2
+    },
+    {
+      "id": 6,
+      "chair": "Кафедра органической химии",
+      "facultyId": 2
+    },
+    {
+      "id": 7,
+      "chair": "Кафедра гражданского права",
+      "facultyId": 3
+    },
+    {
+      "id": 8,
+      "chair": "Кафедра уголовного права и криминологии",
+      "facultyId": 3
+    },
+    {
+      "id": 9,
+      "chair": "Кафедра экономической теории и предпринимательства",
+      "facultyId": 4
+    },
+    {
+      "id": 10,
+      "chair": "Кафедра экономики и финансовой политики",
+      "facultyId": 4
+    },
+    {
+      "id": 11,
+      "chair": "Кафедра кибернетики",
+      "facultyId": 5
+    },
+    {
+      "id": 12,
+      "chair": "Кафедра информационной безопасности",
+      "facultyId": 5
+    }
+  ],
+  "lecturers": [
+    {
+      "id": 1,
+      "lastName": "Ашаев",
+      "firstName": "Игорь",
+      "patronymic": "Викторович",
+      "fullName": "И. В. Ашаев",
+      "departmentId": 1,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "lastName": "Ашаева",
+      "firstName": "Юлия",
+      "patronymic": "Михайловна",
+      "fullName": "Ю. М. Ашаева",
+      "departmentId": 1,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "lastName": "Агалаков",
+      "firstName": "Сергей",
+      "patronymic": "Астафьевич",
+      "fullName": "С. А. Агалаков",
+      "departmentId": 1,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "lastName": "Бахта",
+      "firstName": "Наталья",
+      "patronymic": "Сергеевна",
+      "fullName": "Н. С. Бахта",
+      "departmentId": 1,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "lastName": "Исаченко",
+      "firstName": "Николай",
+      "patronymic": "Андреевич",
+      "fullName": "Н. А. Исаченко",
+      "departmentId": 2,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "lastName": "Агафонов",
+      "firstName": "Александр",
+      "patronymic": "Леонидович",
+      "fullName": "А. Л. Агафонов",
+      "departmentId": 3,
+      "facultyId": 1,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "lastName": "Антонова",
+      "firstName": "Татьяна",
+      "patronymic": "Владимировна",
+      "fullName": "Т. В. Антонова",
+      "departmentId": 4,
+      "facultyId": 2,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "lastName": "Голованова",
+      "firstName": "Ольга",
+      "patronymic": "Александровна",
+      "fullName": "О. А. Голованова",
+      "departmentId": 5,
+      "facultyId": 2,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "lastName": "Кулаков",
+      "firstName": "Иван",
+      "patronymic": "Вячеславович",
+      "fullName": "И. В. Кулаков",
+      "departmentId": 6,
+      "facultyId": 2,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "lastName": "Пронин",
+      "firstName": "Александр",
+      "patronymic": "Степанович",
+      "fullName": "А. С. Пронин",
+      "departmentId": 7,
+      "facultyId": 3,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "lastName": "Бибик",
+      "firstName": "Олег",
+      "patronymic": "Николаевич",
+      "fullName": "О. Н. Бибик",
+      "departmentId": 8,
+      "facultyId": 3,
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "МПБ-602-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "МПБ-603-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "МПБ-702-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "МПБ-703-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "МПБ-802-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "МПБ-803-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "МПБ-803-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "МПБ-803-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "СИБ-801-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "СИБ-701-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "СИБ-601-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "СБС-901-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "СБС-801-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "СБС-701-О",
+      "academicYears": [
+        {
+          "id": 1,
+          "startYear": 2016,
+          "endYear": 2017
+        },
+        {
+          "id": 2,
+          "startYear": 2017,
+          "endYear": 2018
+        },
+        {
+          "id": 3,
+          "startYear": 2018,
+          "endYear": 2019
+        },
+        {
+          "id": 4,
+          "startYear": 2019,
+          "endYear": 2020
+        }
+      ]
+    }
+  ],
+  "academic-year": [
+    {
+      "id": 1,
+      "startYear": 2016,
+      "endYear": 2017
+    },
+    {
+      "id": 2,
+      "startYear": 2017,
+      "endYear": 2018
+    },
+    {
+      "id": 3,
+      "startYear": 2018,
+      "endYear": 2019
+    },
+    {
+      "id": 4,
+      "startYear": 2019,
+      "endYear": 2020
+    }
+  ],
+  "schedule-groups": {
+    "scheduleItems": {
+      "monday": {
+        "11:30": [
+          {
+            "id": 3,
+            "dateFrom": "2019-09-02",
+            "dateTo": "2019-12-16",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "242",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О",
+              "ММС-701-О",
+              "МПБ-702-О"
+            ],
+            "discipline": "Комплексный анализ",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "13:45": [
+          {
+            "id": 9,
+            "dateFrom": "2019-09-02",
+            "dateTo": "2019-12-16",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "101",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "WEB-программирование",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "15:30": [
+          {
+            "id": 14,
+            "dateFrom": "2019-09-02",
+            "dateTo": "2019-12-16",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "215",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "Комплексный анализ",
+            "activity": "практика",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "17:15": [
+          {
+            "id": 20,
+            "dateFrom": "2019-09-02",
+            "dateTo": "2019-12-09",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "215",
+            "lecturer": "П.Л. Дворкин",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализация",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ]
+      },
+      "tuesday": {
+        "11:30": [
+          {
+            "id": 4,
+            "dateFrom": "2019-09-10",
+            "dateTo": "2019-12-17",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "219а",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализация",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          },
+          {
+            "id": 5,
+            "dateFrom": "2019-09-10",
+            "dateTo": "2019-12-17",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "219а",
+            "lecturer": "А.В. Пролубников",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализация",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "13:45": [
+          {
+            "id": 10,
+            "dateFrom": "2019-09-03",
+            "dateTo": "2019-12-17",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "215",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Программирование мобильных устройств",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "15:30": [
+          {
+            "id": 15,
+            "dateFrom": "2019-09-17",
+            "dateTo": "2019-12-17",
+            "interval": "odd",
+            "buildingNumber": 1,
+            "classroom": "119",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "Программирование мобильных устройств",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          },
+          {
+            "id": 16,
+            "dateFrom": "2019-09-03",
+            "dateTo": "2019-12-17",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "120",
+            "lecturer": "В.В. Ворошилов",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "WEB-программирование",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "17:15": [
+          {
+            "id": 21,
+            "dateFrom": "2019-09-10",
+            "dateTo": "2019-12-17",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "241",
+            "lecturer": "А.В. Пролубников",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Научно-исследовательский семинар",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ]
+      },
+      "thursday": {
+        "15:30": [
+          {
+            "id": 17,
+            "dateFrom": "2019-09-19",
+            "dateTo": "2019-12-26",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "201",
+            "lecturer": "В.Н. Ремесленников",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализация",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "17:15": [
+          {
+            "id": 22,
+            "dateFrom": "2019-09-19",
+            "dateTo": "2019-12-26",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "128",
+            "lecturer": "С.А. Агалаков",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Научно-практический семинар",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ]
+      },
+      "friday": {
+        "11:30": [
+          {
+            "id": 6,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "120",
+            "lecturer": "В.В. Ворошилов",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "WEB-программирование",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          },
+          {
+            "id": 7,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "202",
+            "lecturer": "И.А. Круглова",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "Научно-практический семинар",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "13:45": [
+          {
+            "id": 11,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "315",
+            "lecturer": "А.Н. Рыбалов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Теория кодирования",
+            "activity": "лекция",
+            "comment": "",
+            "require": false
+          },
+          {
+            "id": 12,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "119",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Компьютерная графика",
+            "activity": "лекция",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "15:30": [
+          {
+            "id": 18,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "odd",
+            "buildingNumber": 1,
+            "classroom": "501",
+            "lecturer": "А.Н. Рыбалов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Теория кодирования",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          },
+          {
+            "id": 19,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "even",
+            "buildingNumber": 1,
+            "classroom": "501",
+            "lecturer": "О.А. Зайцева",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Межкультурные коммуникации",
+            "activity": "практика",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "17:15": [
+          {
+            "id": 23,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "even",
+            "buildingNumber": 1,
+            "classroom": "119",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О"
+            ],
+            "discipline": "Программирование мобильных устройств",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          },
+          {
+            "id": 24,
+            "dateFrom": "2019-09-06",
+            "dateTo": "2019-12-20",
+            "interval": "odd",
+            "buildingNumber": 1,
+            "classroom": "242",
+            "lecturer": "О.А. Зайцева",
+            "groups": [
+              "ММС-601-О",
+              "МПБ-602-О",
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Межкультурные коммуникации",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ]
+      },
+      "saturday": {
+        "08:00": [
+          {
+            "id": 1,
+            "dateFrom": "2019-09-07",
+            "dateTo": "2019-12-21",
+            "interval": "even",
+            "buildingNumber": 1,
+            "classroom": "119",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Компьютерная графика",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "09:45": [
+          {
+            "id": 2,
+            "dateFrom": "2019-09-07",
+            "dateTo": "2019-12-21",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "120а",
+            "lecturer": "О.Н. Вязанкин",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализацияя по программированию",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "11:30": [
+          {
+            "id": 8,
+            "dateFrom": "2019-09-07",
+            "dateTo": "2019-12-21",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "120а",
+            "lecturer": "А.Л. Агафонов",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализацияя по программированию",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ],
+        "13:45": [
+          {
+            "id": 13,
+            "dateFrom": "2019-09-07",
+            "dateTo": "2019-12-21",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "242",
+            "lecturer": "А.Н. Шевляков",
+            "groups": [
+              "МПБ-603-О",
+              "МПБ-604-О"
+            ],
+            "discipline": "Специализацияя",
+            "activity": "практика",
+            "comment": "",
+            "require": false
+          }
+        ]
+      }
+    }
+  },
+  "schedule-lecturers": {
+    "scheduleItems": {
+      "monday": {
+        "13:45": [
+          {
+            "id": 30,
+            "dateFrom": "2020-02-17",
+            "dateTo": "2020-06-08",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "205",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-902-О"
+            ],
+            "discipline": "Математический анализ",
+            "activity": "практика",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "15:30": [
+          {
+            "id": 31,
+            "dateFrom": "2020-02-17",
+            "dateTo": "2020-06-08",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "205",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-902-О"
+            ],
+            "discipline": "Математический анализ",
+            "activity": "практика",
+            "comment": "",
+            "require": true
+          }
+        ]
+      },
+      "wednesday": {
+        "08:00": [
+          {
+            "id": 25,
+            "dateFrom": "2020-02-12",
+            "dateTo": "2020-05-20",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "205",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "ММС-701-О"
+            ],
+            "discipline": "Комплексный анализ",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "09:45": [
+          {
+            "id": 27,
+            "dateFrom": "2020-02-12",
+            "dateTo": "2020-05-22",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "205",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "ММС-701-О"
+            ],
+            "discipline": "Комплексный анализ",
+            "activity": "лекция",
+            "comment": "",
+            "require": true
+          }
+        ]
+      },
+      "friday": {
+        "08:00": [
+          {
+            "id": 26,
+            "dateFrom": "2020-02-14",
+            "dateTo": "2020-06-05",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "206",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-902-О"
+            ],
+            "discipline": "Математический анализ",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "09:45": [
+          {
+            "id": 28,
+            "dateFrom": "2020-02-14",
+            "dateTo": "2020-06-05",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "206",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-904-О"
+            ],
+            "discipline": "Математический анализ",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": true
+          }
+        ],
+        "11:30": [
+          {
+            "id": 29,
+            "dateFrom": "2020-02-14",
+            "dateTo": "2020-05-22",
+            "interval": "every",
+            "buildingNumber": 1,
+            "classroom": "120",
+            "lecturer": "Н.А. Исаченко",
+            "groups": [
+              "МПБ-703-О"
+            ],
+            "discipline": "Специализация",
+            "activity": "лабораторная",
+            "comment": "",
+            "require": false
+          }
+        ]
+      }
+    }
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "dateFrom": "2019-09-07",
+      "dateTo": "2019-12-21",
+      "interval": "even",
+      "buildingNumber": 1,
+      "classroom": "119",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Компьютерная графика",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 2,
+      "dateFrom": "2019-09-07",
+      "dateTo": "2019-12-21",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "120а",
+      "lecturer": "О.Н. Вязанкин",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализацияя по программированию",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 3,
+      "dateFrom": "2019-09-02",
+      "dateTo": "2019-12-16",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "242",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О",
+        "ММС-701-О",
+        "МПБ-702-О"
+      ],
+      "discipline": "Комплексный анализ",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 4,
+      "dateFrom": "2019-09-10",
+      "dateTo": "2019-12-17",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "219а",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализация",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 5,
+      "dateFrom": "2019-09-10",
+      "dateTo": "2019-12-17",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "219а",
+      "lecturer": "А.В. Пролубников",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализация",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 6,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "120",
+      "lecturer": "В.В. Ворошилов",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "WEB-программирование",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 7,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "202",
+      "lecturer": "И.А. Круглова",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "Научно-практический семинар",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 8,
+      "dateFrom": "2019-09-07",
+      "dateTo": "2019-12-21",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "120а",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализацияя по программированию",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 9,
+      "dateFrom": "2019-09-02",
+      "dateTo": "2019-12-16",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "101",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "WEB-программирование",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 10,
+      "dateFrom": "2019-09-03",
+      "dateTo": "2019-12-17",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "215",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Программирование мобильных устройств",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 11,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "315",
+      "lecturer": "А.Н. Рыбалов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Теория кодирования",
+      "activity": "лекция",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 12,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "119",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Компьютерная графика",
+      "activity": "лекция",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 13,
+      "dateFrom": "2019-09-07",
+      "dateTo": "2019-12-21",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "242",
+      "lecturer": "А.Н. Шевляков",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализацияя",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 14,
+      "dateFrom": "2019-09-02",
+      "dateTo": "2019-12-16",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "215",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "Комплексный анализ",
+      "activity": "практика",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 15,
+      "dateFrom": "2019-09-17",
+      "dateTo": "2019-12-17",
+      "interval": "odd",
+      "buildingNumber": 1,
+      "classroom": "119",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "Программирование мобильных устройств",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 16,
+      "dateFrom": "2019-09-03",
+      "dateTo": "2019-12-17",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "120",
+      "lecturer": "В.В. Ворошилов",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "WEB-программирование",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 17,
+      "dateFrom": "2019-09-19",
+      "dateTo": "2019-12-26",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "201",
+      "lecturer": "В.Н. Ремесленников",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализация",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 18,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "odd",
+      "buildingNumber": 1,
+      "classroom": "501",
+      "lecturer": "А.Н. Рыбалов",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Теория кодирования",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 19,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "even",
+      "buildingNumber": 1,
+      "classroom": "501",
+      "lecturer": "О.А. Зайцева",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Межкультурные коммуникации",
+      "activity": "практика",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 20,
+      "dateFrom": "2019-09-02",
+      "dateTo": "2019-12-09",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "215",
+      "lecturer": "П.Л. Дворкин",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Специализация",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 21,
+      "dateFrom": "2019-09-10",
+      "dateTo": "2019-12-17",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "241",
+      "lecturer": "А.В. Пролубников",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Научно-исследовательский семинар",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 22,
+      "dateFrom": "2019-09-19",
+      "dateTo": "2019-12-26",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "128",
+      "lecturer": "С.А. Агалаков",
+      "groups": [
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Научно-практический семинар",
+      "activity": "практика",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 23,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "even",
+      "buildingNumber": 1,
+      "classroom": "119",
+      "lecturer": "А.Л. Агафонов",
+      "groups": [
+        "МПБ-603-О"
+      ],
+      "discipline": "Программирование мобильных устройств",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 24,
+      "dateFrom": "2019-09-06",
+      "dateTo": "2019-12-20",
+      "interval": "odd",
+      "buildingNumber": 1,
+      "classroom": "242",
+      "lecturer": "О.А. Зайцева",
+      "groups": [
+        "ММС-601-О",
+        "МПБ-602-О",
+        "МПБ-603-О",
+        "МПБ-604-О"
+      ],
+      "discipline": "Межкультурные коммуникации",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 25,
+      "dateFrom": "2020-02-12",
+      "dateTo": "2020-05-20",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "205",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "ММС-701-О"
+      ],
+      "discipline": "Комплексный анализ",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 26,
+      "dateFrom": "2020-02-14",
+      "dateTo": "2020-06-05",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "206",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-902-О"
+      ],
+      "discipline": "Математический анализ",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 27,
+      "dateFrom": "2020-02-12",
+      "dateTo": "2020-05-22",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "205",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "ММС-701-О"
+      ],
+      "discipline": "Комплексный анализ",
+      "activity": "лекция",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 28,
+      "dateFrom": "2020-02-14",
+      "dateTo": "2020-06-05",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "206",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-904-О"
+      ],
+      "discipline": "Математический анализ",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 29,
+      "dateFrom": "2020-02-14",
+      "dateTo": "2020-05-22",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "120",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-703-О"
+      ],
+      "discipline": "Специализация",
+      "activity": "лабораторная",
+      "comment": "",
+      "require": false
+    },
+    {
+      "id": 30,
+      "dateFrom": "2020-02-17",
+      "dateTo": "2020-06-08",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "205",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-902-О"
+      ],
+      "discipline": "Математический анализ",
+      "activity": "практика",
+      "comment": "",
+      "require": true
+    },
+    {
+      "id": 31,
+      "dateFrom": "2020-02-17",
+      "dateTo": "2020-06-08",
+      "interval": "every",
+      "buildingNumber": 1,
+      "classroom": "205",
+      "lecturer": "Н.А. Исаченко",
+      "groups": [
+        "МПБ-902-О"
+      ],
+      "discipline": "Математический анализ",
+      "activity": "практика",
+      "comment": "",
+      "require": true
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "number": 1,
+      "address": "пр. Мира, 55-а"
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "address": "пр. Мира, 55"
+    },
+    {
+      "id": 3,
+      "number": 3,
+      "address": "ул. Андрианова, 28"
+    },
+    {
+      "id": 4,
+      "number": 4,
+      "address": "ул. Нефтезаводская, 11"
+    },
+    {
+      "id": 5,
+      "number": 5,
+      "address": "ул. Красный путь, 36"
+    },
+    {
+      "id": 6,
+      "number": 6,
+      "address": "пл. Лицкевича, 1"
+    },
+    {
+      "id": 7,
+      "number": 7,
+      "address": "ул. 50 лет Профсоюзов, 100, корпус 1"
+    },
+    {
+      "id": 8,
+      "number": 8,
+      "address": "ул. Пригородная, 10"
+    },
+    {
+      "id": 9,
+      "number": 9,
+      "address": "ул. Гуртьева, 1-б"
+    },
+    {
+      "id": 10,
+      "number": 10,
+      "address": "ул. Грозненская, 11"
+    },
+    {
+      "id": 11,
+      "number": 11,
+      "address": "ул. 10 лет Октября 195/18"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+.base-header {
+  align-items: center;
+  background-color: #4caf51;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: row;
+  height: 8vh;
+  justify-content: space-between;
+  width: 100%;
+}

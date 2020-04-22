@@ -1,0 +1,22 @@
+.classroom-tags {
+  display: flex;
+  height: calc(100% - 10px);
+  justify-content: center;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.classroom-tags__tag-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.tag__text {
+  color: #021d37;
+  font-size: 3.2vh;
+  line-height: 3.7vh;
+  margin: 0;
+  text-transform: uppercase;
+}

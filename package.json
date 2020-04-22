@@ -1,0 +1,79 @@
+{
+  "name": "schedule-generator",
+  "version": "0.2.0",
+  "private": true,
+  "dependencies": {
+    "classnames": "2.2.6",
+    "history": "4.9.0",
+    "lodash": "4.17.15",
+    "node-sass": "4.13.1",
+    "normalize.css": "8.0.1",
+    "prop-types": "15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-loader-spinner": "3.1.5",
+    "react-redux": "7.1.3",
+    "react-redux-i18n": "1.9.3",
+    "react-router-dom": "5.1.2",
+    "react-router-redux": "4.0.8",
+    "react-scripts": "3.4.0",
+    "react-select": "3.0.8",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --loglevel warn --write src/**/*.{js,jsx}",
+    "lint-js": "./node_modules/.bin/eslint src --ext .js,.jsx",
+    "lint-js:fix": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
+    "lint-style": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss",
+    "lint-style:fix": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss --fix",
+    "lint": "npm run lint-js && npm run lint-style",
+    "lint:fix": "npm run lint-js:fix && npm run lint-style:fix",
+    "run-mock": "REACT_APP_API_URLS=http://localhost:3001 npm start",
+    "run-mock-win": "set \"REACT_APP_API_URLS=http://localhost:3001\" && npm start",
+    "mock-server": "json-server public/mockapi/server.json --port 3001 --routes public/mockapi/routes.json"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "husky": "4.2.3",
+    "lint-staged": "9.2.1",
+    "prettier": "1.18.2",
+    "stylelint": "13.0.0",
+    "stylelint-config-sass-guidelines": "7.0.0",
+    "stylelint-prettier": "1.1.2",
+    "stylelint-scss": "3.14.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run prettier",
+      "npm run lint-js",
+      "git add"
+    ],
+    "*.scss": [
+      "npm run lint-style",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

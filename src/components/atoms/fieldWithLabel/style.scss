@@ -1,0 +1,56 @@
+.label-block {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.45vh;
+  line-height: 2.95vh;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.label-block_error {
+  color: #b00020;
+}
+
+.label-block_active {
+  color: #4caf51;
+}
+
+.label-block_with-error-message {
+  margin-bottom: 5px;
+}
+
+.label-block__text {
+  color: #000;
+  margin: 0;
+}
+
+.label-block__text_active {
+  color: #087f24;
+}
+
+.simple-label {
+  color: #000;
+  margin-bottom: 0;
+  width: 48%;
+}
+
+.simple-label_full {
+  align-self: center;
+  width: 90%;
+}
+
+.simple-label__text {
+  background: linear-gradient(180deg, rgba(247, 247, 247, 1) 30%, rgba(255, 255, 255, 1) 50%);
+  left: 10px;
+  position: relative;
+  text-transform: uppercase;
+  top: 20px;
+  width: max-content;
+  z-index: 2;
+}
+
+.simple-label__input {
+  padding-top: 10px;
+}

@@ -1,0 +1,19 @@
+.text-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-area__text {
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.text-area__text_active {
+  color: #087f24;
+}
+
+.text-area__input {
+  outline: none;
+  resize: none;
+}

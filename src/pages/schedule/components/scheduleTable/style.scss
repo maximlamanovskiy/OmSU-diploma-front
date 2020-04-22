@@ -1,0 +1,25 @@
+.schedule-table {
+  display: flex;
+  height: 100%;
+  margin-left: 25%;
+  transition: all 0.8s;
+  width: 75%;
+}
+
+.schedule-table_full {
+  margin-left: 0;
+  width: 100%;
+}
+
+.schedule-table__message {
+  color: #000;
+  font-size: 7vh;
+  line-height: 7.5vh;
+  margin: auto;
+}
+
+.schedule-table__schedule {
+  align-self: flex-start;
+  display: grid;
+  width: 100%;
+}
