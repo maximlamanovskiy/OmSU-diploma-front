@@ -9,21 +9,25 @@
     "base": {
       "sideBar": {
         "classrooms": "Classrooms",
-        "schedule": "Schedule"
+        "schedule": "Schedule",
+        "schedule-editor": "Schedule editor"
       }
     }
   },
   "pages": {
     "sign": {
       "labels": {
+        "lastName": "Last name",
+        "firstName": "First name",
+        "patronymic": "Patronymic",
         "email": "Email",
-        "password": "Password",
-        "studentId": "Students ID"
+        "password": "Password"
       },
       "errors": {
         "userNameOrPassword": "Invalid email or password",
+        "invalidLastName": "Invalid last name",
+        "invalidFirstName": "Invalid first name",
         "invalidEmail": "Invalid email",
-        "invalidStudentId": "Invalid student ID",
         "invalidPassword": "Password must contains 6 symbols and no spaces"
       },
       "buttons": {
@@ -86,6 +90,11 @@
       },
       "edit": {
         "classroom-number": "Classroom number"
+      }
+    },
+    "schedule-editor": {
+      "buttons": {
+        "edit": "Edit"
       }
     }
   },
@@ -157,6 +166,14 @@
     "date-range-selector": {
       "start-date": "Start date",
       "end-date": "End date"
+    },
+    "schedule-editor-options": {
+      "labels": {
+        "faculty": "Select faculty",
+        "course": "Select course",
+        "academic-years": "Enter academic year",
+        "semester": "Select semester"
+      }
     }
   }
 }

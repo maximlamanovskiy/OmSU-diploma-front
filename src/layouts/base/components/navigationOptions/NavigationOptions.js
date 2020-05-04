@@ -29,6 +29,14 @@ export default function NavigationOptions(props) {
       >
         {I18n.t('layouts.base.sideBar.schedule')}
       </NavLink>
+      <NavLink
+        className="navigation-options__nav-link"
+        activeClassName="navigation-options__nav-link_active"
+        to={paths.scheduleEditor}
+        onClick={onClick}
+      >
+        {I18n.t('layouts.base.sideBar.schedule-editor')}
+      </NavLink>
     </nav>
   );
 }

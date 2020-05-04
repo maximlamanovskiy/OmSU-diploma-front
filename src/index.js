@@ -15,6 +15,7 @@ import Classroom from './pages/classroom/Classroom';
 import EditAuditory from './pages/editClassroom/EditClassroom';
 import Classrooms from './pages/classrooms/Classrooms';
 import Schedule from './pages/schedule/Schedule';
+import ScheduleEditor from './pages/scheduleEditor/ScheduleEditor';
 
 import paths from './constants/paths';
 
@@ -51,6 +52,7 @@ ReactDOM.render(
               <Route path={paths.classroom} component={Classroom} />
               <Route path={paths.editClassroom} component={EditAuditory} />
               <Route path={paths.schedule} component={Schedule} />
+              <Route path={paths.scheduleEditor} component={ScheduleEditor} />
             </Base>
           )}
         />

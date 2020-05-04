@@ -9,19 +9,24 @@
     "base": {
       "sideBar": {
         "classrooms": "Аудитории",
-        "schedule": "Расписание"
+        "schedule": "Расписание",
+        "schedule-editor": "Редактор расписания"
       }
     }
   },
   "pages": {
     "sign": {
       "labels": {
+        "lastName": "Фамилия",
+        "firstName": "Имя",
+        "patronymic": "Отчество",
         "email": "Электронная почта",
-        "password": "Пароль",
-        "studentId": "Номер студентческого билета"
+        "password": "Пароль"
       },
       "errors": {
         "userNameOrPassword": "Неверный адрес электронной почты или пароль",
+        "invalidLastName": "Недопустимая фамилия",
+        "invalidFirstName": "Недопустимое имя",
         "invalidEmail": "Недопустимый адрес электронной почты",
         "invalidStudentId": "Недопустимый номер студентческого билета",
         "invalidPassword": "Пароль должен быть длиннее 6 символов и не содержать пробелов"
@@ -86,6 +91,11 @@
       },
       "edit": {
         "classroom-number": "Номер аудитории"
+      }
+    },
+    "schedule-editor": {
+      "buttons": {
+        "edit": "Редактировать"
       }
     }
   },
@@ -157,6 +167,14 @@
     "date-range-selector": {
       "start-date": "Дата начала",
       "end-date": "Дата конца"
+    },
+    "schedule-editor-options": {
+      "labels": {
+        "faculty": "Выберите факультет",
+        "course": "Выберите курс",
+        "academic-years": "Введите учебный год",
+        "semester": "Выберите семестр"
+      }
     }
   }
 }

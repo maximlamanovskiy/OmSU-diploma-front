@@ -18,8 +18,14 @@ import { checkAuthFetch } from 'src/actions/user/whoAmI';
 import './style.scss';
 
 function Register(props) {
+  const [lastName, changeLastName] = useState('');
+  const [firstName, changeFirstName] = useState('');
+  const [patronymic, changePatronymic] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
+
+  const [lastNameError, changeLastNameError] = useState(false);
+  const [firstNameError, changeFirstNameError] = useState(false);
   const [emailError, changeEmailError] = useState(false);
   const [passwordError, changePasswordError] = useState(false);
 
@@ -31,6 +37,32 @@ function Register(props) {
       clearErrorAction();
     };
   }, [checkAuth, clearErrorAction]);
+
+  const handleChangeInLastName = event => {
+    const newLastName = event.target.value.trim();
+
+    if (newLastName !== lastName) {
+      changeLastName(newLastName);
+      changeLastNameError(false);
+    }
+  };
+
+  const handleChangeInFirstName = event => {
+    const newFirstName = event.target.value.trim();
+
+    if (newFirstName !== firstName) {
+      changeFirstName(newFirstName);
+      changeFirstNameError(false);
+    }
+  };
+
+  const handleChangeInPatronymic = event => {
+    const newPatronymic = event.target.value.trim();
+
+    if (newPatronymic !== patronymic) {
+      changePatronymic(newPatronymic);
+    }
+  };
 
   const handleChangeInEmail = event => {
     const newEmail = event.target.value.trim();
@@ -52,7 +84,15 @@ function Register(props) {
 
   const handelSubmit = event => {
     event.preventDefault();
-    signUp(email, password);
+    signUp(lastName, firstName, patronymic, email, password);
+  };
+
+  const checkLastName = () => {
+    changeLastNameError(!lastName);
+  };
+
+  const checkFirstName = () => {
+    changeFirstNameError(!firstName);
   };
 
   const checkEmail = () => {
@@ -63,11 +103,50 @@ function Register(props) {
     changePasswordError(!password || password.length <= 5 || password.includes(' '));
   };
 
-  const isSubmitDisabled = () => email === '' || password === '' || emailError || passwordError;
-  const hasError = () => emailError || passwordError;
+  const hasError = () => lastNameError || firstNameError || emailError || passwordError;
+  const isEmpty = () => lastName === '' || firstName === '' || email === '' || password === '';
+  const isSubmitDisabled = () => isEmpty() || hasError();
 
   return (
     <Form className="register-page__form" onSubmit={handelSubmit}>
+      <FieldWithLabel
+        classNameLabel="register-page__label-block"
+        classNameField="register-page__field"
+        name="lastName"
+        value={lastName}
+        hasError={lastNameError}
+        hasErrorMessage
+        onChange={handleChangeInLastName}
+        labelValue={I18n.t('pages.sign.labels.lastName')}
+        onBlur={checkLastName}
+      />
+      <Message
+        className="register-page__error-message__error"
+        value={lastNameError ? I18n.t('pages.sign.errors.invalidLastName') : ''}
+      />
+      <FieldWithLabel
+        classNameLabel="register-page__label-block"
+        classNameField="register-page__field"
+        name="firstName"
+        value={firstName}
+        hasError={firstNameError}
+        hasErrorMessage
+        onChange={handleChangeInFirstName}
+        labelValue={I18n.t('pages.sign.labels.firstName')}
+        onBlur={checkFirstName}
+      />
+      <Message
+        className="register-page__error-message__error"
+        value={firstNameError ? I18n.t('pages.sign.errors.invalidFirstName') : ''}
+      />
+      <FieldWithLabel
+        classNameLabel="register-page__label-block"
+        classNameField="register-page__field"
+        name="patronymic"
+        value={patronymic}
+        onChange={handleChangeInPatronymic}
+        labelValue={I18n.t('pages.sign.labels.patronymic')}
+      />
       <FieldWithLabel
         classNameLabel="register-page__label-block"
         classNameField="register-page__field"

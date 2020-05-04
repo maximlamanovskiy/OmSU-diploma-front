@@ -9,7 +9,6 @@ import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOpti
 
 import { getGroupsFetch } from 'src/actions/groups/getGroups';
 import { updateFilter } from 'src/actions/filter/updateFilter';
-import { clearFilter } from 'src/actions/filter/clearFilter';
 
 import FacultyFilterOptions from '../facultyFilterOptions/FacultyFilterOptions';
 import YearFilterOptions from '../yearFilterOptions/YearFilterOptions';
@@ -24,21 +23,14 @@ const courses = [
 ];
 
 function GroupFilterOptions(props) {
-  const {
-    getGroups,
-    clearFilter: clearFilterAction,
-    updateFilter: updateFilterAction,
-    groups,
-    error,
-  } = props;
+  const { getGroups, updateFilter: updateFilterAction, groups, error } = props;
 
   const [wasGroupSelect, setGroupSelect] = useState(false);
   const [wasCourseSelect, setCourseSelect] = useState(false);
 
   useEffect(() => {
     getGroups();
-    return () => {};
-  }, [getGroups, clearFilterAction]);
+  }, [getGroups]);
 
   const changeGroup = obj => {
     updateFilterAction({
@@ -83,7 +75,6 @@ GroupFilterOptions.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape({})),
   getGroups: PropTypes.func,
   updateFilter: PropTypes.func,
-  clearFilter: PropTypes.func,
 };
 
 GroupFilterOptions.defaultProps = {
@@ -91,7 +82,6 @@ GroupFilterOptions.defaultProps = {
   groups: [],
   getGroups: () => {},
   updateFilter: () => {},
-  clearFilter: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -101,7 +91,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getGroups: bindActionCreators(getGroupsFetch, dispatch),
   updateFilter: bindActionCreators(updateFilter, dispatch),
-  clearFilter: bindActionCreators(clearFilter, dispatch),
 });
 
 export default connect(
