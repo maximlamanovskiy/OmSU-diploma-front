@@ -70,23 +70,22 @@
         "interval": "Интервал",
         "intervals": {
           "none": "Нет",
-          "every": "Всегда",
-          "even": "Четные",
-          "odd": "Нечетные"
+          "every_week": "Всегда",
+          "each_even_week": "Четные",
+          "each_odd_week": "Нечетные"
         },
         "require": " - это мероприятие является обязательным"
       },
       "footer": {
         "buttons": {
           "back": "Назад",
-          "free": "Освободить",
+          "details": "Подробнее",
           "occupy": "Занять",
           "delete": "Удалить",
           "save": "Сохранить"
         }
       },
       "messages": {
-        "unable-occupy": "Ошибка занятия аудитории!\nВсе поля должны быть заполенены!",
         "unable-update": "Ошибка изменения аудитории!\nВсе поля должны быть заполенены!"
       },
       "edit": {
@@ -120,22 +119,25 @@
         }
       },
       "labels": {
-        "which-schedule": "Выберите тип расписания",
-        "department": "Выберите кафедру",
-        "lecturer": "Выберите преподавателя",
-        "faculty": "Выберите факультет",
-        "course": "Выберите курс",
-        "group": "Выберите группу",
-        "year": "Введите учебный год",
-        "semester": "Выберите семестер",
-        "classroom-number": "Введите номер аудитории",
-        "building": "Выберите корпус"
+        "which-schedule": "Тип расписания",
+        "department": "Кафедра",
+        "lecturer": "Преподавателя",
+        "faculty": "Факультет",
+        "course": "Курс",
+        "group": "Группа",
+        "year": "Учебный год",
+        "semester": "Семестер",
+        "classroom-number": "Номер аудитории",
+        "building": "Корпус"
       },
       "default-select-message": "Выбрать...",
       "no-options-message": "Ничего нет",
       "buttons": {
-        "apply-schedule": "Показать расписание",
-        "apply-classrooms": "Подобрать аудитории"
+        "apply-schedule": "Показать",
+        "apply-classrooms": "Подобрать"
+      },
+      "patterns": {
+        "year": "Пример: \"2020/2021\""
       }
     },
     "schedule": {

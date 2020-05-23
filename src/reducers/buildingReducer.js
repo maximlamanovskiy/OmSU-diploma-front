@@ -2,7 +2,7 @@ import * as types from 'src/actions/buildings/actionTypes';
 
 const initialState = {
   buildings: [],
-  selectedId: -1,
+  selectedId: null,
   isLoading: false,
   error: null,
 };
@@ -15,7 +15,6 @@ export default (state = initialState, action) => {
         buildings: [],
         isLoading: true,
         error: null,
-        selectedId: -1,
       };
     }
 

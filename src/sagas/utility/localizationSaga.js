@@ -4,7 +4,7 @@ import { LOAD_TRANSLATIONS, SET_LOCALE } from 'react-redux-i18n';
 import localizations from 'src/localization';
 
 export default function* localizationSaga() {
-  const lang = navigator.language || 'en';
+  const lang = 'ru';
   yield put({
     type: LOAD_TRANSLATIONS,
     translations: localizations,

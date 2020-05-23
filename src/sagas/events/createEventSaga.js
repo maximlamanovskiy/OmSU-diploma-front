@@ -6,6 +6,7 @@ import {
   createEventSuccess,
   createEventFail,
 } from 'src/actions/event/createEvent';
+import { changeIsFree } from 'src/actions/event/eventUtility';
 import { CREATE_EVENT_FETCH } from 'src/actions/event/actionTypes';
 
 function* createEvent(payload) {
@@ -13,6 +14,7 @@ function* createEvent(payload) {
     yield put(createEventRequest());
     const response = yield call(post, payload.url, payload.event);
     yield put(createEventSuccess({ event: response }));
+    yield put(changeIsFree(true));
   } catch (error) {
     yield put(createEventFail(error));
   }

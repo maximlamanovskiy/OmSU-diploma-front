@@ -24,15 +24,8 @@ const firstOptions = [
   { value: 3, label: I18n.t('components.filter.options.which-schedule.lecturer') },
 ];
 
-const checkYearError = filter => filter.year && filter.semester;
-
-const checkCourseError = filter => !(filter.faculty && filter.id && checkYearError(filter));
-
-const checkGroupError = filter =>
-  !(filter.faculty && filter.course && filter.id && checkYearError(filter));
-
-const checkLecturerError = filter =>
-  !(filter.faculty && filter.department && filter.id && checkYearError(filter));
+const checkYear = year => year && year.match('^2\\d{3}/2\\d{3}$');
+const checkErrors = filter => !(checkYear(filter.year) && filter.semester && filter.id);
 
 const types = ['groups', 'course', 'lecturers'];
 
@@ -63,12 +56,7 @@ function ScheduleFilter(props) {
   };
 
   const applyFilter = () => {
-    if (
-      !filterPattern ||
-      (filterPattern === 1 && checkGroupError(filter)) ||
-      (filterPattern === 2 && checkCourseError(filter)) ||
-      (filterPattern === 3 && checkLecturerError(filter))
-    ) {
+    if (!filterPattern || checkErrors(filter)) {
       setShowError(true);
       return;
     }

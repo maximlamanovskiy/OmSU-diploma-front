@@ -15,7 +15,7 @@
 
 .filter__apply-filter {
   align-self: center;
-  height: 7vh;
+  font-size: 2.5vh;
   margin-top: 3vh;
   min-height: 40px;
   width: 90%;
@@ -26,8 +26,14 @@
   font-size: 2.5vh;
   line-height: 3vh;
   margin: 0 auto;
+  overflow: hidden;
   text-transform: none;
+  white-space: nowrap;
   width: 90%;
+
+  &:hover {
+    overflow: visible;
+  }
 }
 
 .filter__field {

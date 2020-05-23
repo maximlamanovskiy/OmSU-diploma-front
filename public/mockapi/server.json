@@ -222,68 +222,13 @@
       {
         "id": 15,
         "classroomNumber": "500",
-        "occupationInfo": [],
-        "tags": []
+        "events": []
       },
       {
         "id": 16,
         "classroomNumber": "502",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 17,
-        "classroomNumber": "503",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 18,
-        "classroomNumber": "555",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 19,
-        "classroomNumber": "602",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 20,
-        "classroomNumber": "603",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 21,
-        "classroomNumber": "605",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 22,
-        "classroomNumber": "610",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 23,
-        "classroomNumber": "620",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 24,
-        "classroomNumber": "700",
-        "occupationInfo": [],
-        "tags": []
-      },
-      {
-        "id": 25,
-        "classroomNumber": "701",
-        "occupationInfo": [],
-        "tags": []
+        "tags": [],
+        "events": []
       }
     ],
     "metaInfo": {
@@ -294,247 +239,305 @@
   "classrooms": [
     {
       "id": 1,
-      "classroomNumber": "100",
-      "occupationInfo": [
-        {
-          "id": 1,
-          "timeFrom": "8:00",
-          "timeTo": "9:35",
-          "lecturer": "Petrov",
-          "group": "FRN-404",
-          "reason": "Some comment"
-        },
-        {
-          "id": 2,
-          "timeFrom": "9:45",
-          "timeTo": "11:20",
-          "lecturer": "Vasilev",
-          "group": "BCK-500",
-          "reason": "Meow was here"
-        }
-      ],
-      "tags": [
-        {
-          "id": 1,
-          "tag": "Маленькая"
-        },
-        {
-          "id": 2,
-          "tag": "Светлая"
-        },
-        {
-          "id": 3,
-          "tag": "Компьютерная"
-        },
-        {
-          "id": 4,
-          "tag": "Компьютерная1"
-        },
-        {
-          "id": 5,
-          "tag": "Компьютерная2"
-        },
-        {
-          "id": 6,
-          "tag": "Компьютерная3"
-        },
-        {
-          "id": 7,
-          "tag": "Компьютерная4"
-        },
-        {
-          "id": 8,
-          "tag": "Компьютерная5"
-        },
-        {
-          "id": 9,
-          "tag": "Компьютерная6"
-        },
-        {
-          "id": 10,
-          "tag": "Компьютерная7"
-        },
-        {
-          "id": 11,
-          "tag": "Компьютерная8"
-        },
-        {
-          "id": 12,
-          "tag": "Компьютерная9"
-        },
-        {
-          "id": 13,
-          "tag": "Компьютерная10"
-        },
-        {
-          "id": 14,
-          "tag": "Компьютерная11"
-        },
-        {
-          "id": 15,
-          "tag": "Компьютерная12"
-        },
-        {
-          "id": 16,
-          "tag": "Компьютерная13"
-        },
-        {
-          "id": 17,
-          "tag": "Компьютерная14"
-        },
-        {
-          "id": 18,
-          "tag": "Компьютерная15"
-        },
-        {
-          "id": 19,
-          "tag": "Компьютерная16"
-        }
-      ]
+      "classroom": {
+        "id": 1,
+        "classroomNumber": "100",
+        "tags": [
+          {
+            "id": 1,
+            "tag": "Маленькая"
+          },
+          {
+            "id": 2,
+            "tag": "Светлая"
+          },
+          {
+            "id": 3,
+            "tag": "Компьютерная"
+          },
+          {
+            "id": 4,
+            "tag": "Компьютерная1"
+          },
+          {
+            "id": 5,
+            "tag": "Компьютерная2"
+          },
+          {
+            "id": 6,
+            "tag": "Компьютерная3"
+          },
+          {
+            "id": 7,
+            "tag": "Компьютерная4"
+          },
+          {
+            "id": 8,
+            "tag": "Компьютерная5"
+          },
+          {
+            "id": 9,
+            "tag": "Компьютерная6"
+          },
+          {
+            "id": 10,
+            "tag": "Компьютерная7"
+          },
+          {
+            "id": 11,
+            "tag": "Компьютерная8"
+          },
+          {
+            "id": 12,
+            "tag": "Компьютерная9"
+          },
+          {
+            "id": 13,
+            "tag": "Компьютерная10"
+          },
+          {
+            "id": 14,
+            "tag": "Компьютерная11"
+          },
+          {
+            "id": 15,
+            "tag": "Компьютерная12"
+          },
+          {
+            "id": 16,
+            "tag": "Компьютерная13"
+          },
+          {
+            "id": 17,
+            "tag": "Компьютерная14"
+          },
+          {
+            "id": 18,
+            "tag": "Компьютерная15"
+          },
+          {
+            "id": 19,
+            "tag": "Компьютерная16"
+          }
+        ]
+      },
+      "events": []
     },
     {
       "id": 2,
-      "classroomNumber": "101",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 2,
+        "classroomNumber": "101",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 3,
-      "classroomNumber": "120a",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 3,
+        "classroomNumber": "120a",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 4,
-      "classroomNumber": "210",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 4,
+        "classroomNumber": "210",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 5,
-      "classroomNumber": "215",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 5,
+        "classroomNumber": "215",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 6,
-      "classroomNumber": "219a",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 6,
+        "classroomNumber": "219a",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 7,
-      "classroomNumber": "300",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 7,
+        "classroomNumber": "300",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 8,
-      "classroomNumber": "301",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 8,
+        "classroomNumber": "301",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 9,
-      "classroomNumber": "303",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 9,
+        "classroomNumber": "303",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 10,
-      "classroomNumber": "321",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 10,
+        "classroomNumber": "321",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 11,
-      "classroomNumber": "404",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 11,
+        "classroomNumber": "404",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 12,
-      "classroomNumber": "404b",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 12,
+        "classroomNumber": "404b",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 13,
-      "classroomNumber": "410",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 13,
+        "classroomNumber": "410",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 14,
-      "classroomNumber": "423",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 14,
+        "classroomNumber": "423",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 15,
-      "classroomNumber": "500",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 15,
+        "classroomNumber": "500",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 16,
-      "classroomNumber": "502",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 16,
+        "classroomNumber": "502",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 17,
-      "classroomNumber": "503",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 17,
+        "classroomNumber": "503",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 18,
-      "classroomNumber": "555",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 18,
+        "classroomNumber": "555",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 19,
-      "classroomNumber": "602",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 19,
+        "classroomNumber": "602",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 20,
-      "classroomNumber": "603",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 20,
+        "classroomNumber": "603",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 21,
-      "classroomNumber": "605",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 21,
+        "classroomNumber": "605",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 22,
-      "classroomNumber": "610",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 22,
+        "classroomNumber": "610",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 23,
-      "classroomNumber": "620",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 23,
+        "classroomNumber": "620",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 24,
-      "classroomNumber": "700",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 24,
+        "classroomNumber": "700",
+        "tags": []
+      },
+      "events": []
     },
     {
       "id": 25,
-      "classroomNumber": "701",
-      "occupationInfo": [],
-      "tags": []
+      "classroom": {
+        "id": 25,
+        "classroomNumber": "701",
+        "tags": []
+      },
+      "events": []
     }
   ],
   "faculties": [

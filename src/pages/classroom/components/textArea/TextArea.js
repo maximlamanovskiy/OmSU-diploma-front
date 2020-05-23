@@ -17,6 +17,7 @@ export default function TextArea(props) {
     textOnChange,
     textOnBlur,
     disabled,
+    hasError,
   } = props;
 
   const onFocus = () => setIsActive(true);
@@ -30,12 +31,15 @@ export default function TextArea(props) {
       <p
         className={classNames(`text-area__text ${headerClassName}`, {
           'text-area__text_active': isActive,
+          'text-area__text_error': hasError,
         })}
       >
         {headerValue}
       </p>
       <textarea
-        className={`text-area__input ${textClassName}`}
+        className={classNames(`text-area__input ${textClassName}`, {
+          'text-area__input_error': hasError,
+        })}
         name={textName}
         value={textValue}
         onChange={textOnChange}
@@ -49,6 +53,7 @@ export default function TextArea(props) {
 
 TextArea.propTypes = {
   disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
   wrapperClassName: PropTypes.string,
   headerClassName: PropTypes.string,
   headerValue: PropTypes.string,
@@ -61,6 +66,7 @@ TextArea.propTypes = {
 
 TextArea.defaultProps = {
   disabled: false,
+  hasError: false,
   wrapperClassName: '',
   headerClassName: '',
   headerValue: '',

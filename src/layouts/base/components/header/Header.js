@@ -15,11 +15,8 @@ function Header(props) {
 
   return (
     <header className="base-header">
-      <Button
-        className="base-header__button base-header__hamburger-menu"
-        onClick={toggleMenuEvent}
-      />
-      <Button className="base-header__button base-header__user-button" onClick={logout} />
+      <Button className="icon-button base-header__hamburger-menu" onClick={toggleMenuEvent} />
+      <Button className="icon-button base-header__user-button" onClick={logout} />
     </header>
   );
 }

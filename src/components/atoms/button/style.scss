@@ -116,7 +116,7 @@
   margin-top: 2px;
 }
 
-.base-header__button {
+.icon-button {
   background: center no-repeat;
   display: flex;
   height: 48px;
@@ -144,6 +144,12 @@
   margin-left: 10px;
 }
 
+.dialog-window__close-button {
+  background-image: url('images/close.svg');
+  height: 30px;
+  position: absolute;
+  width: 30px;}
+
 .action-button {
   background-color: #4caf51;
   border-radius: 10px;
@@ -169,10 +175,12 @@
   }
 }
 
-.classrooms-footer__button {
-  padding-bottom: 1%;
-  padding-top: 1%;
-  width: 25%;
+.footer__button {
+  height: 6vh;
+  min-height: 25px;
+  min-width: max-content;
+  padding: 0 5px;
+  width: 15vw;
 }
 
 @media screen and (min-width: 1920px) {
@@ -197,7 +205,7 @@
     margin-top: 5px;
   }
 
-  .base-header__button {
+  .icon-button {
     height: 64px;
     width: 64px;
   }
@@ -208,5 +216,11 @@
 
   .base-header__hamburger-menu {
     background-image: url('images/menu2x.svg');
+  }
+
+  .dialog-window__close-button {
+    background-image: url('images/close2x.svg');
+    height: 42px;
+    width: 42px;
   }
 }

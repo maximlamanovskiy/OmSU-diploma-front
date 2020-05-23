@@ -10,12 +10,14 @@ import Message from 'src/components/atoms/message/Message';
 import { getTimeBlocksFetch } from 'src/actions/timeBlocks/getTimeBlocks';
 import { clearSchedule } from 'src/actions/schedule/clearSchedule';
 
+import { days } from 'src/utils/date';
+
 import ScheduleHeader from '../scheduleHeader/ScheduleHeader';
 import ScheduleColumn from '../scheduleColumn/ScheduleColumn';
 
 import './style.scss';
 
-const dayOfWeeks = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+const dayOfWeeks = days.slice(1).map(day => day.toLowerCase());
 
 function ScheduleTable(props) {
   const {

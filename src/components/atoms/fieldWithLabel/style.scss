@@ -9,6 +9,12 @@
   transition: all 0.2s;
 }
 
+.simple-label {
+  color: #000;
+  margin-bottom: 0;
+  width: 48%;
+}
+
 .label-block_error {
   color: #b00020;
 }
@@ -22,18 +28,11 @@
 }
 
 .label-block__text {
-  color: #000;
   margin: 0;
 }
 
 .label-block__text_active {
   color: #087f24;
-}
-
-.simple-label {
-  color: #000;
-  margin-bottom: 0;
-  width: 48%;
 }
 
 .simple-label_full {
@@ -46,11 +45,15 @@
   left: 10px;
   position: relative;
   text-transform: uppercase;
-  top: 20px;
+  top: 1em;
   width: max-content;
   z-index: 2;
 }
 
 .simple-label__input {
   padding-top: 10px;
+}
+
+.label-block_error .simple-label__text {
+  color: #b00020;
 }

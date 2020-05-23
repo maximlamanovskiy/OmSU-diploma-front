@@ -9,22 +9,29 @@ import FieldWithLabel from 'src/components/atoms/fieldWithLabel/FieldWithLabel';
 import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOption';
 
 import { updateEvent } from 'src/actions/event/eventUtility';
+import { intervalsValue } from 'src/utils/date';
 
 import './style.scss';
-
-const intervals = [
-  { value: 'NONE', label: I18n.t('pages.classroom.occupation.intervals.none') },
-  { value: 'EVERY_WEEK', label: I18n.t('pages.classroom.occupation.intervals.every') },
-  { value: 'EACH_EVEN_WEEK', label: I18n.t('pages.classroom.occupation.intervals.even') },
-  { value: 'EACH_ODD_WEEK', label: I18n.t('pages.classroom.occupation.intervals.odd') },
-];
 
 function findTime(item) {
   return this === item.id;
 }
 
+const intervals = intervalsValue.map(value => ({
+  value,
+  label: I18n.t(`pages.classroom.occupation.intervals.${value.toLowerCase()}`),
+}));
+
 function TimeAndIntervalSelector(props) {
-  const { timeBlocks, timeBlockId, updateEvent: updateEventAction, interval, isFree, date } = props;
+  const {
+    timeBlocks,
+    timeBlockId,
+    updateEvent: updateEventAction,
+    interval,
+    isFree,
+    date,
+    error,
+  } = props;
   const [times, setTimes] = useState(null);
 
   useEffect(() => {
@@ -44,6 +51,8 @@ function TimeAndIntervalSelector(props) {
     updateEventAction(newEvent);
   };
 
+  const curInterval = intervals.find(item => item.value === interval);
+
   return (
     <div className="time-and-interval">
       <FieldWithLabel
@@ -53,6 +62,7 @@ function TimeAndIntervalSelector(props) {
         classNameText="simple-label__text"
         value={`${times ? times.timeFrom : ''} - ${times ? times.timeTo : ''}`}
         disabled
+        hasError={!times && error}
       />
       <DropdownOption
         name="interval"
@@ -62,8 +72,9 @@ function TimeAndIntervalSelector(props) {
         textClassName="simple-label__text"
         selectClassName="event-menu__drop-down-select"
         onChange={onChangeInterval}
-        curValue={intervals.find(item => item.value === interval)}
+        curValue={curInterval || intervals[0]}
         disabled={!isFree}
+        error={!curInterval && error}
       />
     </div>
   );
@@ -81,6 +92,7 @@ TimeAndIntervalSelector.propTypes = {
   ),
   updateEvent: PropTypes.func,
   isFree: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 TimeAndIntervalSelector.defaultProps = {

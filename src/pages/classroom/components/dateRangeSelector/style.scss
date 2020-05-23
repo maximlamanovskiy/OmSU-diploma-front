@@ -4,13 +4,3 @@
   justify-content: space-around;
   width: 100%;
 }
-
-.date-range__date-picker {
-  font-size: 125%;
-  height: 6.5vh;
-  width: 100%;
-
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
-}

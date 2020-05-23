@@ -36,6 +36,8 @@ import watchFetchDeleteEvent from './events/deleteEventSaga';
 
 import watchFetchGetBuildings from './buildings/getBuildingsSaga';
 
+import watchFetchGetEvent from './events/getEventSaga';
+
 // function* watchAndLog() {
 //   yield takeEvery('*', function* logger(action) {
 //     const state = yield select();
@@ -72,5 +74,6 @@ export default function* rootSaga() {
     fork(watchFetchCreateEvent),
     fork(watchFetchDeleteEvent),
     fork(watchFetchGetBuildings),
+    fork(watchFetchGetEvent),
   ]);
 }

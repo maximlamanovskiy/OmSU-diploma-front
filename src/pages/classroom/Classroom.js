@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { I18n } from 'react-redux-i18n';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { goBack, replace } from 'react-router-redux';
+import { goBack, replace, push } from 'react-router-redux';
 
-import ClassroomHeader from 'src/components/atoms/classroomHeader/ClassroomHeader';
+import Header from 'src/components/atoms/header/Header';
 import ClassroomTags from 'src/components/molecules/classroomTags/ClassroomTags';
-import ClassroomsFooter from 'src/components/molecules/classroomsFooter/ClassroomsFooter';
+import Footer from 'src/components/molecules/footer/Footer';
 
-import { clearEvent, changeIsFree } from 'src/actions/event/eventUtility';
-import { checkUserFetch } from 'src/actions/user/whoAmI';
+import { clearEvent, selectTime } from 'src/actions/event/eventUtility';
 import { createEventFetch } from 'src/actions/event/createEvent';
-import { deleteEventFetch } from 'src/actions/event/deleteEvent';
+import { getEventFetch } from 'src/actions/event/getEvent';
 
 import * as paths from 'src/constants/paths';
+import { days } from 'src/utils/date';
 
 import ColorInfo from './components/colorInfo/ColorInfo';
 import EventMenu from './components/eventMenu/EventMenu';
@@ -23,35 +23,36 @@ import OccupyingButtons from './components/timeButtons/TimeButtons';
 
 import './style.scss';
 
-const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-
 function Classroom(props) {
   const {
     classroom,
     selectedClassroomId,
     eventProp,
     isFree,
-    checkUser,
     createEvent,
-    deleteEvent,
     historyGoBack,
     historyReplace,
+    historyPush,
     clearEvent: clearEventAction,
+    selectTime: selectTimeAction,
+    getEvent,
   } = props;
 
   useEffect(() => {
-    checkUser();
     if (!selectedClassroomId || selectedClassroomId === -1) {
       historyReplace(paths.classrooms);
     }
-  }, [checkUser, selectedClassroomId, historyReplace]);
+  }, [selectedClassroomId, historyReplace]);
 
   useEffect(
     () => () => {
       clearEventAction();
+      selectTimeAction(-1);
     },
-    [clearEventAction]
+    [clearEventAction, selectTimeAction]
   );
+
+  const [error, setError] = useState(false);
 
   const occupy = () => {
     if (
@@ -62,7 +63,7 @@ function Classroom(props) {
       eventProp.dateTo === '' ||
       eventProp.interval === ''
     ) {
-      alert(I18n.t('pages.classroom.messages.unable-occupy'));
+      setError(true);
       return;
     }
 
@@ -85,39 +86,38 @@ function Classroom(props) {
     };
 
     createEvent(req);
-    props.changeIsFree(false);
   };
 
-  const free = () => {
+  const getInfo = () => {
     if (!eventProp || !eventProp.id) {
-      alert(I18n.t('pages.classroom.messages.unable-free'));
       return;
     }
-
-    deleteEvent(eventProp.id);
-    props.changeIsFree(true);
+    getEvent(eventProp.id);
+    historyPush(paths.event);
   };
+  const number = classroom.number ? classroom.number : '';
 
   return (
     <React.Fragment>
       <article className="classroom">
         <ClassroomTags tags={classroom.tags} sectionClassName="classroom__tag-section" />
         <section className="classroom__middle-section">
-          <ClassroomHeader
-            number={classroom.number ? classroom.number : ''}
-            className="classroom__middle-header"
+          <Header
+            value={I18n.t('pages.classroom.header.number', { number })}
+            className="classroom-header"
           />
           <ColorInfo />
           <OccupyingButtons occupation={eventProp} />
         </section>
-        <EventMenu />
+        <EventMenu error={error} />
       </article>
-      <ClassroomsFooter
+      <Footer
         footerClassName="classroom-footer"
-        firstButtonFunc={historyGoBack}
-        firstButtonValue={I18n.t('pages.classroom.footer.buttons.back')}
-        secondButtonFunc={isFree ? occupy : free}
-        secondButtonValue={I18n.t(`pages.classroom.footer.buttons.${isFree ? 'occupy' : 'free'}`)}
+        functions={[historyGoBack, isFree ? occupy : getInfo]}
+        values={[
+          I18n.t('pages.classroom.footer.buttons.back'),
+          I18n.t(`pages.classroom.footer.buttons.${isFree ? 'occupy' : 'details'}`),
+        ]}
       />
     </React.Fragment>
   );
@@ -145,40 +145,40 @@ Classroom.propTypes = {
     comment: PropTypes.string,
   }).isRequired,
   isFree: PropTypes.bool.isRequired,
-  checkUser: PropTypes.func,
   historyReplace: PropTypes.func,
   historyGoBack: PropTypes.func,
+  historyPush: PropTypes.func,
   createEvent: PropTypes.func,
-  deleteEvent: PropTypes.func,
   clearEvent: PropTypes.func,
-  changeIsFree: PropTypes.func,
+  selectTime: PropTypes.func,
+  getEvent: PropTypes.func,
 };
 
 Classroom.defaultProps = {
-  checkUser: () => {},
   historyGoBack: () => {},
   historyReplace: () => {},
+  historyPush: () => {},
   createEvent: () => {},
-  deleteEvent: () => {},
   clearEvent: () => {},
-  changeIsFree: () => {},
+  selectTime: () => {},
+  getEvent: () => {},
 };
-
-const mapDispatchToProps = dispatch => ({
-  clearEvent: bindActionCreators(clearEvent, dispatch),
-  checkUser: bindActionCreators(checkUserFetch, dispatch),
-  historyGoBack: bindActionCreators(goBack, dispatch),
-  historyReplace: bindActionCreators(replace, dispatch),
-  createEvent: bindActionCreators(createEventFetch, dispatch),
-  deleteEvent: bindActionCreators(deleteEventFetch, dispatch),
-  changeIsFree: bindActionCreators(changeIsFree, dispatch),
-});
 
 const mapStateToProps = state => ({
   classroom: state.classroomsReducer.classroom,
   selectedClassroomId: state.classroomsReducer.selectedClassroomId,
   eventProp: state.eventReducer.event,
   isFree: state.eventReducer.isFree,
+});
+
+const mapDispatchToProps = dispatch => ({
+  clearEvent: bindActionCreators(clearEvent, dispatch),
+  historyGoBack: bindActionCreators(goBack, dispatch),
+  historyReplace: bindActionCreators(replace, dispatch),
+  historyPush: bindActionCreators(push, dispatch),
+  createEvent: bindActionCreators(createEventFetch, dispatch),
+  selectTime: bindActionCreators(selectTime, dispatch),
+  getEvent: bindActionCreators(getEventFetch, dispatch),
 });
 
 export default connect(

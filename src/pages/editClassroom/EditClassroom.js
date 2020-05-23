@@ -4,19 +4,17 @@ import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { replace } from 'react-router-redux';
+import { replace, goBack } from 'react-router-redux';
 
-import ClassroomHeader from 'src/components/atoms/classroomHeader/ClassroomHeader';
+import Header from 'src/components/atoms/header/Header';
 import ClassroomTags from 'src/components/molecules/classroomTags/ClassroomTags';
 import FieldWithLabel from 'src/components/atoms/fieldWithLabel/FieldWithLabel';
+import Footer from 'src/components/molecules/footer/Footer';
 
-import { checkUserFetch } from 'src/actions/user/whoAmI';
 import { deleteClassroomFetch } from 'src/actions/classrooms/deleteClassroom';
 import { updateClassroomFetch } from 'src/actions/classrooms/updateClassroom';
 
 import * as paths from 'src/constants/paths';
-
-import ClassroomFooter from './components/classroomFooter/ClassroomFooter';
 
 import './style.scss';
 
@@ -24,20 +22,19 @@ function EditClassroom(props) {
   const {
     classroom,
     selectedClassroomId,
-    checkUser,
     historyReplace,
     updateClassroom,
     deleteClassroom,
+    historyGoBack,
   } = props;
 
   const [number, setNumber] = useState('');
 
   useEffect(() => {
-    checkUser();
     if (!selectedClassroomId || selectedClassroomId === -1) {
       historyReplace(paths.classrooms);
     }
-  }, [checkUser, selectedClassroomId, historyReplace]);
+  }, [selectedClassroomId, historyReplace]);
 
   useEffect(() => {
     setNumber(classroom.number);
@@ -65,7 +62,10 @@ function EditClassroom(props) {
   return (
     <React.Fragment>
       <header>
-        <ClassroomHeader number={classroom.number ? classroom.number : ''} />
+        <Header
+          value={I18n.t('pages.classroom.header.number', { number })}
+          className="edit-header"
+        />
       </header>
       <article className="edit-classroom__classroom-editor">
         <ClassroomTags tags={classroom.tags} />
@@ -76,11 +76,13 @@ function EditClassroom(props) {
           onChange={handleChangeInNumber}
         />
       </article>
-      <ClassroomFooter
-        middleButtonValue={I18n.t('pages.classroom.footer.buttons.save')}
-        middleButtonFunction={saveClassroomFunction}
-        rightButtonValue={I18n.t(`pages.classroom.footer.buttons.delete`)}
-        rightButtonFunction={deleteClassroomFunction}
+      <Footer
+        values={[
+          I18n.t('pages.classroom.footer.buttons.back'),
+          I18n.t('pages.classroom.footer.buttons.save'),
+          I18n.t(`pages.classroom.footer.buttons.delete`),
+        ]}
+        functions={[historyGoBack, saveClassroomFunction, deleteClassroomFunction]}
       />
     </React.Fragment>
   );
@@ -92,17 +94,17 @@ EditClassroom.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   selectedClassroomId: PropTypes.number.isRequired,
-  checkUser: PropTypes.func,
   historyReplace: PropTypes.func,
   updateClassroom: PropTypes.func,
   deleteClassroom: PropTypes.func,
+  historyGoBack: PropTypes.func,
 };
 
 EditClassroom.defaultProps = {
-  checkUser: () => {},
   historyReplace: () => {},
   updateClassroom: () => {},
   deleteClassroom: () => {},
+  historyGoBack: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -112,10 +114,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkUser: bindActionCreators(checkUserFetch, dispatch),
   deleteClassroom: bindActionCreators(deleteClassroomFetch, dispatch),
   updateClassroom: bindActionCreators(updateClassroomFetch, dispatch),
   historyReplace: bindActionCreators(replace, dispatch),
+  historyGoBack: bindActionCreators(goBack, dispatch),
 });
 
 export default connect(

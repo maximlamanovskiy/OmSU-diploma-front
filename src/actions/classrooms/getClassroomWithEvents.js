@@ -9,6 +9,7 @@ export const getClassroomWithEventsFetch = (id, date) => ({
   type: GET_CLASSROOM_WITH_EVENTS_FETCH,
   url: `${process.env.REACT_APP_API_URLS}/classrooms/${id}/events?date=${date}`,
   id,
+  date,
 });
 
 export const getClassroomWithEventsRequest = () => ({

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Button from 'src/components/atoms/button/Button';
 import OutsideArea from 'src/components/atoms/outsideArea/OutsideArea';
 
 import { closeDialogWindow } from 'src/actions/utility/dialogWindow';
@@ -22,16 +23,24 @@ function DialogWindow(props) {
   }, [closeDialogWindowAction]);
 
   return (
-    <React.Fragment>
+    <div
+      className={classNames('dialog-wrapper', {
+        'dialog-wrapper_hidden': !isOpen,
+      })}
+    >
       <OutsideArea onClick={closeDialogWindowAction} isOpen={isOpen} />
       <div
         className={classNames(`dialog-window ${className}`, {
           'dialog-window_hidden': !isOpen,
         })}
       >
+        <Button
+          className="icon-button dialog-window__close-button"
+          onClick={closeDialogWindowAction}
+        />
         {children}
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

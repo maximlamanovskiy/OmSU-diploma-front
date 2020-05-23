@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 
 import Button from 'src/components/atoms/button/Button';
 
-import { checkUserFetch } from 'src/actions/user/whoAmI';
+import { clearClassrooms } from 'src/actions/classrooms/utility';
+import { selectBuilding } from 'src/actions/buildings/selectBuilding';
 
 import ScheduleFilter from './components/scheduleFilter/ScheduleFilter';
 import ScheduleTable from './components/scheduleTable/ScheduleTable';
@@ -18,11 +19,12 @@ import './style.scss';
 function Schedule(props) {
   const [isOpen, setIsOpen] = useState(true);
 
-  const { checkUser } = props;
+  const { clearClassrooms: clearClassroomsAction, selectBuilding: selectBuildingAction } = props;
 
   useEffect(() => {
-    checkUser();
-  }, [checkUser]);
+    clearClassroomsAction();
+    selectBuildingAction(null);
+  }, [clearClassroomsAction, selectBuildingAction]);
 
   const onClick = () => {
     setIsOpen(!isOpen);
@@ -47,15 +49,18 @@ function Schedule(props) {
 }
 
 Schedule.propTypes = {
-  checkUser: PropTypes.func,
+  clearClassrooms: PropTypes.func,
+  selectBuilding: PropTypes.func,
 };
 
 Schedule.defaultProps = {
-  checkUser: () => {},
+  clearClassrooms: () => {},
+  selectBuilding: () => {},
 };
 
 const mapDispatchToProps = dispatch => ({
-  checkUser: bindActionCreators(checkUserFetch, dispatch),
+  clearClassrooms: bindActionCreators(clearClassrooms, dispatch),
+  selectBuilding: bindActionCreators(selectBuilding, dispatch),
 });
 
 export default connect(

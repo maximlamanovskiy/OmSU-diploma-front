@@ -6,7 +6,7 @@
 
 .label-block__field {
   border-bottom: 1px solid #5e5e5e;
-  font-size: 3.5vh;
+  font-size: 3.2vh;
   font-weight: 400;
   height: 6vh;
   line-height: 4vh;
@@ -34,7 +34,7 @@
   box-sizing: border-box;
   color: #000;
   height: 6vh;
-  min-height: 40px;
+  min-height: 20px;
 
   &:focus {
     border-color: #087f24;
@@ -44,4 +44,14 @@
 
 .base-field__text {
   height: 20vh;
+}
+
+.base-field.label-block__field_error {
+  border: 2px solid #b00020;
+}
+
+.date-range__date-picker {
+  font-size: 1.4vw;
+  height: 6.5vh;
+  width: 100%;
 }

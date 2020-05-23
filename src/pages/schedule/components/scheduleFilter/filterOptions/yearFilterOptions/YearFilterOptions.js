@@ -6,10 +6,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import FieldWithLabel from 'src/components/atoms/fieldWithLabel/FieldWithLabel';
+import Message from 'src/components/atoms/message/Message';
 import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOption';
 
 import { updateFilter } from 'src/actions/filter/updateFilter';
 
+const checkYear = year => year && year.match('^2\\d{3}/2\\d{3}$');
 const semester = [{ value: 1, label: 1 }, { value: 2, label: 2 }];
 
 function YearFilterOptions(props) {
@@ -43,7 +45,11 @@ function YearFilterOptions(props) {
         classNameText="simple-label__text"
         value={year}
         onChange={changeYear}
-        hasError={!!year && error}
+        hasError={!checkYear(year) && error}
+      />
+      <Message
+        className="filter__pattern-message"
+        value={I18n.t('components.filter.patterns.year')}
       />
       <DropdownOption
         name="semester"

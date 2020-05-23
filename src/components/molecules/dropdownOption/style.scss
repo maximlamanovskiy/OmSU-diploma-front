@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: row;
   height: 6vh;
-  min-height: 36px;
+  min-height: 16px;
   position: relative;
 }
 
@@ -71,13 +71,17 @@
   margin: 0;
 }
 
+.dropdown_error > .dropdown__text {
+  color: #b00020;
+}
+
 .dropdown__text_active {
   color: #087f24;
 }
 
 .dropdown__value-container.dropdown__value-container--has-value,
 .dropdown-error__value-container.dropdown-error__value-container--has-value {
-  overflow: auto;
+  overflow: hidden;
   padding-top: 10px;
 }
 

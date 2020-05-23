@@ -69,23 +69,22 @@
         "interval": "Interval",
         "intervals": {
           "none": "None",
-          "every": "Every",
-          "even": "Even",
-          "odd": "Odd"
+          "every_week": "Every",
+          "each_even_week": "Even",
+          "each_odd_week": "Odd"
         },
         "require": " - this event is required"
       },
       "footer": {
         "buttons": {
           "back": "Back",
-          "free": "Free",
+          "details": "Details",
           "occupy": "Occupy",
           "delete": "Delete",
           "save": "Save"
         }
       },
       "messages": {
-        "unable-occupy": "Unable to occupy auditory!\nAll fields should be not empty!",
         "unable-update": "Unable to update auditory!\nAll fields should be not empty!"
       },
       "edit": {
@@ -135,6 +134,9 @@
       "buttons": {
         "apply-schedule": "Show schedule",
         "apply-classrooms": "Show classrooms"
+      },
+      "patterns": {
+        "year": "Example: \"2020/2021\""
       }
     },
     "schedule": {

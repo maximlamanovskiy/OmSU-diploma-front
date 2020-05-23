@@ -6,6 +6,7 @@ import {
   deleteEventSuccess,
   deleteEventFail,
 } from 'src/actions/event/deleteEvent';
+import { changeIsFree } from 'src/actions/event/eventUtility';
 import { DELETE_EVENT_FETCH } from 'src/actions/event/actionTypes';
 
 function* deleteEvent(payload) {
@@ -13,6 +14,7 @@ function* deleteEvent(payload) {
     yield put(deleteEventRequest());
     yield call(remove, payload.url);
     yield put(deleteEventSuccess());
+    yield put(changeIsFree(false));
   } catch (error) {
     yield put(deleteEventFail(error));
   }

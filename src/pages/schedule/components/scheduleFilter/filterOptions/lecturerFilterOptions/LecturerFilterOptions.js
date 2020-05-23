@@ -9,31 +9,22 @@ import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOpti
 
 import { getLecturersOptions } from 'src/actions/filter/lectureOptions';
 import { updateFilter } from 'src/actions/filter/updateFilter';
+
 import YearFilterOptions from '../yearFilterOptions/YearFilterOptions';
-import FacultyFilterOptions from '../facultyFilterOptions/FacultyFilterOptions';
 
 function LecturerFilterOptions(props) {
   const {
     getLecturersOptions: getLecturersOptionsAction,
     updateFilter: updateFilterAction,
     lecturers,
-    departments,
     error,
   } = props;
 
-  const [wasDepartmentSelect, setDepartmentSelect] = useState(false);
   const [wasLecturerSelect, setLecturerSelect] = useState(false);
 
   useEffect(() => {
     getLecturersOptionsAction();
   }, [getLecturersOptionsAction]);
-
-  const changeDepartments = obj => {
-    updateFilterAction({
-      department: obj && obj.value,
-    });
-    setDepartmentSelect(!!obj);
-  };
 
   const changeLecturer = obj => {
     updateFilterAction({
@@ -44,15 +35,6 @@ function LecturerFilterOptions(props) {
 
   return (
     <React.Fragment>
-      <FacultyFilterOptions error={error} />
-      <DropdownOption
-        name="department"
-        message={I18n.t('components.filter.labels.department')}
-        options={departments}
-        onChange={changeDepartments}
-        error={!wasDepartmentSelect && error}
-        textClassName="simple-label__text"
-      />
       <DropdownOption
         name="lecturer"
         message={I18n.t('components.filter.labels.lecturer')}
@@ -68,7 +50,6 @@ function LecturerFilterOptions(props) {
 
 LecturerFilterOptions.propTypes = {
   error: PropTypes.bool,
-  departments: PropTypes.arrayOf(PropTypes.shape({})),
   lecturers: PropTypes.arrayOf(PropTypes.shape({})),
   getLecturersOptions: PropTypes.func,
   updateFilter: PropTypes.func,
@@ -76,7 +57,6 @@ LecturerFilterOptions.propTypes = {
 
 LecturerFilterOptions.defaultProps = {
   error: false,
-  departments: [],
   lecturers: [],
   getLecturersOptions: () => {},
   updateFilter: () => {},

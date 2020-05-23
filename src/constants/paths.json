@@ -6,5 +6,6 @@
   "classrooms": "/classrooms",
   "editClassroom": "/edit_classroom",
   "schedule": "/schedule",
-  "scheduleEditor": "/schedule_editor"
+  "scheduleEditor": "/schedule_editor",
+  "event": "/event"
 }

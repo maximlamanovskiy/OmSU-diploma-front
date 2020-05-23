@@ -17,3 +17,11 @@
   outline: none;
   resize: none;
 }
+
+.text-area__text_error {
+  color: #b00020;
+}
+
+.base-field.text-area__input_error {
+  border-color: #b00020;
+}

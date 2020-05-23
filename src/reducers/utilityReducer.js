@@ -3,6 +3,7 @@ import * as types from 'src/actions/utility/actionTypes';
 const initialState = {
   date: new Date().toISOString().split('T')[0],
   isOpen: false,
+  header: '',
 };
 
 export default (state = initialState, action) => {

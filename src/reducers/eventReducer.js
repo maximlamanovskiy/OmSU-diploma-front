@@ -7,10 +7,15 @@ const initialState = {
     timeBlockId: -1,
     dateTo: '',
     dateFrom: '',
-    interval: '',
+    interval: 'NONE',
     comment: '',
   },
   isFree: true,
+  hasError: false,
+  timeIndex: -1,
+  fullEvent: null,
+  isLoading: false,
+  error: null,
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +24,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         event: { ...state.event, ...action.event },
+        hasError: true,
       };
     }
 
@@ -31,9 +37,10 @@ export default (state = initialState, action) => {
           timeBlockId: -1,
           dateTo: '',
           dateFrom: '',
-          interval: '',
+          interval: 'NONE',
           comment: '',
         },
+        hasError: true,
       };
     }
 
@@ -44,6 +51,13 @@ export default (state = initialState, action) => {
       };
     }
 
+    case types.CREATE_EVENT_REQUEST: {
+      return {
+        ...state,
+        hasError: false,
+      };
+    }
+
     case types.CREATE_EVENT_SUCCESS: {
       return {
         ...state,
@@ -51,6 +65,53 @@ export default (state = initialState, action) => {
           ...state.event,
           id: action.event.id,
         },
+        timeIndex: -1,
+      };
+    }
+
+    case types.DELETE_EVENT_REQUEST: {
+      return {
+        ...state,
+        hasError: false,
+      };
+    }
+
+    case types.DELETE_EVENT_SUCCESS: {
+      return {
+        ...state,
+        timeIndex: -1,
+      };
+    }
+
+    case types.SELECT_TIME: {
+      return {
+        ...state,
+        timeIndex: action.timeIndex,
+      };
+    }
+
+    case types.GET_EVENT_REQUEST: {
+      return {
+        ...state,
+        fullEvent: null,
+        isLoading: true,
+        error: null,
+      };
+    }
+
+    case types.GET_EVENT_SUCCESS: {
+      return {
+        ...state,
+        fullEvent: action.event,
+        isLoading: false,
+      };
+    }
+
+    case types.GET_EVENT_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
       };
     }
 

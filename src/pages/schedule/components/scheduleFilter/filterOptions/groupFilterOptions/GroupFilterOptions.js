@@ -10,23 +10,12 @@ import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOpti
 import { getGroupsFetch } from 'src/actions/groups/getGroups';
 import { updateFilter } from 'src/actions/filter/updateFilter';
 
-import FacultyFilterOptions from '../facultyFilterOptions/FacultyFilterOptions';
 import YearFilterOptions from '../yearFilterOptions/YearFilterOptions';
-
-const courses = [
-  { value: 1, label: I18n.t('components.filter.options.courses.first') },
-  { value: 2, label: I18n.t('components.filter.options.courses.second') },
-  { value: 3, label: I18n.t('components.filter.options.courses.third') },
-  { value: 4, label: I18n.t('components.filter.options.courses.fourth') },
-  { value: 5, label: I18n.t('components.filter.options.courses.fifth') },
-  { value: 6, label: I18n.t('components.filter.options.courses.sixth') },
-];
 
 function GroupFilterOptions(props) {
   const { getGroups, updateFilter: updateFilterAction, groups, error } = props;
 
   const [wasGroupSelect, setGroupSelect] = useState(false);
-  const [wasCourseSelect, setCourseSelect] = useState(false);
 
   useEffect(() => {
     getGroups();
@@ -39,24 +28,8 @@ function GroupFilterOptions(props) {
     setGroupSelect(!!obj);
   };
 
-  const changeCourse = obj => {
-    updateFilterAction({
-      course: obj && obj.value,
-    });
-    setCourseSelect(!!obj);
-  };
-
   return (
     <React.Fragment>
-      <FacultyFilterOptions error={error} />
-      <DropdownOption
-        name="course"
-        options={courses}
-        message={I18n.t('components.filter.labels.course')}
-        onChange={changeCourse}
-        error={!wasCourseSelect && error}
-        textClassName="simple-label__text"
-      />
       <DropdownOption
         name="group"
         options={groups}

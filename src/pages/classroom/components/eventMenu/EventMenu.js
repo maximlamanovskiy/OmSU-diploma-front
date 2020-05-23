@@ -33,6 +33,8 @@ function EventMenu(props) {
   const [comment, changeComment] = useState('');
   const [curDate, setCurDate] = useState(props.date);
 
+  const error = props.error && props.hasError;
+
   useEffect(() => {
     changeComment(eventProp.comment);
   }, [eventProp]);
@@ -41,30 +43,39 @@ function EventMenu(props) {
     getLecturers();
   }, [getLecturers]);
 
-  const handleChangeInComment = event => changeComment(event.target.value);
-  const onBlurComment = () => updateEventAction({ comment });
-  const handleChangeInLecturer = obj => updateEventAction({ lecturerId: obj ? obj.value : -1 });
-  const handleChangeInDate = event => {
-    const date = event.target.value;
+  const updateDate = date => {
     getClassroomWithEvents(selectedClassroomId, date);
     setCurDate(date);
   };
+  const handleChangeInComment = event => changeComment(event.target.value);
+  const onBlurComment = () => updateEventAction({ comment });
+  const handleChangeInLecturer = obj => updateEventAction({ lecturerId: obj ? obj.value : -1 });
+  const handleChangeInDate = event => updateDate(event.target.value);
   const handleChangeInRequired = () => updateEventAction({ required: !eventProp.required });
+
+  const currentLecturer = lecturers.find(lec => lec.id === eventProp.lecturerId);
 
   return (
     <section className="event-menu">
-      <FieldWithLabel
-        labelValue={I18n.t('pages.classroom.occupation.date')}
-        classNameLabel="simple-label simple-label_full"
-        classNameField="date-range__date-picker base-field simple-label__input"
-        classNameText="simple-label__text"
-        type="date"
-        value={curDate}
-        onChange={handleChangeInDate}
-      />
-      <TimeAndIntervalSelector interval={eventProp.interval} date={curDate} />
-      {!eventProp.interval || eventProp.interval === 'NONE' ? null : (
-        <DateRangeSelector date={curDate} disabled={!isFree} />
+      <TimeAndIntervalSelector interval={eventProp.interval} date={curDate} error={error} />
+      {eventProp.interval === 'NONE' ? (
+        <FieldWithLabel
+          labelValue={I18n.t('pages.classroom.occupation.date')}
+          classNameLabel="simple-label simple-label_full"
+          classNameField="date-range__date-picker base-field simple-label__input"
+          classNameText="simple-label__text"
+          type="date"
+          value={curDate}
+          hasError={!curDate && error}
+          onChange={handleChangeInDate}
+        />
+      ) : (
+        <DateRangeSelector
+          date={curDate}
+          disabled={!isFree}
+          error={error}
+          updateDate={updateDate}
+        />
       )}
       <DropdownOption
         name="lecturer"
@@ -74,8 +85,9 @@ function EventMenu(props) {
         textClassName="simple-label__text"
         selectClassName="event-menu__drop-down-select"
         onChange={handleChangeInLecturer}
-        curValue={lecturers.find(lec => lec.id === eventProp.lecturerId)}
+        curValue={currentLecturer}
         disabled={!isFree}
+        error={!currentLecturer && error}
       />
       <EditableTextInfoBlock
         wrapperClassName="simple-label simple-label_full"
@@ -87,6 +99,7 @@ function EventMenu(props) {
         textOnChange={handleChangeInComment}
         textOnBlur={onBlurComment}
         disabled={!isFree}
+        hasError={!comment && error}
       />
       <Checkbox
         id="required"
@@ -102,6 +115,8 @@ function EventMenu(props) {
 EventMenu.propTypes = {
   date: PropTypes.string.isRequired,
   isFree: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  hasError: PropTypes.bool,
   selectedClassroomId: PropTypes.number.isRequired,
   eventProp: PropTypes.shape({
     comment: PropTypes.string,
@@ -118,6 +133,7 @@ EventMenu.propTypes = {
 };
 
 EventMenu.defaultProps = {
+  hasError: false,
   lecturers: [],
   updateEvent: () => {},
   getLecturers: () => {},
@@ -130,6 +146,7 @@ const mapStateToProps = state => ({
   lecturers: state.lecturersReducer.lecturers,
   isFree: state.eventReducer.isFree,
   selectedClassroomId: state.classroomsReducer.selectedClassroomId,
+  hasError: state.eventReducer.hasError,
 });
 
 const mapDispatchToProps = dispatch => ({

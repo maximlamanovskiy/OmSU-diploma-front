@@ -1,20 +1,16 @@
 .list-occupations {
-  background-color: #f8f7fc;
-  cursor: default;
   display: block;
-  margin: 2% auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 5px 0 8px;
+  margin: 0 auto;
+  padding: 0 0.5vw;
+  width: max-content;
 }
 
 .list-occupations__occupation {
-  font-size: 3vh;
+  display: block;
+  font-size: calc(4px + 0.8vw);
   font-weight: 700;
-  line-height: 3vh;
+  line-height: calc(4px + 1vw);
   margin: 1px 0 0;
-  padding-left: 5px;
-  text-align: start;
   text-transform: lowercase;
 }
 
@@ -40,4 +36,29 @@
 
 .occupation-section {
   overflow: auto;
+}
+
+.each_even_week {
+  color: #bfa55c;
+
+  &:hover {
+    color: #e3ba27;
+  }
+}
+
+.each_odd_week {
+  color: #6c32d9;
+
+  &:hover {
+    color: #c84bf2;
+  }
+}
+
+.every_week,
+.each_even_week.each_odd_week {
+  color: #0d1112;
+
+  &:hover {
+    color: #637e80;
+  }
 }

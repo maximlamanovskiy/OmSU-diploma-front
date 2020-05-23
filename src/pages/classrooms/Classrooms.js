@@ -5,15 +5,12 @@ import { I18n } from 'react-redux-i18n';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ClassroomsFooter from 'src/components/molecules/classroomsFooter/ClassroomsFooter';
+import Footer from 'src/components/molecules/footer/Footer';
 import Message from 'src/components/atoms/message/Message';
 
 import { getClassroomsFetch } from 'src/actions/classrooms/getClassrooms';
-import { checkUserFetch } from 'src/actions/user/whoAmI';
 import { getTimeBlocksFetch } from 'src/actions/timeBlocks/getTimeBlocks';
-import { clearClassrooms } from 'src/actions/classrooms/utility';
 
-import ClassroomDialog from './components/classroomDialog/ClassroomDialog';
 import ClassroomCompact from './components/classroomCompact/ClassroomCompact';
 import ClassroomsFilter from './components/classroomsFilter/ClassroomsFilter';
 
@@ -29,18 +26,12 @@ function Classrooms(props) {
     buildingId,
     getClassrooms,
     getTimeBlocks,
-    checkUser,
-    clearClassrooms: clearClassroomsAction,
     classrooms,
   } = props;
 
   useEffect(() => {
     getTimeBlocks();
-    checkUser();
-    return () => {
-      clearClassroomsAction();
-    };
-  }, [getTimeBlocks, checkUser, clearClassroomsAction]);
+  }, [getTimeBlocks]);
 
   const renderList = () => {
     const classroomsCompacts = classrooms.map(item => (
@@ -77,39 +68,36 @@ function Classrooms(props) {
             />
           )}
           {classrooms && classrooms.length > 0 ? (
-            <ClassroomsFooter
-              firstButtonValue={I18n.t('pages.classrooms.buttons.prev-page')}
-              firstButtonEnable={hasPrev}
-              firstButtonFunc={prev}
-              secondButtonValue={I18n.t('pages.classrooms.buttons.next-page')}
-              secondButtonEnable={hasNext}
-              secondButtonFunc={next}
+            <Footer
+              footerClassName="classrooms-footer"
+              values={[
+                I18n.t('pages.classrooms.buttons.prev-page'),
+                I18n.t('pages.classrooms.buttons.next-page'),
+              ]}
+              disables={[!hasPrev, !hasNext]}
+              functions={[prev, next]}
             />
           ) : null}
         </div>
       </div>
-      <ClassroomDialog />
     </React.Fragment>
   );
 }
 
 Classrooms.propTypes = {
+  buildingId: PropTypes.number,
   getClassrooms: PropTypes.func,
   getTimeBlocks: PropTypes.func,
-  clearClassrooms: PropTypes.func,
-  checkUser: PropTypes.func,
   classrooms: PropTypes.arrayOf(PropTypes.shape).isRequired,
   hasNext: PropTypes.bool.isRequired,
   hasPrev: PropTypes.bool.isRequired,
   wasGetRequest: PropTypes.bool.isRequired,
-  buildingId: PropTypes.number.isRequired,
 };
 
 Classrooms.defaultProps = {
+  buildingId: null,
   getClassrooms: () => {},
-  checkUser: () => {},
   getTimeBlocks: () => {},
-  clearClassrooms: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -122,9 +110,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getClassrooms: bindActionCreators(getClassroomsFetch, dispatch),
-  checkUser: bindActionCreators(checkUserFetch, dispatch),
   getTimeBlocks: bindActionCreators(getTimeBlocksFetch, dispatch),
-  clearClassrooms: bindActionCreators(clearClassrooms, dispatch),
 });
 
 export default connect(

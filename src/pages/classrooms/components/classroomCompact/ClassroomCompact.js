@@ -6,19 +6,28 @@ import { connect } from 'react-redux';
 
 import Button from 'src/components/atoms/button/Button';
 
-import { selectClassroom } from 'src/actions/utility/selectClassroom';
+import { occupyClassroom } from 'src/actions/utility/selectClassroom';
+
+import TimeOccupationList from '../timeOccupationList/TimeOccupationList';
 
 import './style.scss';
 
 function ClassroomCompact(props) {
   const { classroom, date } = props;
 
-  const clickAuditory = () => props.selectClassroom(classroom.id, date);
+  const clickAuditory = () => props.occupyClassroom(classroom.id, date);
 
   return (
-    <Button className="classroom-compact" onClick={clickAuditory}>
-      {classroom.number}
-    </Button>
+    <div className="classroom-compact">
+      <Button
+        className="classroom-compact__button"
+        value={classroom.number}
+        onClick={clickAuditory}
+      />
+      <div className="classroom-compact__times">
+        <TimeOccupationList id={classroom.id} date={date} />
+      </div>
+    </div>
   );
 }
 
@@ -28,15 +37,15 @@ ClassroomCompact.propTypes = {
     number: PropTypes.string,
   }).isRequired,
   date: PropTypes.string.isRequired,
-  selectClassroom: PropTypes.func,
+  occupyClassroom: PropTypes.func,
 };
 
 ClassroomCompact.defaultProps = {
-  selectClassroom: () => {},
+  occupyClassroom: () => {},
 };
 
 const mapDispatchToProps = dispatch => ({
-  selectClassroom: bindActionCreators(selectClassroom, dispatch),
+  occupyClassroom: bindActionCreators(occupyClassroom, dispatch),
 });
 
 const mapStateToProps = state => ({

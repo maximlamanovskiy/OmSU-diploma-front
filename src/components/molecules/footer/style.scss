@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.classrooms-footer,
+.classroom-footer {
+  align-items: flex-end;
+  margin: 1vh auto;
+  width: 96%;
+}

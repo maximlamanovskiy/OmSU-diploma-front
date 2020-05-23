@@ -9,7 +9,6 @@ import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOpti
 
 import { updateFilter } from 'src/actions/filter/updateFilter';
 
-import FacultyFilterOptions from '../facultyFilterOptions/FacultyFilterOptions';
 import YearFilterOptions from '../yearFilterOptions/YearFilterOptions';
 
 const courses = [
@@ -35,7 +34,6 @@ function CourseFilterOptions(props) {
 
   return (
     <React.Fragment>
-      <FacultyFilterOptions error={error} />
       <DropdownOption
         name="course"
         options={courses}
