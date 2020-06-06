@@ -4,10 +4,14 @@ import classNames from 'classnames';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { push } from 'react-router-redux';
 
 import Button from 'src/components/atoms/button/Button';
 
-import { occupyClassroomWithTime } from 'src/actions/utility/selectClassroom';
+import { selectClassroom } from 'src/actions/classrooms/utility';
+import { selectTime, changeIsFree } from 'src/actions/event/eventUtility';
+
+import * as paths from 'src/constants/paths';
 
 import './style.scss';
 
@@ -15,21 +19,23 @@ const hasTimeBlock = (periods, timeBlockId) =>
   periods.some(period => period.timeBlock.id === timeBlockId);
 
 function TimeOccupationList(props) {
-  const {
-    events,
-    timeBlocks,
-    occupyClassroomWithTime: occupyClassroomWithTimeAction,
-    id,
-    date,
-  } = props;
+  const { timeBlocks, id } = props;
+
+  const onClick = (index, isFree) => {
+    props.selectClassroom(id);
+    props.selectTime(index);
+    props.changeIsFree(isFree);
+    props.historyPush(`${paths.classroom}`);
+  };
+
+  const events = props.events[id];
 
   const times = () =>
     timeBlocks.map((item, index) => {
       const dateEvents = events
         ? events.filter(event => hasTimeBlock(event.eventPeriods, item.id))
         : [];
-      const timeFrom = item.timeFrom.length === 4 ? `0${item.timeFrom}` : item.timeFrom;
-      const timeTo = item.timeTo.length === 4 ? `0${item.timeTo}` : item.timeTo;
+      const { timeFrom, timeTo } = item;
       const periodClassName = dateEvents
         .reduce(
           (className, dateEvent) =>
@@ -53,7 +59,7 @@ function TimeOccupationList(props) {
               { 'list-occupations__occupation_occupied': dateEvents.length !== 0 }
             )}
             value={`${timeFrom} - ${timeTo}`}
-            onClick={() => occupyClassroomWithTimeAction(id, date, index)}
+            onClick={() => onClick(index, dateEvents.length === 0)}
           />
         </li>
       );
@@ -63,20 +69,29 @@ function TimeOccupationList(props) {
 }
 
 TimeOccupationList.propTypes = {
-  events: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  timeBlocks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  occupyClassroomWithTime: PropTypes.func.isRequired,
+  events: PropTypes.shape({}),
   id: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
+  timeBlocks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  selectClassroom: PropTypes.func.isRequired,
+  selectTime: PropTypes.func.isRequired,
+  changeIsFree: PropTypes.func.isRequired,
+  historyPush: PropTypes.func.isRequired,
+};
+
+TimeOccupationList.defaultProps = {
+  events: {},
 };
 
 const mapStateToProps = state => ({
   timeBlocks: state.timeblocksReducer.timeBlocks,
-  events: state.classroomsReducer.events,
+  events: state.classroomsReducer.classroomEvents,
 });
 
 const mapDispatchToProps = dispatch => ({
-  occupyClassroomWithTime: bindActionCreators(occupyClassroomWithTime, dispatch),
+  selectClassroom: bindActionCreators(selectClassroom, dispatch),
+  selectTime: bindActionCreators(selectTime, dispatch),
+  changeIsFree: bindActionCreators(changeIsFree, dispatch),
+  historyPush: bindActionCreators(push, dispatch),
 });
 
 export default connect(

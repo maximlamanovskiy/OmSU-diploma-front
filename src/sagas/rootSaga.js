@@ -2,7 +2,6 @@
 import { all, fork } from 'redux-saga/effects';
 
 import localizationSaga from './utility/localizationSaga';
-import watchSelectClassroom from './utility/selectClassroomSaga';
 import watchSelectLesson from './utility/selectLessonSaga';
 
 import watchFetchLogin from './user/loginSaga';
@@ -33,6 +32,10 @@ import watchFetchGetLesson from './schedule/getLessonSaga';
 
 import watchFetchCreateEvent from './events/createEventSaga';
 import watchFetchDeleteEvent from './events/deleteEventSaga';
+import watchFetchCancelEvent from './events/cancelEventSaga';
+import watchFetchRescheduleEvent from './events/rescheduleEventSaga';
+import watchFetchUpdateEvent from './events/updateEventSaga';
+import watchFetchGetPeriods from './events/getPeriodsSaga';
 
 import watchFetchGetBuildings from './buildings/getBuildingsSaga';
 
@@ -52,7 +55,6 @@ export default function* rootSaga() {
 
   yield all([
     fork(localizationSaga),
-    fork(watchSelectClassroom),
     fork(watchSelectLesson),
     fork(watchFetchLogin),
     fork(watchFetchRegistration),
@@ -72,8 +74,12 @@ export default function* rootSaga() {
     fork(watchFetchGetSchedule),
     fork(watchFetchGetLesson),
     fork(watchFetchCreateEvent),
-    fork(watchFetchDeleteEvent),
-    fork(watchFetchGetBuildings),
     fork(watchFetchGetEvent),
+    fork(watchFetchDeleteEvent),
+    fork(watchFetchCancelEvent),
+    fork(watchFetchUpdateEvent),
+    fork(watchFetchRescheduleEvent),
+    fork(watchFetchGetPeriods),
+    fork(watchFetchGetBuildings),
   ]);
 }

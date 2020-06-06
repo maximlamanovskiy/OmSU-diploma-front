@@ -1,14 +1,13 @@
 .navigation-options {
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
 }
 
 .navigation-options__nav-link {
   color: #7fe27f;
   cursor: pointer;
   flex-grow: 1;
-  font-size: 26px;
+  font-size: 2vw;
   margin-bottom: 5px;
   outline: 0;
   padding-bottom: 5px;

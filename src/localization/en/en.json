@@ -42,9 +42,7 @@
     "classrooms": {
       "buttons": {
         "next-page": "Next page",
-        "prev-page": "Previous page",
-        "edit": "Edit",
-        "occupy": "Occupy"
+        "prev-page": "Previous page"
       },
       "messages": {
         "no-filter": "Set filter for see classrooms",
@@ -61,7 +59,6 @@
         }
       },
       "occupation": {
-        "date": "Date",
         "time": "Time",
         "lecturer": "Lecturer",
         "group": "Group",
@@ -73,27 +70,13 @@
           "each_even_week": "Even",
           "each_odd_week": "Odd"
         },
-        "require": " - this event is required"
-      },
-      "footer": {
-        "buttons": {
-          "back": "Back",
-          "details": "Details",
-          "occupy": "Occupy",
-          "delete": "Delete",
-          "save": "Save"
-        }
+        "require": "this event is required"
       },
       "messages": {
         "unable-update": "Unable to update auditory!\nAll fields should be not empty!"
       },
       "edit": {
         "classroom-number": "Classroom number"
-      }
-    },
-    "schedule-editor": {
-      "buttons": {
-        "edit": "Edit"
       }
     }
   },
@@ -118,23 +101,17 @@
         }
       },
       "labels": {
-        "which-schedule": "Select schedule type",
-        "department": "Select department",
-        "lecturer": "Select lecturer",
-        "faculty": "Select faculty",
-        "course": "Select course",
-        "group": "Select group",
-        "year": "Enter academic year",
-        "semester": "Select semester",
-        "classroom-number": "Enter classroom number",
-        "building": "Select building"
+        "which-schedule": "Schedule type",
+        "department": "Department",
+        "lecturer": "Lecturer",
+        "faculty": "Faculty",
+        "course": "Course",
+        "group": "Group",
+        "year": "Academic year",
+        "semester": "Semester"
       },
       "default-select-message": "Select...",
       "no-options-message": "No options",
-      "buttons": {
-        "apply-schedule": "Show schedule",
-        "apply-classrooms": "Show classrooms"
-      },
       "patterns": {
         "year": "Example: \"2020/2021\""
       }
@@ -176,6 +153,24 @@
         "academic-years": "Enter academic year",
         "semester": "Select semester"
       }
+    },
+    "buttons": {
+      "edit": "Edit",
+      "back": "Back",
+      "occupy": "Occupy",
+      "delete": "Delete",
+      "save": "Save",
+      "apply-filter": "Apply",
+      "details": "Details",
+      "cancel": "Cancel",
+      "reschedule": "Reschedule",
+      "apply": "Apply"
+    },
+    "labels": {
+      "building": "Building",
+      "classroom-number": "Classroom number",
+      "date": "Date",
+      "time": "Time"
     }
   }
 }

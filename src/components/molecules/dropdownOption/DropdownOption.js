@@ -28,6 +28,7 @@ export default function DropdownOption(props) {
     error,
     curValue,
     disabled,
+    isClearable,
   } = props;
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function DropdownOption(props) {
         className={`dropdown__select-options ${selectClassName}`}
         classNamePrefix={prefix}
         placeholder={I18n.t('components.filter.default-select-message')}
-        isClearable
+        isClearable={isClearable}
         isSearchable
         name={name}
         options={options}
@@ -89,6 +90,7 @@ DropdownOption.propTypes = {
   error: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
+  isClearable: PropTypes.bool,
 };
 
 DropdownOption.defaultProps = {
@@ -100,4 +102,5 @@ DropdownOption.defaultProps = {
   error: false,
   disabled: false,
   onChange: () => {},
+  isClearable: true,
 };

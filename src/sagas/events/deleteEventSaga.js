@@ -13,7 +13,7 @@ function* deleteEvent(payload) {
   try {
     yield put(deleteEventRequest());
     yield call(remove, payload.url);
-    yield put(deleteEventSuccess());
+    yield put(deleteEventSuccess(payload.id));
     yield put(changeIsFree(false));
   } catch (error) {
     yield put(deleteEventFail(error));

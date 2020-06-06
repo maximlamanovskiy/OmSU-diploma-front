@@ -72,7 +72,7 @@ function ScheduleFilter(props) {
     <AsideFilter
       filterClassName={`schedule-filter ${className}`}
       buttonDisabled={!filterPattern}
-      buttonValue={I18n.t('components.filter.buttons.apply-schedule')}
+      buttonValue={I18n.t('components.buttons.apply-filter')}
       onClick={applyFilter}
       isClose={isClose}
     >

@@ -15,7 +15,6 @@
 
   &:focus {
     border-color: #4caf51;
-    box-shadow: none;
     caret-color: #4caf51;
     color: #4caf51;
   }
@@ -31,13 +30,15 @@
   background-color: #fff;
   border: 2px solid #fff;
   border-radius: 5px;
+  box-shadow: 0 0.3vh 0.2vh 0.1vh rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   color: #000;
-  height: 6vh;
+  height: 6.3vh;
   min-height: 20px;
 
   &:focus {
     border-color: #087f24;
+    box-shadow: none;
     color: #000;
   }
 }
@@ -48,10 +49,15 @@
 
 .base-field.label-block__field_error {
   border: 2px solid #b00020;
+  box-shadow: none;
 }
 
 .date-range__date-picker {
   font-size: 1.4vw;
   height: 6.5vh;
   width: 100%;
+}
+
+.time-and-interval__time {
+  font-size: 1.8vw;
 }

@@ -1,43 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { I18n } from 'react-redux-i18n';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import FieldWithLabel from 'src/components/atoms/fieldWithLabel/FieldWithLabel';
 
-import { updateEvent } from 'src/actions/event/eventUtility';
-
 import './style.scss';
 
-function DateRangeSelector(props) {
-  const {
-    dateFrom,
-    dateTo,
-    date,
-    updateEvent: updateEventAction,
-    disabled,
-    error,
-    updateDate,
-  } = props;
-
-  useEffect(() => {
-    updateEventAction({ dateFrom: date });
-  }, [date, updateEventAction]);
+export default function DateRangeSelector(props) {
+  const { dateFrom, dateTo, updateDateFrom, updateDateTo, disabled, error } = props;
 
   const handleChangeInStartDate = event => {
-    const newDate = event.target.value;
-    updateDate(newDate);
-    if (dateTo < newDate) {
-      updateEventAction({ dateTo: newDate });
+    const date = event.target.value;
+    updateDateFrom(date);
+    if (dateTo < date) {
+      updateDateTo(date);
     }
   };
   const handleChangeInEndDate = event => {
-    const newDate = event.target.value;
-    updateEventAction({ dateTo: newDate });
-    if (dateFrom > newDate) {
-      updateDate(newDate);
+    const date = event.target.value;
+    updateDateTo(date);
+    if (dateFrom > date) {
+      updateDateFrom(date);
     }
   };
 
@@ -51,6 +35,7 @@ function DateRangeSelector(props) {
         type="date"
         value={dateFrom}
         onChange={handleChangeInStartDate}
+        disabled={disabled}
         hasError={!dateFrom && error}
       />
       <FieldWithLabel
@@ -69,32 +54,20 @@ function DateRangeSelector(props) {
 }
 
 DateRangeSelector.propTypes = {
-  date: PropTypes.string.isRequired,
-  dateFrom: PropTypes.string.isRequired,
-  dateTo: PropTypes.string.isRequired,
+  dateFrom: PropTypes.string,
+  dateTo: PropTypes.string,
+  updateDateFrom: PropTypes.func.isRequired,
+  updateDateTo: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
-  updateEvent: PropTypes.func,
-  updateDate: PropTypes.func,
+};
+
+DateRangeSelector.defaultProps = {
+  dateFrom: '',
+  dateTo: '',
 };
 
 DateRangeSelector.defaultProps = {
   disabled: false,
   error: false,
-  updateEvent: () => {},
-  updateDate: () => {},
 };
-
-const mapStateToProps = state => ({
-  dateFrom: state.eventReducer.event.dateFrom,
-  dateTo: state.eventReducer.event.dateTo,
-});
-
-const mapDispatchToProps = dispatch => ({
-  updateEvent: bindActionCreators(updateEvent, dispatch),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DateRangeSelector);

@@ -1,25 +1,10 @@
 .color-info {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 10px 0 0;
+  margin: 10px auto 0;
   padding: 0;
-}
-
-.color__text-color {
-  color: #000;
-  font-size: 125%;
-  line-height: 130%;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.color__color-block {
-  border-radius: 10px;
-  display: flex;
-  height: 13px;
-  margin-right: 5px;
-  width: 65px;
+  width: max-content;
 }
 
 .color-info__color {
@@ -27,7 +12,24 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  width: 190px;
+  width: max-content;
+}
+
+.color__color-block {
+  border-radius: 10px;
+  display: flex;
+  height: 2vh;
+  margin-right: 5px;
+  min-height: 6px;
+  width: 5vw;
+}
+
+.color__text-color {
+  color: #000;
+  font-size: calc(2vh + 6px);
+  line-height: 130%;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .free-color {

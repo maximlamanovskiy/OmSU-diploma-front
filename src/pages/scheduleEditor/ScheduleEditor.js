@@ -9,18 +9,24 @@ import Button from 'src/components/atoms/button/Button';
 
 import { clearClassrooms } from 'src/actions/classrooms/utility';
 import { selectBuilding } from 'src/actions/buildings/selectBuilding';
+import { checkUserFetch } from 'src/actions/user/whoAmI';
 
 import ScheduleEditorOptions from './components/scheduleEditorOptions/ScheduleEditorOptions';
 
 import './style.scss';
 
 function ScheduleEditor(props) {
-  const { clearClassrooms: clearClassroomsAction, selectBuilding: selectBuildingAction } = props;
+  const {
+    clearClassrooms: clearClassroomsAction,
+    selectBuilding: selectBuildingAction,
+    checkUser,
+  } = props;
 
   useEffect(() => {
     clearClassroomsAction();
     selectBuildingAction(null);
-  }, [clearClassroomsAction, selectBuildingAction]);
+    checkUser();
+  }, [clearClassroomsAction, selectBuildingAction, checkUser]);
 
   const editSchedule = () => {};
 
@@ -30,7 +36,7 @@ function ScheduleEditor(props) {
       <Button
         className="action-button schedule-editor__button"
         onClick={editSchedule}
-        value={I18n.t('page.schedule-editor.buttons.edit')}
+        value={I18n.t('components.buttons.edit')}
       />
     </div>
   );
@@ -39,16 +45,19 @@ function ScheduleEditor(props) {
 ScheduleEditor.propTypes = {
   clearClassrooms: PropTypes.func,
   selectBuilding: PropTypes.func,
+  checkUser: PropTypes.func,
 };
 
 ScheduleEditor.defaultProps = {
   clearClassrooms: () => {},
   selectBuilding: () => {},
+  checkUser: () => {},
 };
 
 const mapDispatchToProps = dispatch => ({
   clearClassrooms: bindActionCreators(clearClassrooms, dispatch),
   selectBuilding: bindActionCreators(selectBuilding, dispatch),
+  checkUser: bindActionCreators(checkUserFetch, dispatch),
 });
 
 export default connect(

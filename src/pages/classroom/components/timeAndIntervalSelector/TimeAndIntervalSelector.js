@@ -13,52 +13,29 @@ import { intervalsValue } from 'src/utils/date';
 
 import './style.scss';
 
-function findTime(item) {
-  return this === item.id;
-}
-
 const intervals = intervalsValue.map(value => ({
   value,
   label: I18n.t(`pages.classroom.occupation.intervals.${value.toLowerCase()}`),
 }));
 
 function TimeAndIntervalSelector(props) {
-  const {
-    timeBlocks,
-    timeBlockId,
-    updateEvent: updateEventAction,
-    interval,
-    isFree,
-    date,
-    error,
-  } = props;
+  const { timeBlocks, timeIndex, updateEvent: updateEventAction, interval, isFree, error } = props;
+
   const [times, setTimes] = useState(null);
 
   useEffect(() => {
-    setTimes(timeBlocks.find(findTime, timeBlockId));
-  }, [timeBlockId, timeBlocks]);
+    setTimes(timeBlocks[timeIndex]);
+  }, [timeBlocks, timeIndex]);
 
-  const onChangeInterval = obj => {
-    const newInterval = obj && obj.value;
-    let newEvent = { interval: newInterval };
-    if (newInterval && newInterval === 'NONE') {
-      newEvent = {
-        ...newEvent,
-        dateFrom: date,
-        dateTo: date,
-      };
-    }
-    updateEventAction(newEvent);
-  };
-
-  const curInterval = intervals.find(item => item.value === interval);
+  const onChangeInterval = obj =>
+    updateEventAction({ interval: obj ? obj.value : intervalsValue[0] });
 
   return (
     <div className="time-and-interval">
       <FieldWithLabel
         labelValue={I18n.t('pages.classroom.occupation.time')}
         classNameLabel="simple-label"
-        classNameField="event-menu__input base-field simple-label__input"
+        classNameField="event-menu__input base-field simple-label__input time-and-interval__time"
         classNameText="simple-label__text"
         value={`${times ? times.timeFrom : ''} - ${times ? times.timeTo : ''}`}
         disabled
@@ -72,18 +49,17 @@ function TimeAndIntervalSelector(props) {
         textClassName="simple-label__text"
         selectClassName="event-menu__drop-down-select"
         onChange={onChangeInterval}
-        curValue={curInterval || intervals[0]}
+        curValue={intervals.find(item => item.value === interval)}
         disabled={!isFree}
-        error={!curInterval && error}
+        isClearable={false}
       />
     </div>
   );
 }
 
 TimeAndIntervalSelector.propTypes = {
-  timeBlockId: PropTypes.number,
+  timeIndex: PropTypes.number,
   interval: PropTypes.string,
-  date: PropTypes.string,
   timeBlocks: PropTypes.arrayOf(
     PropTypes.shape({
       timeFrom: PropTypes.string,
@@ -96,16 +72,14 @@ TimeAndIntervalSelector.propTypes = {
 };
 
 TimeAndIntervalSelector.defaultProps = {
-  timeBlockId: -1,
+  timeIndex: -1,
   interval: '',
-  date: '',
   timeBlocks: [],
   updateEvent: () => {},
 };
 
 const mapStateToProps = state => ({
   timeBlocks: state.timeblocksReducer.timeBlocks,
-  timeBlockId: state.eventReducer.event.timeBlockId,
   isFree: state.eventReducer.isFree,
 });
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { I18n } from 'react-redux-i18n';
@@ -9,7 +9,9 @@ import Footer from 'src/components/molecules/footer/Footer';
 import Message from 'src/components/atoms/message/Message';
 
 import { getClassroomsFetch } from 'src/actions/classrooms/getClassrooms';
+import { setPage, clearClassroomsEvents } from 'src/actions/classrooms/utility';
 import { getTimeBlocksFetch } from 'src/actions/timeBlocks/getTimeBlocks';
+import { checkUserFetch } from 'src/actions/user/whoAmI';
 
 import ClassroomCompact from './components/classroomCompact/ClassroomCompact';
 import ClassroomsFilter from './components/classroomsFilter/ClassroomsFilter';
@@ -17,8 +19,6 @@ import ClassroomsFilter from './components/classroomsFilter/ClassroomsFilter';
 import './style.scss';
 
 function Classrooms(props) {
-  const [page, setPage] = useState(1);
-
   const {
     hasPrev,
     hasNext,
@@ -27,11 +27,16 @@ function Classrooms(props) {
     getClassrooms,
     getTimeBlocks,
     classrooms,
+    page,
+    checkUser,
+    setPage: setPageAction,
+    clearClassroomsEvents: clearClassroomsEventsAction,
   } = props;
 
   useEffect(() => {
     getTimeBlocks();
-  }, [getTimeBlocks]);
+    checkUser();
+  }, [getTimeBlocks, checkUser]);
 
   const renderList = () => {
     const classroomsCompacts = classrooms.map(item => (
@@ -41,13 +46,15 @@ function Classrooms(props) {
   };
 
   const next = () => {
-    getClassrooms(buildingId, page + 1);
-    setPage(page + 1);
+    getClassrooms(buildingId, page);
+    setPageAction(page + 1);
+    clearClassroomsEventsAction();
   };
 
   const prev = () => {
-    getClassrooms(buildingId, page - 1);
-    setPage(page - 1);
+    getClassrooms(buildingId, page);
+    setPageAction(page - 1);
+    clearClassroomsEventsAction();
   };
 
   return (
@@ -76,6 +83,7 @@ function Classrooms(props) {
               ]}
               disables={[!hasPrev, !hasNext]}
               functions={[prev, next]}
+              keys={[1, 2]}
             />
           ) : null}
         </div>
@@ -86,8 +94,12 @@ function Classrooms(props) {
 
 Classrooms.propTypes = {
   buildingId: PropTypes.number,
+  page: PropTypes.number,
   getClassrooms: PropTypes.func,
   getTimeBlocks: PropTypes.func,
+  setPage: PropTypes.func,
+  checkUser: PropTypes.func,
+  clearClassroomsEvents: PropTypes.func,
   classrooms: PropTypes.arrayOf(PropTypes.shape).isRequired,
   hasNext: PropTypes.bool.isRequired,
   hasPrev: PropTypes.bool.isRequired,
@@ -96,8 +108,12 @@ Classrooms.propTypes = {
 
 Classrooms.defaultProps = {
   buildingId: null,
+  page: 1,
   getClassrooms: () => {},
   getTimeBlocks: () => {},
+  setPage: () => {},
+  checkUser: () => {},
+  clearClassroomsEvents: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -106,11 +122,15 @@ const mapStateToProps = state => ({
   hasNext: state.classroomsReducer.hasNext,
   hasPrev: state.classroomsReducer.hasPrev,
   buildingId: state.buildingReducer.selectedId,
+  page: state.classroomsReducer.page,
 });
 
 const mapDispatchToProps = dispatch => ({
   getClassrooms: bindActionCreators(getClassroomsFetch, dispatch),
   getTimeBlocks: bindActionCreators(getTimeBlocksFetch, dispatch),
+  setPage: bindActionCreators(setPage, dispatch),
+  checkUser: bindActionCreators(checkUserFetch, dispatch),
+  clearClassroomsEvents: bindActionCreators(clearClassroomsEvents, dispatch),
 });
 
 export default connect(

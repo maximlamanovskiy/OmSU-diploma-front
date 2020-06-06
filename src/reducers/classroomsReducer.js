@@ -1,5 +1,5 @@
 import * as types from 'src/actions/classrooms/actionTypes';
-import * as eventTypes from 'src/actions/event/actionTypes';
+import { CREATE_EVENT_SUCCESS, DELETE_EVENT_SUCCESS } from 'src/actions/event/actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -9,8 +9,10 @@ const initialState = {
   classrooms: [],
   classroom: {},
   events: [],
+  classroomEvents: {},
   selectedClassroomId: -1,
   error: null,
+  page: 1,
 };
 
 export default (state = initialState, action) => {
@@ -48,6 +50,7 @@ export default (state = initialState, action) => {
         hasPrev: false,
         classrooms: [],
         error: action.error,
+        page: 1,
       };
     }
 
@@ -135,6 +138,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         classrooms: [],
+        page: 1,
       };
     }
 
@@ -143,13 +147,6 @@ export default (state = initialState, action) => {
         ...state,
         classroom: {},
         events: [],
-      };
-    }
-
-    case types.GET_CLASSROOM_WITH_EVENTS_FETCH: {
-      return {
-        ...state,
-        selectedClassroomId: action.id,
       };
     }
 
@@ -181,27 +178,65 @@ export default (state = initialState, action) => {
       };
     }
 
-    case eventTypes.CREATE_EVENT_REQUEST: {
+    case types.SET_CLASSROOMS_PAGE: {
       return {
         ...state,
-        isLoading: true,
-        error: null,
+        page: action.page,
       };
     }
 
-    case eventTypes.CREATE_EVENT_SUCCESS: {
+    case CREATE_EVENT_SUCCESS: {
       return {
         ...state,
-        isLoading: false,
         events: [...state.events, action.event],
       };
     }
 
-    case eventTypes.CREATE_EVENT_FAIL: {
+    case DELETE_EVENT_SUCCESS: {
       return {
         ...state,
+        events: state.events.filter(event => event.id !== action.id),
+      };
+    }
+
+    case types.SELECT_CLASSROOM: {
+      return {
+        ...state,
+        selectedClassroomId: action.id,
+      };
+    }
+
+    case types.GET_CLASSROOM_FOR_CLASSROOMS_REQUEST: {
+      return {
+        ...state,
+        error: null,
+        isLoading: true,
+      };
+    }
+
+    case types.GET_CLASSROOM_FOR_CLASSROOMS_SUCCESS: {
+      return {
+        ...state,
+        classroomEvents: {
+          ...state.classroomEvents,
+          ...action.events,
+        },
         isLoading: false,
+      };
+    }
+
+    case types.GET_CLASSROOM_FOR_CLASSROOMS_FAIL: {
+      return {
+        ...state,
         error: action.error,
+        isLoading: false,
+      };
+    }
+
+    case types.CLEAR_CLASSROOMS_EVENTS: {
+      return {
+        ...state,
+        classroomEvents: {},
       };
     }
 

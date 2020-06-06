@@ -13,6 +13,7 @@ import Footer from 'src/components/molecules/footer/Footer';
 
 import { deleteClassroomFetch } from 'src/actions/classrooms/deleteClassroom';
 import { updateClassroomFetch } from 'src/actions/classrooms/updateClassroom';
+import { checkUserFetch } from 'src/actions/user/whoAmI';
 
 import * as paths from 'src/constants/paths';
 
@@ -26,6 +27,7 @@ function EditClassroom(props) {
     updateClassroom,
     deleteClassroom,
     historyGoBack,
+    checkUser,
   } = props;
 
   const [number, setNumber] = useState('');
@@ -34,7 +36,8 @@ function EditClassroom(props) {
     if (!selectedClassroomId || selectedClassroomId === -1) {
       historyReplace(paths.classrooms);
     }
-  }, [selectedClassroomId, historyReplace]);
+    checkUser();
+  }, [selectedClassroomId, historyReplace, checkUser]);
 
   useEffect(() => {
     setNumber(classroom.number);
@@ -70,7 +73,7 @@ function EditClassroom(props) {
       <article className="edit-classroom__classroom-editor">
         <ClassroomTags tags={classroom.tags} />
         <FieldWithLabel
-          labelValue={I18n.t('pages.classroom.edit.classroom-number')}
+          labelValue={I18n.t('components.labels.classroom-number')}
           name="number"
           value={number}
           onChange={handleChangeInNumber}
@@ -78,11 +81,12 @@ function EditClassroom(props) {
       </article>
       <Footer
         values={[
-          I18n.t('pages.classroom.footer.buttons.back'),
-          I18n.t('pages.classroom.footer.buttons.save'),
-          I18n.t(`pages.classroom.footer.buttons.delete`),
+          I18n.t('components.buttons.back'),
+          I18n.t('components.buttons.save'),
+          I18n.t(`components.buttons.delete`),
         ]}
         functions={[historyGoBack, saveClassroomFunction, deleteClassroomFunction]}
+        keys={[1, 2, 3]}
       />
     </React.Fragment>
   );
@@ -98,6 +102,7 @@ EditClassroom.propTypes = {
   updateClassroom: PropTypes.func,
   deleteClassroom: PropTypes.func,
   historyGoBack: PropTypes.func,
+  checkUser: PropTypes.func,
 };
 
 EditClassroom.defaultProps = {
@@ -105,6 +110,7 @@ EditClassroom.defaultProps = {
   updateClassroom: () => {},
   deleteClassroom: () => {},
   historyGoBack: () => {},
+  checkUser: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -118,6 +124,7 @@ const mapDispatchToProps = dispatch => ({
   updateClassroom: bindActionCreators(updateClassroomFetch, dispatch),
   historyReplace: bindActionCreators(replace, dispatch),
   historyGoBack: bindActionCreators(goBack, dispatch),
+  checkUser: bindActionCreators(checkUserFetch, dispatch),
 });
 
 export default connect(

@@ -117,10 +117,11 @@
 }
 
 .icon-button {
-  background: center no-repeat;
+  background: center;
+  background-size: contain;
   display: flex;
-  height: 48px;
-  width: 48px;
+  height: 5vh;
+  width: 5vh;
 
   &:hover::before {
     background: rgba(0, 0, 0, 0.04);
@@ -133,35 +134,62 @@
   }
 }
 
+.icon-button_small {
+  height: 3vh;
+  width: 3vh;
+}
+
 .base-header__user-button {
   background-image: url('./images/exit.svg');
-  border-radius: 30px;
   margin-right: 10px;
 }
 
 .base-header__hamburger-menu {
-  background-image: url('images/menu.svg');
+  background-image: url('./images/menu.svg');
   margin-left: 10px;
 }
 
 .dialog-window__close-button {
-  background-image: url('images/close.svg');
-  height: 30px;
+  background-image: url('./images/close.svg');
   position: absolute;
-  width: 30px;}
+}
+
+.period-compact__edit-button {
+  background-image: url('./images/edit.svg');
+
+  &:hover {
+    background-image: url('./images/edit-hover.svg');
+    color: #087f24;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &:focus::before {
+    display: none;
+
+  }
+}
 
 .action-button {
   background-color: #4caf51;
   border-radius: 10px;
+  box-shadow: 0 0 0.2vh 0.2vh rgba(0, 0, 0, 0.2);
   color: #000;
   display: block;
+  font-size: 2vh;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
 
-  &:hover::before {
-    background: rgba(0, 0, 0, 0.04);
-    border-radius: 10px;
+  &:hover {
+    box-shadow: 0 0 0.2vh 0.25vh rgba(0, 0, 0, 0.4);
+
+    &::before {
+      background: rgba(0, 0, 0, 0.04);
+      border-radius: 10px;
+    }
   }
 
   &:focus::before {
@@ -178,17 +206,42 @@
 .footer__button {
   height: 6vh;
   min-height: 25px;
+  overflow: hidden;
+  padding: 0 5px;
+  width: 25vw;
+}
+
+.reschedule-dialog__button,
+.edit-dialog__button {
+  height: 4.5vh;
+  margin: 2vh auto 0;
+  min-height: max-content;
   min-width: max-content;
   padding: 0 5px;
-  width: 15vw;
+  width: 40%;
+}
+
+.event-date__button {
+  align-items: center;
+  background-color: #2f8745;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5vh;
+  margin: 0.5vh 0.25vw;
+  padding: 1vh 0.5vw;
+}
+
+.event-date__button_past {
+  background-color: #c23333;
+}
+
+.event-date__button_selected {
+  background-color: #021d37;
 }
 
 @media screen and (min-width: 1920px) {
-  .action-button {
-    font-size: 22px;
-    letter-spacing: 2px;
-  }
-
   .login-page__login-button {
     margin-top: 10px;
   }
@@ -203,24 +256,5 @@
 
   .register-page__register-button_error {
     margin-top: 5px;
-  }
-
-  .icon-button {
-    height: 64px;
-    width: 64px;
-  }
-
-  .base-header__user-button {
-    background-image: url('./images/exit2x.svg');
-  }
-
-  .base-header__hamburger-menu {
-    background-image: url('images/menu2x.svg');
-  }
-
-  .dialog-window__close-button {
-    background-image: url('images/close2x.svg');
-    height: 42px;
-    width: 42px;
   }
 }

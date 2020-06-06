@@ -9,18 +9,27 @@
 }
 
 .time-buttons__occupying-button {
-  height: 70px;
   margin-bottom: 15px;
 }
 
 .time-buttons__button {
+  align-items: center;
   border-radius: 10px;
+  box-shadow: 0 0 0.4vh 0.2vh rgba(0, 0, 0, 0.3);
+  box-sizing: content-box;
   color: #fff;
   display: flex;
-  font-size: 24px;
-  height: 70px;
+  font-size: calc(2vh + 10px);
+  height: 11vh;
   margin: 0 10px;
-  width: 70px;
+  min-height: 40px;
+  min-width: min-content;
+  padding: 0.2vh 0;
+  width: 6vw;
+
+  &:hover {
+    box-shadow: 0 0 0.5vh 0.25vh rgba(0, 0, 0, 0.45);
+  }
 }
 
 .time-buttons__button_selected {
@@ -33,4 +42,8 @@
 
 .time-buttons__button_occupy {
   background-color: #c23333;
+}
+
+.time-buttons__button_prev {
+  background-color: #53a9f9;
 }

@@ -1,0 +1,37 @@
+.edit-event-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-event-menu__event-periods {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0.3vh 0.2vh 0.1vh rgba(0, 0, 0, 0.2);
+  height: 15vh;
+  margin: 1.7vh auto 0;
+  overflow: auto;
+  width: 90%;
+
+  &:hover {
+    border-color: #087f24;
+    box-shadow: none;
+  }
+}
+
+.event-periods__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.event-periods__list-element {
+  cursor: default;
+  margin-bottom: 2px;
+  padding: 0 2%;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+}

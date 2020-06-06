@@ -14,6 +14,7 @@ import groupsReducer from './groupsReducer';
 import filterReducer from './filterReducer';
 import scheduleReducer from './scheduleReducer';
 import buildingReducer from './buildingReducer';
+import rescheduleReducer from './rescheduleReducer';
 
 export default (state = {}, action) =>
   combineReducers({
@@ -29,6 +30,7 @@ export default (state = {}, action) =>
     filterReducer,
     scheduleReducer,
     buildingReducer,
+    rescheduleReducer,
     i18n: i18nReducer,
     routing: routerReducer,
   })(state, action);

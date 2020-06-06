@@ -1,0 +1,16 @@
+.event-date {
+  display: flex;
+  height: 67.5vh;
+  margin-bottom: 3vh;
+  overflow: auto;
+}
+
+.event-date__button-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 1vh auto;
+  padding: 0;
+  width: 95%;
+}

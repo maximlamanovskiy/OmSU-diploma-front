@@ -35,7 +35,7 @@ function DialogWindow(props) {
         })}
       >
         <Button
-          className="icon-button dialog-window__close-button"
+          className="icon-button icon-button_small dialog-window__close-button"
           onClick={closeDialogWindowAction}
         />
         {children}

@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Spinner from 'src/components/atoms/spinner/Spinner';
-
-import { checkUserFetch } from 'src/actions/user/whoAmI';
 
 import NavigationOptions from './components/navigationOptions/NavigationOptions';
 import Header from './components/header/Header';
@@ -30,12 +27,7 @@ function Base(props) {
     isGroupsLoading,
     isScheduleLoading,
     isBuildingsLoading,
-    checkUser,
   } = props;
-
-  useEffect(() => {
-    checkUser();
-  }, [checkUser]);
 
   return (
     <React.Fragment>
@@ -73,7 +65,6 @@ Base.propTypes = {
   isGroupsLoading: PropTypes.bool,
   isScheduleLoading: PropTypes.bool,
   isBuildingsLoading: PropTypes.bool,
-  checkUser: PropTypes.func,
 };
 
 Base.defaultProps = {
@@ -85,7 +76,6 @@ Base.defaultProps = {
   isGroupsLoading: false,
   isScheduleLoading: false,
   isBuildingsLoading: false,
-  checkUser: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -99,11 +89,7 @@ const mapStateToProps = state => ({
   isBuildingsLoading: state.buildingReducer.isLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
-  checkUser: bindActionCreators(checkUserFetch, dispatch),
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Base);

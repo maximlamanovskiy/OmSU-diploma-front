@@ -1,6 +1,6 @@
 {
   "name": "schedule-generator",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
     "classnames": "2.2.6",
@@ -28,9 +28,10 @@
     "lint-js:fix": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
     "lint-style": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss",
     "lint-style:fix": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss --fix",
-    "lint": "npm run lint-js && npm run lint-style",
-    "lint:fix": "npm run lint-js:fix && npm run lint-style:fix",
-    "run-mock": "REACT_APP_API_URLS=http://localhost:3001 npm start",
+    "lint": "yarn lint-js && yarn lint-style",
+    "lint:fix": "yarn lint-js:fix && yarn lint-style:fix",
+    "run-mock": "REACT_APP_API_URLS=http://localhost:3001 yarn start",
+    "run-mock-win": "set \"REACT_APP_API_URLS=http://localhost:3001\" && yarn start",
     "mock-server": "json-server public/mockapi/server.json --port 3001 --routes public/mockapi/routes.json"
   },
   "devDependencies": {
@@ -54,12 +55,12 @@
   },
   "lint-staged": {
     "*.(js|jsx)": [
-      "npm run prettier",
-      "npm run lint-js",
+      "yarn prettier",
+      "yarn lint-js",
       "git add"
     ],
     "*.scss": [
-      "npm run lint-style",
+      "yarn lint-style",
       "git add"
     ]
   },

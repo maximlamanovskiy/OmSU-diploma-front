@@ -10,9 +10,11 @@ import Header from 'src/components/atoms/header/Header';
 import ClassroomTags from 'src/components/molecules/classroomTags/ClassroomTags';
 import Footer from 'src/components/molecules/footer/Footer';
 
-import { clearEvent, selectTime } from 'src/actions/event/eventUtility';
+import { clearEvent, selectTime, updateEvent } from 'src/actions/event/eventUtility';
 import { createEventFetch } from 'src/actions/event/createEvent';
 import { getEventFetch } from 'src/actions/event/getEvent';
+import { checkUserFetch } from 'src/actions/user/whoAmI';
+import { getClassroomWithEventsFetch } from 'src/actions/classrooms/getClassroomWithEvents';
 
 import * as paths from 'src/constants/paths';
 import { days } from 'src/utils/date';
@@ -35,41 +37,51 @@ function Classroom(props) {
     historyPush,
     clearEvent: clearEventAction,
     selectTime: selectTimeAction,
+    updateEvent: updateEventAction,
     getEvent,
+    checkUser,
+    getClassroomWithEvents,
+    date,
+    selectedEvent,
   } = props;
+
+  const [error, setError] = useState(false);
+  const [curDateFrom, setCurDateFrom] = useState(date);
+  const [curDateTo, setCurDateTo] = useState(date);
 
   useEffect(() => {
     if (!selectedClassroomId || selectedClassroomId === -1) {
       historyReplace(paths.classrooms);
     }
-  }, [selectedClassroomId, historyReplace]);
-
-  useEffect(
-    () => () => {
+    checkUser();
+    updateEventAction({ dateFrom: date, dateTo: date });
+    return () => {
       clearEventAction();
       selectTimeAction(-1);
-    },
-    [clearEventAction, selectTimeAction]
-  );
+    };
+  }, [
+    selectedClassroomId,
+    historyReplace,
+    checkUser,
+    clearEventAction,
+    selectTimeAction,
+    date,
+    updateEventAction,
+  ]);
 
-  const [error, setError] = useState(false);
+  useEffect(() => {
+    if (curDateFrom && curDateTo && selectedClassroomId !== -1) {
+      getClassroomWithEvents(selectedClassroomId, curDateFrom, curDateTo);
+    }
+  }, [getClassroomWithEvents, selectedClassroomId, curDateFrom, curDateTo]);
 
   const occupy = () => {
-    if (
-      eventProp.lecturerId === -1 ||
-      eventProp.comment === '' ||
-      eventProp.timeBlockId === -1 ||
-      eventProp.dateFrom === '' ||
-      eventProp.dateTo === '' ||
-      eventProp.interval === ''
-    ) {
+    if (eventProp.lecturerId === -1 || eventProp.timeBlockId === -1) {
       setError(true);
       return;
     }
 
-    const { dateFrom } = eventProp;
-
-    const req = {
+    createEvent({
       lecturerId: eventProp.lecturerId,
       comment: eventProp.comment,
       required: !!eventProp.required,
@@ -77,24 +89,25 @@ function Classroom(props) {
         {
           classroomId: selectedClassroomId,
           timeBlockId: eventProp.timeBlockId,
-          day: days[new Date(dateFrom).getDay()],
-          dateFrom,
+          day: days[new Date(eventProp.dateFrom).getDay()],
+          dateFrom: eventProp.dateFrom,
           dateTo: eventProp.dateTo,
           interval: eventProp.interval,
         },
       ],
-    };
-
-    createEvent(req);
+    });
+    clearEventAction();
+    setError(false);
   };
 
   const getInfo = () => {
-    if (!eventProp || !eventProp.id) {
+    if (selectedEvent === -1) {
       return;
     }
-    getEvent(eventProp.id);
+    getEvent(selectedEvent);
     historyPush(paths.event);
   };
+
   const number = classroom.number ? classroom.number : '';
 
   return (
@@ -109,15 +122,22 @@ function Classroom(props) {
           <ColorInfo />
           <OccupyingButtons occupation={eventProp} />
         </section>
-        <EventMenu error={error} />
+        <EventMenu
+          error={error}
+          dateTo={curDateTo}
+          dateFrom={curDateFrom}
+          setDateFrom={setCurDateFrom}
+          setDateTo={setCurDateTo}
+        />
       </article>
       <Footer
         footerClassName="classroom-footer"
         functions={[historyGoBack, isFree ? occupy : getInfo]}
         values={[
-          I18n.t('pages.classroom.footer.buttons.back'),
-          I18n.t(`pages.classroom.footer.buttons.${isFree ? 'occupy' : 'details'}`),
+          I18n.t('components.buttons.back'),
+          I18n.t(`components.buttons.${isFree ? 'occupy' : 'details'}`),
         ]}
+        keys={[1, 2]}
       />
     </React.Fragment>
   );
@@ -134,6 +154,8 @@ Classroom.propTypes = {
     ),
   }).isRequired,
   selectedClassroomId: PropTypes.number.isRequired,
+  selectedEvent: PropTypes.number.isRequired,
+  date: PropTypes.string,
   eventProp: PropTypes.shape({
     id: PropTypes.any,
     lecturerId: PropTypes.any,
@@ -152,9 +174,13 @@ Classroom.propTypes = {
   clearEvent: PropTypes.func,
   selectTime: PropTypes.func,
   getEvent: PropTypes.func,
+  checkUser: PropTypes.func,
+  getClassroomWithEvents: PropTypes.func,
+  updateEvent: PropTypes.func,
 };
 
 Classroom.defaultProps = {
+  date: '',
   historyGoBack: () => {},
   historyReplace: () => {},
   historyPush: () => {},
@@ -162,6 +188,9 @@ Classroom.defaultProps = {
   clearEvent: () => {},
   selectTime: () => {},
   getEvent: () => {},
+  checkUser: () => {},
+  getClassroomWithEvents: () => {},
+  updateEvent: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -169,6 +198,8 @@ const mapStateToProps = state => ({
   selectedClassroomId: state.classroomsReducer.selectedClassroomId,
   eventProp: state.eventReducer.event,
   isFree: state.eventReducer.isFree,
+  selectedEvent: state.eventReducer.selectedEvent,
+  date: state.utilityReducer.date,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -179,6 +210,9 @@ const mapDispatchToProps = dispatch => ({
   createEvent: bindActionCreators(createEventFetch, dispatch),
   selectTime: bindActionCreators(selectTime, dispatch),
   getEvent: bindActionCreators(getEventFetch, dispatch),
+  checkUser: bindActionCreators(checkUserFetch, dispatch),
+  getClassroomWithEvents: bindActionCreators(getClassroomWithEventsFetch, dispatch),
+  updateEvent: bindActionCreators(updateEvent, dispatch),
 });
 
 export default connect(

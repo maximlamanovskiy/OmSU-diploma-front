@@ -1,21 +1,36 @@
 import * as types from 'src/actions/event/actionTypes';
+import { intervalsValue } from 'src/utils/date';
+
+const defaultEvent = {
+  required: false,
+  lecturerId: -1,
+  timeBlockId: -1,
+  dateTo: '',
+  dateFrom: '',
+  interval: intervalsValue[0],
+  comment: '',
+  timeIndex: -1,
+};
+
+const emptyFullEvent = {
+  comment: '',
+  lecturer: {
+    lastName: '',
+    firstName: '',
+    patronymic: '',
+  },
+  periods: [],
+  dates: [],
+};
 
 const initialState = {
-  event: {
-    required: false,
-    lecturerId: -1,
-    timeBlockId: -1,
-    dateTo: '',
-    dateFrom: '',
-    interval: 'NONE',
-    comment: '',
-  },
   isFree: true,
-  hasError: false,
-  timeIndex: -1,
-  fullEvent: null,
   isLoading: false,
+  timeIndex: -1,
+  event: { ...defaultEvent },
+  fullEvent: { ...emptyFullEvent },
   error: null,
+  selectedEvent: -1,
 };
 
 export default (state = initialState, action) => {
@@ -24,7 +39,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         event: { ...state.event, ...action.event },
-        hasError: true,
       };
     }
 
@@ -32,15 +46,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         event: {
-          required: false,
-          lecturerId: -1,
-          timeBlockId: -1,
-          dateTo: '',
-          dateFrom: '',
-          interval: 'NONE',
-          comment: '',
+          ...defaultEvent,
         },
-        hasError: true,
+        isFree: true,
       };
     }
 
@@ -54,7 +62,8 @@ export default (state = initialState, action) => {
     case types.CREATE_EVENT_REQUEST: {
       return {
         ...state,
-        hasError: false,
+        isLoading: true,
+        error: null,
       };
     }
 
@@ -66,13 +75,23 @@ export default (state = initialState, action) => {
           id: action.event.id,
         },
         timeIndex: -1,
+        isLoading: false,
+      };
+    }
+
+    case types.CREATE_EVENT_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
       };
     }
 
     case types.DELETE_EVENT_REQUEST: {
       return {
         ...state,
-        hasError: false,
+        isLoading: true,
+        error: null,
       };
     }
 
@@ -80,6 +99,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         timeIndex: -1,
+        isLoading: false,
+      };
+    }
+
+    case types.DELETE_EVENT_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
       };
     }
 
@@ -93,7 +121,7 @@ export default (state = initialState, action) => {
     case types.GET_EVENT_REQUEST: {
       return {
         ...state,
-        fullEvent: null,
+        fullEvent: emptyFullEvent,
         isLoading: true,
         error: null,
       };
@@ -112,6 +140,67 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.error,
+      };
+    }
+
+    case types.GET_PERIODS_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    }
+
+    case types.GET_PERIODS_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        fullEvent: {
+          ...state.fullEvent,
+          periods: action.periods,
+        },
+      };
+    }
+
+    case types.GET_PERIODS_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
+      };
+    }
+
+    case types.CANCEL_EVENT_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    }
+
+    case types.CANCEL_EVENT_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        fullEvent: {
+          ...state.fullEvent,
+          dates: state.fullEvent.dates.filter(date => date !== action.date.period),
+        },
+      };
+    }
+
+    case types.CANCEL_EVENT_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
+      };
+    }
+
+    case types.SELECT_EVENT: {
+      return {
+        ...state,
+        selectedEvent: action.eventId,
       };
     }
 

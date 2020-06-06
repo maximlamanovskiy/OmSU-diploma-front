@@ -15,7 +15,7 @@ function* getLecturers(payload) {
     const lecturers = response.map(lec => ({
       ...lec,
       value: lec.id,
-      label: lec.fullName,
+      label: `${lec.lastName} ${lec.firstName[0]}. ${lec.patronymic[0]}.`,
     }));
     yield put(
       getLecturersSuccess({

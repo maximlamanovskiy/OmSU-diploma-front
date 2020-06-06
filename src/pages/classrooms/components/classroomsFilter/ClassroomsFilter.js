@@ -13,6 +13,7 @@ import { getBuildingsFetch } from 'src/actions/buildings/getBuildingsAction';
 import { getClassroomsFetch } from 'src/actions/classrooms/getClassrooms';
 import { setDateSuccess } from 'src/actions/utility/setDate';
 import { selectBuilding } from 'src/actions/buildings/selectBuilding';
+import { clearClassroomsEvents, setPage } from 'src/actions/classrooms/utility';
 
 import './style.scss';
 
@@ -25,6 +26,8 @@ function ClassroomsFilter(props) {
     getBuildings,
     getClassrooms,
     selectBuilding: selectBuildingAction,
+    clearClassroomsEvents: clearClassroomsEventsAction,
+    setPage: setPageAction,
   } = props;
 
   const [filterBuilding, setFilterBuilding] = useState(buildingId);
@@ -34,7 +37,11 @@ function ClassroomsFilter(props) {
     getBuildings();
   }, [getBuildings]);
 
-  const handleChangeInDate = event => setDate(event.target.value);
+  const handleChangeInDate = event => {
+    const { value } = event.target;
+    clearClassroomsEventsAction();
+    setDate(value, value, value);
+  };
 
   const onBuildingChange = obj => {
     setError(false);
@@ -46,6 +53,8 @@ function ClassroomsFilter(props) {
       setError(true);
       return;
     }
+    setPageAction(1);
+    clearClassroomsEventsAction();
     selectBuildingAction(filterBuilding);
     getClassrooms(filterBuilding, 0);
   };
@@ -53,7 +62,7 @@ function ClassroomsFilter(props) {
   return (
     <AsideFilter
       filterClassName="classrooms-filter"
-      buttonValue={I18n.t('components.filter.buttons.apply-classrooms')}
+      buttonValue={I18n.t('components.buttons.apply-filter')}
       onClick={applyFilter}
     >
       <Field
@@ -62,8 +71,9 @@ function ClassroomsFilter(props) {
         value={date}
         onChange={handleChangeInDate}
       />
+      <div className="classrooms-filter__delimiter" />
       <DropdownOption
-        message={I18n.t('components.filter.labels.building')}
+        message={I18n.t('components.labels.building')}
         name="buildings"
         options={buildings}
         textClassName="simple-label__text"
@@ -83,6 +93,8 @@ ClassroomsFilter.propTypes = {
   getBuildings: PropTypes.func,
   selectBuilding: PropTypes.func,
   getClassrooms: PropTypes.func,
+  clearClassroomsEvents: PropTypes.func,
+  setPage: PropTypes.func,
 };
 
 ClassroomsFilter.defaultProps = {
@@ -93,6 +105,8 @@ ClassroomsFilter.defaultProps = {
   getBuildings: () => {},
   selectBuilding: () => {},
   getClassrooms: () => {},
+  clearClassroomsEvents: () => {},
+  setPage: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -106,6 +120,8 @@ const mapDispatchToProps = dispatch => ({
   getBuildings: bindActionCreators(getBuildingsFetch, dispatch),
   selectBuilding: bindActionCreators(selectBuilding, dispatch),
   getClassrooms: bindActionCreators(getClassroomsFetch, dispatch),
+  clearClassroomsEvents: bindActionCreators(clearClassroomsEvents, dispatch),
+  setPage: bindActionCreators(setPage, dispatch),
 });
 
 export default connect(

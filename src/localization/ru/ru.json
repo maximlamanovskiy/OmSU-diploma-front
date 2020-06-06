@@ -28,7 +28,6 @@
         "invalidLastName": "Недопустимая фамилия",
         "invalidFirstName": "Недопустимое имя",
         "invalidEmail": "Недопустимый адрес электронной почты",
-        "invalidStudentId": "Недопустимый номер студентческого билета",
         "invalidPassword": "Пароль должен быть длиннее 6 символов и не содержать пробелов"
       },
       "buttons": {
@@ -43,9 +42,7 @@
     "classrooms": {
       "buttons": {
         "next-page": "Следующая страница",
-        "prev-page": "Предыдущая страница",
-        "edit": "Изменить",
-        "occupy": "Занять"
+        "prev-page": "Предыдущая страница"
       },
       "messages": {
         "no-filter": "Задайте фильтр, чтобы увидеть аудитории",
@@ -62,7 +59,6 @@
         }
       },
       "occupation": {
-        "date": "Дата",
         "time": "Время",
         "lecturer": "Преподаватель",
         "group": "Группа",
@@ -74,27 +70,13 @@
           "each_even_week": "Четные",
           "each_odd_week": "Нечетные"
         },
-        "require": " - это мероприятие является обязательным"
-      },
-      "footer": {
-        "buttons": {
-          "back": "Назад",
-          "details": "Подробнее",
-          "occupy": "Занять",
-          "delete": "Удалить",
-          "save": "Сохранить"
-        }
+        "require": "это мероприятие является обязательным"
       },
       "messages": {
         "unable-update": "Ошибка изменения аудитории!\nВсе поля должны быть заполенены!"
       },
       "edit": {
         "classroom-number": "Номер аудитории"
-      }
-    },
-    "schedule-editor": {
-      "buttons": {
-        "edit": "Редактировать"
       }
     }
   },
@@ -126,16 +108,10 @@
         "course": "Курс",
         "group": "Группа",
         "year": "Учебный год",
-        "semester": "Семестер",
-        "classroom-number": "Номер аудитории",
-        "building": "Корпус"
+        "semester": "Семестер"
       },
       "default-select-message": "Выбрать...",
       "no-options-message": "Ничего нет",
-      "buttons": {
-        "apply-schedule": "Показать",
-        "apply-classrooms": "Подобрать"
-      },
       "patterns": {
         "year": "Пример: \"2020/2021\""
       }
@@ -177,6 +153,24 @@
         "academic-years": "Введите учебный год",
         "semester": "Выберите семестр"
       }
+    },
+    "buttons": {
+      "edit": "Изменить",
+      "back": "Назад",
+      "occupy": "Занять",
+      "delete": "Удалить",
+      "save": "Сохранить",
+      "apply-filter": "Подобрать",
+      "details": "Подробнее",
+      "cancel": "Отменить",
+      "reschedule": "Перенести",
+      "apply": "Применить"
+    },
+    "labels": {
+      "building": "Корпус",
+      "classroom-number": "Номер аудитории",
+      "date": "Дата",
+      "time": "Время"
     }
   }
 }
