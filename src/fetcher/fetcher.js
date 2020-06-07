@@ -28,7 +28,6 @@ export function post(url, body) {
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include'
     }),
     body: JSON.stringify(body),
   })
