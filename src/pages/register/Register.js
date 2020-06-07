@@ -100,7 +100,7 @@ function Register(props) {
   };
 
   const checkPassword = () => {
-    changePasswordError(!password || password.length <= 5 || password.includes(' '));
+    changePasswordError(!password || password.includes(' '));
   };
 
   const hasError = () => lastNameError || firstNameError || emailError || passwordError;
