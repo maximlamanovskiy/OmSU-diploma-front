@@ -8,10 +8,10 @@ function checkStatus(response) {
 export function get(url) {
   return fetch(url, {
     method: 'GET',
+    credentials: 'include',
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include'
     }),
   })
     .then(response => checkStatus(response))
@@ -24,6 +24,7 @@ export function get(url) {
 export function post(url, body) {
   return fetch(url, {
     method: 'POST',
+    credentials: 'include',
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -41,10 +42,10 @@ export function post(url, body) {
 export function remove(url, body) {
   return fetch(url, {
     method: 'DELETE',
+    credentials: 'include',
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include'
     }),
     body: body ? JSON.stringify(body) : '',
   })
@@ -58,10 +59,10 @@ export function remove(url, body) {
 export function update(url, body) {
   return fetch(url, {
     method: 'PUT',
+    credentials: 'include',
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include'
     }),
     body: JSON.stringify(body),
   })
