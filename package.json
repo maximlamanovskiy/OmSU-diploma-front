@@ -28,10 +28,10 @@
     "lint-js:fix": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
     "lint-style": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss",
     "lint-style:fix": "./node_modules/.bin/stylelint src/**/*.scss --syntax scss --fix",
-    "lint": "yarn lint-js && yarn lint-style",
-    "lint:fix": "yarn lint-js:fix && yarn lint-style:fix",
-    "run-mock": "REACT_APP_API_URLS=http://localhost:3001 yarn start",
-    "run-mock-win": "set \"REACT_APP_API_URLS=http://localhost:3001\" && yarn start",
+    "lint": "npm run lint-js && npm run lint-style",
+    "lint:fix": "npm run lint-js:fix && npm run lint-style:fix",
+    "run-mock": "REACT_APP_API_URLS=http://localhost:3001 npm start",
+    "run-mock-win": "set \"REACT_APP_API_URLS=http://localhost:3001\" && npm start",
     "mock-server": "json-server public/mockapi/server.json --port 3001 --routes public/mockapi/routes.json"
   },
   "devDependencies": {
@@ -55,12 +55,12 @@
   },
   "lint-staged": {
     "*.(js|jsx)": [
-      "yarn prettier",
-      "yarn lint-js",
+      "npm run prettier",
+      "npm run lint-js",
       "git add"
     ],
     "*.scss": [
-      "yarn lint-style",
+      "npm run lint-style",
       "git add"
     ]
   },
