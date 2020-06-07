@@ -11,6 +11,7 @@ export function get(url) {
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      credentials: 'include'
     }),
   })
     .then(response => checkStatus(response))
@@ -26,6 +27,7 @@ export function post(url, body) {
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      credentials: 'include'
     }),
     body: JSON.stringify(body),
   })
@@ -42,6 +44,7 @@ export function remove(url, body) {
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      credentials: 'include'
     }),
     body: body ? JSON.stringify(body) : '',
   })
@@ -58,6 +61,7 @@ export function update(url, body) {
     headers: new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      credentials: 'include'
     }),
     body: JSON.stringify(body),
   })
