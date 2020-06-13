@@ -1,4 +1,4 @@
-# Scheduler
+# Schedule generator
 
 System for creating timetable for university and manage it.
 Also, this system can be use for working with classrooms and events.
