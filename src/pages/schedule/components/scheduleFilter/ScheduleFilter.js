@@ -11,6 +11,7 @@ import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOpti
 import { clearFilter } from 'src/actions/filter/clearFilter';
 import { getScheduleFetch } from 'src/actions/schedule/getSchedule';
 import { updateScheduleType } from 'src/actions/schedule/updateType';
+import { checkYear } from 'src/utils/date';
 
 import GroupFilterOptions from './filterOptions/groupFilterOptions/GroupFilterOptions';
 import LecturerFilterOptions from './filterOptions/lecturerFilterOptions/LecturerFilterOptions';
@@ -24,10 +25,9 @@ const firstOptions = [
   { value: 3, label: I18n.t('components.filter.options.which-schedule.lecturer') },
 ];
 
-const checkYear = year => year && year.match('^2\\d{3}/2\\d{3}$');
 const checkErrors = filter => !(checkYear(filter.year) && filter.semester && filter.id);
 
-const types = ['groups', 'course', 'lecturers'];
+const types = ['groups', 'courses', 'lecturers'];
 
 function ScheduleFilter(props) {
   const [filterPattern, changeFilterPattern] = useState(0);
@@ -40,6 +40,7 @@ function ScheduleFilter(props) {
     className,
     isClose,
     updateScheduleType: updateScheduleTypeAction,
+    changeType,
   } = props;
 
   useEffect(
@@ -66,6 +67,7 @@ function ScheduleFilter(props) {
       ...filter,
       type: types[filterPattern - 1],
     });
+    changeType(types[filterPattern - 1]);
   };
 
   return (
@@ -102,6 +104,7 @@ ScheduleFilter.propTypes = {
   clearFilter: PropTypes.func,
   getSchedule: PropTypes.func,
   updateScheduleType: PropTypes.func,
+  changeType: PropTypes.func,
 };
 
 ScheduleFilter.defaultProps = {
@@ -111,6 +114,7 @@ ScheduleFilter.defaultProps = {
   clearFilter: () => {},
   getSchedule: () => {},
   updateScheduleType: () => {},
+  changeType: () => {},
 };
 
 const mapStateToProps = state => ({

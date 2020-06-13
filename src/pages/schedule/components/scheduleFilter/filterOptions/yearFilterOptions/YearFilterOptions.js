@@ -10,9 +10,8 @@ import Message from 'src/components/atoms/message/Message';
 import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOption';
 
 import { updateFilter } from 'src/actions/filter/updateFilter';
-
-const checkYear = year => year && year.match('^2\\d{3}/2\\d{3}$');
-const semester = [{ value: 1, label: 1 }, { value: 2, label: 2 }];
+import { semesters } from 'src/constants/semesters';
+import { checkYear } from 'src/utils/date';
 
 function YearFilterOptions(props) {
   const { error, updateFilter: updateFilterAction } = props;
@@ -53,7 +52,7 @@ function YearFilterOptions(props) {
       />
       <DropdownOption
         name="semester"
-        options={semester}
+        options={semesters}
         message={I18n.t('components.filter.labels.semester')}
         onChange={changeSemester}
         error={!wasSemesterSelect && error}

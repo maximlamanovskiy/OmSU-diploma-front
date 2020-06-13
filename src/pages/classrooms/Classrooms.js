@@ -34,8 +34,8 @@ function Classrooms(props) {
   } = props;
 
   useEffect(() => {
-    getTimeBlocks();
     checkUser();
+    getTimeBlocks();
   }, [getTimeBlocks, checkUser]);
 
   const renderList = () => {
@@ -46,13 +46,15 @@ function Classrooms(props) {
   };
 
   const next = () => {
-    getClassrooms(buildingId, page);
+    checkUser();
+    getClassrooms(buildingId, page + 1);
     setPageAction(page + 1);
     clearClassroomsEventsAction();
   };
 
   const prev = () => {
-    getClassrooms(buildingId, page);
+    checkUser();
+    getClassrooms(buildingId, page - 1);
     setPageAction(page - 1);
     clearClassroomsEventsAction();
   };

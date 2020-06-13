@@ -5,7 +5,6 @@
 
 .text-area_small {
   height: 15vh;
-  margin-top: -1.5vh;
   min-height: 60px;
 }
 
@@ -15,13 +14,10 @@
   line-height: 2.95vh;
   margin: 0;
   text-transform: uppercase;
-  top: 1em;
 }
 
 .text-area_small .text-area__text {
   font-size: 2vh;
-  line-height: 2.5vh;
-  top: 1.3em;
 }
 
 .text-area__text_active {
@@ -31,7 +27,6 @@
 .text-area__input {
   font-size: calc(6px + 1.2vh);
   outline: none;
-  padding-top: 2vh;
   resize: none;
 }
 

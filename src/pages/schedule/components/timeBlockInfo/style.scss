@@ -8,16 +8,21 @@
   justify-content: center;
 }
 
+.time-block-info_second {
+  grid-column-end: 2;
+  grid-column-start: 2;
+}
+
 .time-block-info__text {
   display: flex;
-  font-size: 22px;
+  font-size: calc(8px + 1.2vh);
   justify-content: center;
-  line-height: 28px;
+  line-height: calc(8px + 1.5vh);
 }
 
 .time-block-info__delimiter {
   display: flex;
-  font-size: 30px;
+  font-size: calc(10px + 1.5vh);
   justify-content: center;
-  line-height: 10px;
+  line-height: calc(2px + 0.5vh);
 }

@@ -8,7 +8,7 @@ function* getLesson(payload) {
   try {
     yield put(getLessonRequest());
     const response = yield call(get, payload.url);
-    yield put(getLessonSuccess({ lesson: response }));
+    yield put(getLessonSuccess({ lesson: Object.values(Object.values(response)[0])[0][0] }));
   } catch (error) {
     yield put(getLessonFail(error));
   }

@@ -12,7 +12,7 @@ import {
   getClassroomForClassroomsSuccess,
   getClassroomForClassroomsFail,
 } from 'src/actions/classrooms/getClassroomWithEvents';
-import { isWeekEven } from 'src/utils/date';
+import { reverseInterval } from 'src/utils/date';
 import {
   GET_CLASSROOM_WITH_EVENTS_FETCH,
   GET_CLASSROOM_FOR_RESCHEDULE_FETCH,
@@ -23,7 +23,7 @@ function* getClassroomWithEvents(payload) {
   try {
     yield put(getClassroomWithEventsRequest());
     const response = yield call(get, payload.url);
-    const interval = isWeekEven(new Date(payload.date)) ? 'EACH_ODD_WEEK' : 'EACH_EVEN_WEEK';
+    const interval = reverseInterval(payload.interval);
     const events = response.events.filter(item =>
       item.eventPeriods.some(period => period.interval !== interval)
     );
@@ -45,7 +45,7 @@ function* getClassroomForReschedule(payload) {
   try {
     yield put(getClassroomForRescheduleRequest());
     const response = yield call(get, payload.url);
-    const interval = isWeekEven(new Date(payload.date)) ? 'EACH_ODD_WEEK' : 'EACH_EVEN_WEEK';
+    const interval = reverseInterval(payload.interval);
     const events = response.events.filter(item =>
       item.eventPeriods.some(period => period.interval !== interval)
     );
@@ -59,7 +59,7 @@ function* getClassroomForClassrooms(payload) {
   try {
     yield put(getClassroomForClassroomsRequest());
     const response = yield call(get, payload.url);
-    const interval = isWeekEven(new Date(payload.date)) ? 'EACH_ODD_WEEK' : 'EACH_EVEN_WEEK';
+    const interval = reverseInterval(payload.interval);
     const events = response.events.filter(item =>
       item.eventPeriods.some(period => period.interval !== interval)
     );

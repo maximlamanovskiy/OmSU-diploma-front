@@ -33,10 +33,6 @@
       "buttons": {
         "login": "Login",
         "registration": "Registration"
-      },
-      "links": {
-        "student": "Student",
-        "lecturer": "Lecturer"
       }
     },
     "classrooms": {
@@ -57,20 +53,6 @@
           "selected": " - Selected",
           "occupied": " - Occupied"
         }
-      },
-      "occupation": {
-        "time": "Time",
-        "lecturer": "Lecturer",
-        "group": "Group",
-        "comment": "Commentary",
-        "interval": "Interval",
-        "intervals": {
-          "none": "None",
-          "every_week": "Every",
-          "each_even_week": "Even",
-          "each_odd_week": "Odd"
-        },
-        "require": "this event is required"
       },
       "messages": {
         "unable-update": "Unable to update auditory!\nAll fields should be not empty!"
@@ -133,9 +115,10 @@
         "even": ", e/w",
         "odd": ", o/w",
         "every": " ",
-        "even-full": ", even week",
-        "odd-full": ", odd week",
-        "every-full": " ",
+        "each_even_week-full": ", even week",
+        "each_odd_week-full": ", odd week",
+        "none-full": ", none",
+        "every_week-full": " ",
         "building": "building:",
         "classroom": "classroom:",
         "from": "from",
@@ -164,13 +147,33 @@
       "details": "Details",
       "cancel": "Cancel",
       "reschedule": "Reschedule",
-      "apply": "Apply"
+      "apply": "Apply",
+      "create": "Create"
     },
     "labels": {
       "building": "Building",
       "classroom-number": "Classroom number",
       "date": "Date",
-      "time": "Time"
+      "time": "Time",
+      "activity": "Activity",
+      "discipline": " Discipline",
+      "lecturer": "Lecturer",
+      "comment": "Commentary",
+      "require": "is required",
+      "interval": "Interval",
+      "groups": "Groups"
+    },
+    "activities": {
+      "lecture": "Lecture",
+      "seminar": "Seminar",
+      "practice": "Practice",
+      "laboratory": "Laboratory"
+    },
+    "intervals": {
+      "none": "None",
+      "every_week": "Every",
+      "each_even_week": "Even",
+      "each_odd_week": "Odd"
     }
   }
 }

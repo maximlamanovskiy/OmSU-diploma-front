@@ -14,10 +14,12 @@ import { days } from 'src/utils/date';
 
 import ScheduleHeader from '../scheduleHeader/ScheduleHeader';
 import ScheduleColumn from '../scheduleColumn/ScheduleColumn';
+import TimeColumn from '../timeColumn/TimeColumn';
+import DayColumn from '../dayColumn/DayColumn';
 
 import './style.scss';
 
-const dayOfWeeks = days.slice(1).map(day => day.toLowerCase());
+const dayOfWeeks = days.slice(1);
 
 function ScheduleTable(props) {
   const {
@@ -37,10 +39,11 @@ function ScheduleTable(props) {
     };
   }, [getTimeBlocks, clearScheduleAction]);
 
-  const headers = schedule && type !== 'group' ? Object.keys(schedule) : dayOfWeeks;
+  const isCourses = type === 'courses';
+  const headers = schedule && isCourses ? Object.keys(schedule) : dayOfWeeks;
 
   const scheduleStyles = {
-    gridTemplateColumns: `1fr repeat(${headers.length}, 2fr)`,
+    gridTemplateColumns: `${isCourses ? '0.5fr 0.5fr' : '1fr'} repeat(${headers.length}, 2fr)`,
     gridTemplateRows: 'auto',
   };
 
@@ -53,6 +56,8 @@ function ScheduleTable(props) {
         schedule={schedule[item] ? schedule[item] : {}}
         timeBlocks={timeBlocks}
         number={index + 2}
+        isCourses={isCourses}
+        dayOfWeeks={dayOfWeeks}
       />
     ));
 
@@ -69,8 +74,9 @@ function ScheduleTable(props) {
         />
       ) : (
         <div className="schedule-table__schedule" style={scheduleStyles}>
-          <ScheduleHeader headers={dayOfWeeks} style={scheduleStyles} />
-          <ScheduleColumn timeBlocks={timeBlocks} />
+          <ScheduleHeader headers={headers} style={scheduleStyles} isCourses={isCourses} />
+          {isCourses ? <DayColumn dayOfWeeks={dayOfWeeks} timeBlocks={timeBlocks} /> : null}
+          <TimeColumn timeBlocks={timeBlocks} count={isCourses ? dayOfWeeks.length : 1} />
           {renderSchedule()}
         </div>
       )}
@@ -91,7 +97,7 @@ ScheduleTable.propTypes = {
 ScheduleTable.defaultProps = {
   schedule: null,
   className: '',
-  type: 'group',
+  type: 'groups',
   wasGetRequest: false,
   getTimeBlocks: () => {},
   clearSchedule: () => {},

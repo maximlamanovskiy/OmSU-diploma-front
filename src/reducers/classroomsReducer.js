@@ -12,7 +12,7 @@ const initialState = {
   classroomEvents: {},
   selectedClassroomId: -1,
   error: null,
-  page: 1,
+  page: 0,
 };
 
 export default (state = initialState, action) => {

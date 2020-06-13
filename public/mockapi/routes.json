@@ -1,6 +1,8 @@
 {
-  "/schedule/groups/*": "/schedule-groups",
-  "/schedule/lecturers/*": "/schedule-lecturers",
+  "/schedules/groups/*": "/schedule-groups",
+  "/schedules/lecturers/*": "/schedule-lecturers",
+  "/schedules/courses/*": "/schedule-courses",
+  "/schedules/items/*": "/items",
   "/buildings/:id/classrooms?page=:page&size=:size": "/classrooms-with-meta",
   "/classrooms/:id/events-by-date?dateFrom=:dateFrom&dateTo=:dateTo": "/classrooms/:id"
 }

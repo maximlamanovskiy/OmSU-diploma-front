@@ -1,0 +1,19 @@
+.editor-item {
+  background-color: #fff;
+  border: solid 1px #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-item__schedule-item-list {
+  list-style: none;
+  margin: 0;
+  max-height: 65vh;
+  overflow: auto;
+  padding: 0;
+}
+
+.editor-item__add-new {
+  border-radius: 0;
+  height: 4vh;
+}

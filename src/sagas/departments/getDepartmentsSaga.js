@@ -17,11 +17,7 @@ function* getDepartments(payload) {
       value: dep.id,
       label: dep.chair,
     }));
-    yield put(
-      getDepartmentsSuccess({
-        departments,
-      })
-    );
+    yield put(getDepartmentsSuccess({ departments }));
   } catch (error) {
     yield put(getDepartmentsFail(error));
   }

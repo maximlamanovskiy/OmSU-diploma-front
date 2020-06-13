@@ -2,18 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LessonCompact from '../lessonCompact/LessonCompact';
-import TimeBlockInfo from '../timeBlockInfo/TimeBlockInfo';
 
 import './style.scss';
 
 export default function ScheduleColumn(props) {
-  const { schedule, timeBlocks, number } = props;
+  const { schedule, timeBlocks, number, isCourses, dayOfWeeks } = props;
   const columnStyle = {
     gridColumn: `${number}/${number}`,
   };
 
   let i = 0;
-  const renderDay = () =>
+  const renderScheduleTimeBlocks = () =>
     timeBlocks.map((timeBlock, index) => {
       const lessons = schedule ? schedule[timeBlock.timeFrom] : null;
       i += 1;
@@ -31,14 +30,32 @@ export default function ScheduleColumn(props) {
       );
     });
 
-  const renderTimeBlocks = () =>
-    timeBlocks &&
-    timeBlocks.map(timeBlock => <TimeBlockInfo timeBlock={timeBlock} key={timeBlock.id} />);
+  const renderScheduleTimeOfDays = (dayLessons, index, length) =>
+    timeBlocks.map((time, ind) => {
+      const lessons = dayLessons ? dayLessons[time.timeFrom] : null;
+      i += 1;
+      return (
+        <div
+          key={i}
+          className="schedule-column__lesson-cell"
+          style={{
+            gridRow: `${index * length + ind + 2}/${index * length + ind + 2}`,
+          }}
+        >
+          {lessons && lessons.map(lesson => <LessonCompact lesson={lesson} key={`${lesson.id}`} />)}
+        </div>
+      );
+    });
+
+  const renderScheduleDays = () =>
+    dayOfWeeks.map((day, index) =>
+      renderScheduleTimeOfDays(schedule ? schedule.schedule[day] : null, index, timeBlocks.length)
+    );
 
   return (
     <React.Fragment>
-      {!schedule && timeBlocks && renderTimeBlocks()}
-      {schedule && timeBlocks && renderDay()}
+      {!isCourses && schedule && timeBlocks && renderScheduleTimeBlocks()}
+      {isCourses && schedule && timeBlocks && renderScheduleDays()}
     </React.Fragment>
   );
 }
@@ -51,12 +68,18 @@ ScheduleColumn.propTypes = {
       timeFrom: PropTypes.string,
     })
   ),
-  schedule: PropTypes.shape({}),
+  isCourses: PropTypes.bool,
+  schedule: PropTypes.shape({
+    schedule: PropTypes.shape({}),
+  }),
   number: PropTypes.number,
+  dayOfWeeks: PropTypes.arrayOf(PropTypes.string),
 };
 
 ScheduleColumn.defaultProps = {
   timeBlocks: null,
   schedule: null,
   number: 1,
+  isCourses: false,
+  dayOfWeeks: [],
 };

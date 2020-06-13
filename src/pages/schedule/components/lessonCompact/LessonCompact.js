@@ -20,7 +20,7 @@ function LessonCompact(props) {
   const renderGroups = () => {
     let groups = '';
     lesson.groups.forEach((group, index) => {
-      groups += group;
+      groups += group.name;
       if (index + 1 < lesson.groups.length) groups += ', ';
     });
     return <Message className="lesson-compact__message lesson-compact__groups" value={groups} />;
@@ -30,7 +30,9 @@ function LessonCompact(props) {
     <Button className={`lesson-compact ${className}`} onClick={onClick}>
       <Message
         className="lesson-compact__message lesson-compact__type"
-        value={`${lesson.activity}${I18n.t(`components.schedule.lessons.${lesson.interval}`)}`}
+        value={`${I18n.t(`components.activities.${lesson.activity.toLowerCase()}`)} ${I18n.t(
+          `components.intervals.${lesson.eventPeriod.interval.toLowerCase()}`
+        )}`}
       />
       {!lesson.require && (
         <Message
@@ -40,14 +42,16 @@ function LessonCompact(props) {
       )}
       <Message
         className="lesson-compact__message lesson-compact__name"
-        value={`${lesson.discipline}, ${lesson.buildingNumber}-${lesson.classroom}`}
+        value={`${lesson.discipline}, ${lesson.eventPeriod.classroom.buildingNumber}-${lesson.eventPeriod.classroom.classroomNumber}`}
       />
       {type === 'lecturers' ? (
         renderGroups()
       ) : (
         <Message
           className="lesson-compact__message lesson-compact__lecturer"
-          value={lesson.lecturer}
+          value={`${lesson.lecturer.firstName[0]}.${lesson.lecturer.patronymic[0]}.${
+            lesson.lecturer.lastName
+          }`}
         />
       )}
     </Button>
@@ -56,15 +60,27 @@ function LessonCompact(props) {
 
 LessonCompact.propTypes = {
   lesson: PropTypes.shape({
-    id: PropTypes.any,
-    interval: PropTypes.string,
-    buildingNumber: PropTypes.number,
-    classroom: PropTypes.string,
-    lecturer: PropTypes.string,
+    id: PropTypes.number,
+    eventPeriod: PropTypes.shape({
+      interval: PropTypes.string,
+      classroom: PropTypes.shape({
+        buildingNumber: PropTypes.number,
+        classroomNumber: PropTypes.string,
+      }),
+    }),
+    lecturer: PropTypes.shape({
+      firstName: PropTypes.string,
+      patronymic: PropTypes.string,
+      lastName: PropTypes.string,
+    }),
     discipline: PropTypes.string,
     activity: PropTypes.string,
     require: PropTypes.bool,
-    groups: PropTypes.arrayOf(PropTypes.string),
+    groups: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+      })
+    ),
   }).isRequired,
   className: PropTypes.string,
   type: PropTypes.string,

@@ -1,0 +1,24 @@
+.schedule-item-dialog {
+  width: 50%;
+}
+
+.schedule-item-dialog__options {
+  display: flex;
+  flex-direction: row;
+}
+
+.schedule-item-dialog__small-wrapper {
+  margin-top: 0.6vh;
+  width: 48%;
+}
+
+.schedule-item-dialog__drop-down-select .dropdown__control {
+  height: 4vh;
+}
+
+.schedule-item-dialog__save-button {
+  height: 4.5vh;
+  margin: 1vh auto;
+  min-height: max-content;
+  width: 40%;
+}

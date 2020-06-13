@@ -33,10 +33,6 @@
       "buttons": {
         "login": "Войти",
         "registration": "Регистрация"
-      },
-      "links": {
-        "student": "Студент",
-        "lecturer": "Преподаватель"
       }
     },
     "classrooms": {
@@ -57,20 +53,6 @@
           "selected": " - Выбрана",
           "occupied": " - Занята"
         }
-      },
-      "occupation": {
-        "time": "Время",
-        "lecturer": "Преподаватель",
-        "group": "Группа",
-        "comment": "Комментарий",
-        "interval": "Интервал",
-        "intervals": {
-          "none": "Нет",
-          "every_week": "Всегда",
-          "each_even_week": "Четные",
-          "each_odd_week": "Нечетные"
-        },
-        "require": "это мероприятие является обязательным"
       },
       "messages": {
         "unable-update": "Ошибка изменения аудитории!\nВсе поля должны быть заполенены!"
@@ -133,9 +115,10 @@
         "even": ", ч/н",
         "odd": ", н/н",
         "every": " ",
-        "even-full": ", четная неделя",
-        "odd-full": ", нечетная неделя",
-        "every-full": " ",
+        "each_even_week-full": ", четная неделя",
+        "each_odd_week-full": ", нечетная неделя",
+        "none-full": ", нет",
+        "every_week-full": " ",
         "building": "корпус:",
         "classroom": "аудитория:",
         "from": "с",
@@ -148,10 +131,10 @@
     },
     "schedule-editor-options": {
       "labels": {
-        "faculty": "Выберите факультет",
-        "course": "Выберите курс",
-        "academic-years": "Введите учебный год",
-        "semester": "Выберите семестр"
+        "faculty": "Факультет",
+        "course": "Курс",
+        "academic-years": "Учебный год",
+        "semester": "Семестр"
       }
     },
     "buttons": {
@@ -164,13 +147,33 @@
       "details": "Подробнее",
       "cancel": "Отменить",
       "reschedule": "Перенести",
-      "apply": "Применить"
+      "apply": "Применить",
+      "create": "Создать"
     },
     "labels": {
       "building": "Корпус",
       "classroom-number": "Номер аудитории",
       "date": "Дата",
-      "time": "Время"
+      "time": "Время",
+      "activity": "Активность",
+      "discipline": " Предмет",
+      "lecturer": "Преподаватель",
+      "comment": "Комментарий",
+      "require": "обязательное",
+      "interval": "Интервал",
+      "groups": "Группы"
+    },
+    "activities": {
+      "lecture": "Лекция",
+      "seminar": "Семинар",
+      "practice": "Практика",
+      "laboratory": "Лабораторная"
+    },
+    "intervals": {
+      "none": "Нет",
+      "every_week": "Всегда",
+      "each_even_week": "Четные",
+      "each_odd_week": "Нечетные"
     }
   }
 }

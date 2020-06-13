@@ -17,7 +17,7 @@ import { checkUserFetch } from 'src/actions/user/whoAmI';
 import { getClassroomWithEventsFetch } from 'src/actions/classrooms/getClassroomWithEvents';
 
 import * as paths from 'src/constants/paths';
-import { days } from 'src/utils/date';
+import { intervalsValue } from 'src/utils/date';
 
 import ColorInfo from './components/colorInfo/ColorInfo';
 import EventMenu from './components/eventMenu/EventMenu';
@@ -48,6 +48,7 @@ function Classroom(props) {
   const [error, setError] = useState(false);
   const [curDateFrom, setCurDateFrom] = useState(date);
   const [curDateTo, setCurDateTo] = useState(date);
+  const [interval, setInterval] = useState(intervalsValue[0]);
 
   useEffect(() => {
     if (!selectedClassroomId || selectedClassroomId === -1) {
@@ -71,11 +72,12 @@ function Classroom(props) {
 
   useEffect(() => {
     if (curDateFrom && curDateTo && selectedClassroomId !== -1) {
-      getClassroomWithEvents(selectedClassroomId, curDateFrom, curDateTo);
+      getClassroomWithEvents(selectedClassroomId, curDateFrom, curDateTo, interval);
     }
-  }, [getClassroomWithEvents, selectedClassroomId, curDateFrom, curDateTo]);
+  }, [getClassroomWithEvents, selectedClassroomId, curDateFrom, curDateTo, interval]);
 
   const occupy = () => {
+    checkUser();
     if (eventProp.lecturerId === -1 || eventProp.timeBlockId === -1) {
       setError(true);
       return;
@@ -89,10 +91,9 @@ function Classroom(props) {
         {
           classroomId: selectedClassroomId,
           timeBlockId: eventProp.timeBlockId,
-          day: days[new Date(eventProp.dateFrom).getDay()],
           dateFrom: eventProp.dateFrom,
           dateTo: eventProp.dateTo,
-          interval: eventProp.interval,
+          interval,
         },
       ],
     });
@@ -101,6 +102,7 @@ function Classroom(props) {
   };
 
   const getInfo = () => {
+    checkUser();
     if (selectedEvent === -1) {
       return;
     }
@@ -120,7 +122,7 @@ function Classroom(props) {
             className="classroom-header"
           />
           <ColorInfo />
-          <OccupyingButtons occupation={eventProp} />
+          <OccupyingButtons />
         </section>
         <EventMenu
           error={error}
@@ -128,6 +130,8 @@ function Classroom(props) {
           dateFrom={curDateFrom}
           setDateFrom={setCurDateFrom}
           setDateTo={setCurDateTo}
+          interval={interval}
+          setInterval={setInterval}
         />
       </article>
       <Footer
