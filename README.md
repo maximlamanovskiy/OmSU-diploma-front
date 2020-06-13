@@ -78,5 +78,6 @@ $ yarn build
 * `yarn lint` - runs both linters on whole project
 * `yarn lint:fix` - runs both linters on whole project and fixes issues that is possible to fix automatically
 * `yarn run-mock` - starts dev server using mocks
+* `yarn run-mock-win` - starts dev server using mocks on windows
 * `yarn mock-server` - starts mock server for mock version
 
