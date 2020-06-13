@@ -12,15 +12,16 @@ import Footer from 'src/components/molecules/footer/Footer';
 
 import { deleteEventFetch } from 'src/actions/event/deleteEvent';
 import { cancelEventFetch } from 'src/actions/event/cancelEvent';
-import { openDialogWindow } from 'src/actions/utility/dialogWindow';
+import {
+  openEventDialogWindow,
+  openRescheduleDialogWindow,
+} from 'src/actions/utility/dialogWindow';
 import { checkUserFetch } from 'src/actions/user/whoAmI';
 import { getPeriodsFetch } from 'src/actions/event/getPeriods';
 
 import * as paths from 'src/constants/paths';
 
 import EventDate from './components/eventDate/EventDate';
-import RescheduleEventDialog from './components/rescheduleEventDialog/RescheduleEventDialog';
-import EditEventDialog from './components/editEventDialog/EditEventDialog';
 
 import './style.scss';
 
@@ -31,37 +32,45 @@ function Event(props) {
     historyReplace,
     deleteEvent,
     cancelEvent,
-    openDialogWindow: openDialogWindowAction,
     reschedule,
     checkUser,
     getPeriods,
+    selectedEvent,
+    openEventDialogWindow: openEventDialogWindowAction,
+    openRescheduleDialogWindow: openRescheduleDialogWindowAction,
   } = props;
 
   useEffect(() => {
-    if (!fullEvent) {
+    checkUser();
+    if (selectedEvent === -1) {
       historyReplace(paths.classrooms);
     }
-    checkUser();
-  }, [fullEvent, historyReplace, checkUser]);
+  }, [selectedEvent, historyReplace, checkUser]);
 
-  const lecturer = fullEvent
-    ? `${fullEvent.lecturer.lastName} ${fullEvent.lecturer.firstName} ${fullEvent.lecturer.patronymic}`
-    : '';
+  const lecturer = `${fullEvent.lecturer.lastName} ${fullEvent.lecturer.firstName} ${fullEvent.lecturer.patronymic}`;
 
   const clickDelete = () => {
+    checkUser();
     deleteEvent(fullEvent.id);
     historyGoBack();
   };
-  const clickCancel = () =>
+  const clickCancel = () => {
+    checkUser();
     cancelEvent(
       { eventPeriodId: reschedule.period.eventPeriodId, dates: [reschedule.from] },
       reschedule
     );
-  const clickEdit = () => {
-    getPeriods(fullEvent.id);
-    openDialogWindowAction();
   };
-  const clickReschedule = () => openDialogWindowAction();
+
+  const clickEdit = () => {
+    checkUser();
+    getPeriods(fullEvent.id);
+    openEventDialogWindowAction();
+  };
+  const clickReschedule = () => {
+    checkUser();
+    openRescheduleDialogWindowAction();
+  };
 
   return (
     <React.Fragment>
@@ -82,7 +91,6 @@ function Event(props) {
         ]}
         keys={[1, 2, 3]}
       />
-      {!reschedule.from ? <EditEventDialog /> : <RescheduleEventDialog />}
     </React.Fragment>
   );
 }
@@ -92,7 +100,8 @@ Event.propTypes = {
   historyReplace: PropTypes.func,
   deleteEvent: PropTypes.func,
   cancelEvent: PropTypes.func,
-  openDialogWindow: PropTypes.func,
+  openEventDialogWindow: PropTypes.func,
+  openRescheduleDialogWindow: PropTypes.func,
   checkUser: PropTypes.func,
   getPeriods: PropTypes.func,
   fullEvent: PropTypes.shape({
@@ -110,6 +119,7 @@ Event.propTypes = {
       eventPeriodId: PropTypes.number,
     }),
   }),
+  selectedEvent: PropTypes.number,
 };
 
 Event.defaultProps = {
@@ -117,7 +127,8 @@ Event.defaultProps = {
   historyReplace: () => {},
   deleteEvent: () => {},
   cancelEvent: () => {},
-  openDialogWindow: () => {},
+  openEventDialogWindow: () => {},
+  openRescheduleDialogWindow: () => {},
   checkUser: () => {},
   getPeriods: () => {},
   fullEvent: {
@@ -129,11 +140,13 @@ Event.defaultProps = {
     },
   },
   reschedule: {},
+  selectedEvent: -1,
 };
 
 const mapStateToProps = state => ({
   fullEvent: state.eventReducer.fullEvent,
   reschedule: state.rescheduleReducer.reschedule,
+  selectedEvent: state.eventReducer.selectedEvent,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -141,7 +154,8 @@ const mapDispatchToProps = dispatch => ({
   historyReplace: bindActionCreators(replace, dispatch),
   deleteEvent: bindActionCreators(deleteEventFetch, dispatch),
   cancelEvent: bindActionCreators(cancelEventFetch, dispatch),
-  openDialogWindow: bindActionCreators(openDialogWindow, dispatch),
+  openEventDialogWindow: bindActionCreators(openEventDialogWindow, dispatch),
+  openRescheduleDialogWindow: bindActionCreators(openRescheduleDialogWindow, dispatch),
   checkUser: bindActionCreators(checkUserFetch, dispatch),
   getPeriods: bindActionCreators(getPeriodsFetch, dispatch),
 });

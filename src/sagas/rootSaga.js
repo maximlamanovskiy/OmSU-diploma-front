@@ -29,6 +29,10 @@ import watchFetchGetGroups from './groups/getGroupsSaga';
 
 import watchFetchGetSchedule from './schedule/getScheduleSaga';
 import watchFetchGetLesson from './schedule/getLessonSaga';
+import watchFetchEditSchedule from './schedule/editScheduleSaga';
+import watchFetchCreateScheduleItem from './schedule/createScheduleItemSaga';
+import watchFetchDeleteScheduleItem from './schedule/deleteScheduleItemSaga';
+import watchFetchEditScheduleItem from './schedule/editScheduleItemSaga';
 
 import watchFetchCreateEvent from './events/createEventSaga';
 import watchFetchDeleteEvent from './events/deleteEventSaga';
@@ -40,6 +44,10 @@ import watchFetchGetPeriods from './events/getPeriodsSaga';
 import watchFetchGetBuildings from './buildings/getBuildingsSaga';
 
 import watchFetchGetEvent from './events/getEventSaga';
+
+import watchFetchGetDisciplines from './discipline/getDisciplinesSaga';
+
+import watchFetchGetCourses from './courses/getCoursesSaga';
 
 // function* watchAndLog() {
 //   yield takeEvery('*', function* logger(action) {
@@ -81,5 +89,11 @@ export default function* rootSaga() {
     fork(watchFetchRescheduleEvent),
     fork(watchFetchGetPeriods),
     fork(watchFetchGetBuildings),
+    fork(watchFetchEditSchedule),
+    fork(watchFetchGetDisciplines),
+    fork(watchFetchCreateScheduleItem),
+    fork(watchFetchDeleteScheduleItem),
+    fork(watchFetchEditScheduleItem),
+    fork(watchFetchGetCourses),
   ]);
 }

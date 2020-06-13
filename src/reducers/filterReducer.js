@@ -1,4 +1,5 @@
 import * as types from 'src/actions/filter/actionTypes';
+import { CLEAR_COURSES } from 'src/actions/courses/actioType';
 
 const initialState = {
   filter: {},
@@ -15,14 +16,21 @@ export default (state = initialState, action) => {
         },
       };
     }
-
     case types.CLEAR_FILTER: {
       return {
         ...state,
         filter: {},
       };
     }
-
+    case CLEAR_COURSES: {
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          id: null,
+        },
+      };
+    }
     default: {
       return state;
     }

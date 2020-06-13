@@ -29,7 +29,7 @@ export const getClassroomsFail = error => ({
   error,
 });
 
-export const getClassroomsForRescheduleFetch = (id, page, count = 1000) => ({
+export const getClassroomsForRescheduleFetch = (id, page = 0, count = 1000) => ({
   type: GET_CLASSROOMS_FOR_RESCHEDULE_FETCH,
   url: `${process.env.REACT_APP_API_URLS}/buildings/${id}/classrooms?page=${page}&size=${count}`,
 });

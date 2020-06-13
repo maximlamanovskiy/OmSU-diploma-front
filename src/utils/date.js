@@ -13,6 +13,20 @@ export function isWeekEven(date) {
   return Math.floor((date.getTime() / millisecondsInWeek) % 2) === 0;
 }
 
+export function checkYear(year) {
+  return !!(year && year.match('^2\\d{3}/2\\d{3}$'));
+}
+
+export function reverseInterval(interval) {
+  if (interval === intervalsValue[2]) {
+    return intervalsValue[3];
+  }
+  if (interval === intervalsValue[3]) {
+    return intervalsValue[2];
+  }
+  return '';
+}
+
 export const convertPeriods = dates => period => {
   if (period.interval === intervalsValue[0]) {
     dates.push({

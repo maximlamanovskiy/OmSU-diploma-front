@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import './style.scss';
 
 export default function Checkbox(props) {
-  const { id, text, value, onChange, disabled } = props;
+  const { id, text, value, onChange, disabled, className } = props;
 
   return (
     <label
-      className={classNames('checkbox-wrapper', {
+      className={classNames(`checkbox-wrapper ${className}`, {
         'checkbox-wrapper_disabled': disabled,
       })}
       htmlFor={id}
@@ -31,6 +31,7 @@ export default function Checkbox(props) {
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   text: PropTypes.string,
+  className: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
@@ -38,6 +39,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   text: '',
+  className: '',
   value: false,
   disabled: false,
   onChange: () => {},

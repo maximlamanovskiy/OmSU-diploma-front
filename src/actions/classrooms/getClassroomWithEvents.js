@@ -1,3 +1,5 @@
+import { intervalsValue } from 'src/utils/date';
+
 import {
   GET_CLASSROOM_WITH_EVENTS_FETCH,
   GET_CLASSROOM_WITH_EVENTS_REQUEST,
@@ -13,13 +15,18 @@ import {
   GET_CLASSROOM_FOR_CLASSROOMS_FAIL,
 } from './actionTypes';
 
-export const getClassroomWithEventsFetch = (id, dateFrom, dateTo, date) => ({
+export const getClassroomWithEventsFetch = (
+  id,
+  dateFrom,
+  dateTo,
+  interval = intervalsValue[0]
+) => ({
   type: GET_CLASSROOM_WITH_EVENTS_FETCH,
   url: `${process.env.REACT_APP_API_URLS}/classrooms/${id}/events-by-date?dateFrom=${dateFrom}&dateTo=${dateTo}`,
   id,
   dateFrom,
   dateTo,
-  date,
+  interval,
 });
 
 export const getClassroomWithEventsRequest = () => ({
@@ -37,11 +44,18 @@ export const getClassroomWithEventsFail = error => ({
   error,
 });
 
-export const getClassroomForRescheduleFetch = (id, date) => ({
-  type: GET_CLASSROOM_FOR_RESCHEDULE_FETCH,
-  url: `${process.env.REACT_APP_API_URLS}/classrooms/${id}/events-by-date?dateFrom=${date}&dateTo=${date}`,
+export const getClassroomForRescheduleFetch = (
   id,
-  date,
+  dateFrom,
+  dateTo,
+  interval = intervalsValue[0]
+) => ({
+  type: GET_CLASSROOM_FOR_RESCHEDULE_FETCH,
+  url: `${process.env.REACT_APP_API_URLS}/classrooms/${id}/events-by-date?dateFrom=${dateFrom}&dateTo=${dateTo}`,
+  id,
+  dateFrom,
+  dateTo,
+  interval,
 });
 
 export const getClassroomForRescheduleRequest = () => ({
@@ -58,11 +72,12 @@ export const getClassroomForRescheduleFail = error => ({
   error,
 });
 
-export const getClassroomForClassroomsFetch = (id, date) => ({
+export const getClassroomForClassroomsFetch = (id, date, interval = intervalsValue[0]) => ({
   type: GET_CLASSROOM_FOR_CLASSROOMS_FETCH,
   url: `${process.env.REACT_APP_API_URLS}/classrooms/${id}/events-by-date?dateFrom=${date}&dateTo=${date}`,
   id,
   date,
+  interval,
 });
 
 export const getClassroomForClassroomsRequest = () => ({

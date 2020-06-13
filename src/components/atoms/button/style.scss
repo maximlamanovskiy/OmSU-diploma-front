@@ -154,12 +154,31 @@
   position: absolute;
 }
 
-.period-compact__edit-button {
+.period-compact__edit-button,
+.schedule-item-compact__edit {
   background-image: url('./images/edit.svg');
 
   &:hover {
-    background-image: url('./images/edit-hover.svg');
+    background-image: url('images/edit_hover.svg');
     color: #087f24;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &:focus::before {
+    display: none;
+
+  }
+}
+
+.schedule-item-compact__delete {
+  background-image: url('./images/delete.svg');
+
+  &:hover {
+    background-image: url('images/delete_hover.svg');
+    color: #b00020;
 
     &::before {
       display: none;

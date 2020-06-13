@@ -5,8 +5,6 @@ const defaultEvent = {
   required: false,
   lecturerId: -1,
   timeBlockId: -1,
-  dateTo: '',
-  dateFrom: '',
   interval: intervalsValue[0],
   comment: '',
   timeIndex: -1,
@@ -27,7 +25,11 @@ const initialState = {
   isFree: true,
   isLoading: false,
   timeIndex: -1,
-  event: { ...defaultEvent },
+  event: {
+    ...defaultEvent,
+    dateTo: '',
+    dateFrom: '',
+  },
   fullEvent: { ...emptyFullEvent },
   error: null,
   selectedEvent: -1,
@@ -46,6 +48,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         event: {
+          ...state.event,
           ...defaultEvent,
         },
         isFree: true,

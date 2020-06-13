@@ -13,12 +13,12 @@ import { checkUserFetch } from 'src/actions/user/whoAmI';
 
 import ScheduleFilter from './components/scheduleFilter/ScheduleFilter';
 import ScheduleTable from './components/scheduleTable/ScheduleTable';
-import LessonDialog from './components/lessonDialog/LessonDialog';
 
 import './style.scss';
 
 function Schedule(props) {
   const [isOpen, setIsOpen] = useState(true);
+  const [type, changeType] = useState('groups');
 
   const {
     clearClassrooms: clearClassroomsAction,
@@ -27,9 +27,9 @@ function Schedule(props) {
   } = props;
 
   useEffect(() => {
+    checkUser();
     clearClassroomsAction();
     selectBuildingAction(null);
-    checkUser();
   }, [clearClassroomsAction, selectBuildingAction, checkUser]);
 
   const onClick = () => {
@@ -37,20 +37,17 @@ function Schedule(props) {
   };
 
   return (
-    <React.Fragment>
-      <div className="schedule">
-        <Button
-          className={classNames('schedule__hide-filter', {
-            'schedule__hide-filter_close': !isOpen,
-          })}
-          onClick={onClick}
-          value={isOpen ? '-' : '+'}
-        />
-        <ScheduleFilter isClose={!isOpen} />
-        <ScheduleTable className={!isOpen ? 'schedule-table_full' : ''} type="group" />
-      </div>
-      <LessonDialog />
-    </React.Fragment>
+    <div className="schedule">
+      <Button
+        className={classNames('schedule__hide-filter', {
+          'schedule__hide-filter_close': !isOpen,
+        })}
+        onClick={onClick}
+        value={isOpen ? '-' : '+'}
+      />
+      <ScheduleFilter isClose={!isOpen} changeType={changeType} />
+      <ScheduleTable className={!isOpen ? 'schedule-table_full' : ''} type={type} />
+    </div>
   );
 }
 

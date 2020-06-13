@@ -9,12 +9,13 @@
   border-radius: 5px;
   font-size: 2.5vh;
   line-height: 3vh;
-  margin-top: 5px;
+  margin-top: 0;
 }
 
+.schedule-item-dialog__drop-down-wrapper .dropdown__select-options,
 .edit-event-menu__drop-down-wrapper .dropdown__select-options {
   font-size: 2vh;
-  line-height: 2.5vh;
+  line-height: 2vh;
 }
 
 .dropdown__control,
@@ -84,7 +85,9 @@
   margin: 0;
 }
 
-.edit-event-menu__drop-down-wrapper .dropdown__text {
+.edit-event-dialog__drop-down-wrapper .dropdown__text,
+.reschedule-event-dialog__drop-down-wrapper .dropdown__text,
+.schedule-item-dialog__drop-down-wrapper .dropdown__text {
   font-size: 2vh;
   line-height: 2.5vh;
 }
@@ -100,10 +103,4 @@
 .dropdown__value-container.dropdown__value-container--has-value,
 .dropdown-error__value-container.dropdown-error__value-container--has-value {
   overflow: hidden;
-  padding-top: 2vh;
-}
-
-.dropdown__value-container .dropdown__placeholder,
-.dropdown-error__value-container .dropdown-error__placeholder {
-  top: 60%;
 }

@@ -53,7 +53,7 @@ function ClassroomsFilter(props) {
       setError(true);
       return;
     }
-    setPageAction(1);
+    setPageAction(0);
     clearClassroomsEventsAction();
     selectBuildingAction(filterBuilding);
     getClassrooms(filterBuilding, 0);

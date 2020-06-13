@@ -8,22 +8,27 @@ import { connect } from 'react-redux';
 import DropdownOption from 'src/components/molecules/dropdownOption/DropdownOption';
 
 import { getFacultiesFetch } from 'src/actions/faculties/getFaculties';
-import { updateFilter } from 'src/actions/filter/updateFilter';
+import { getCoursesFetch } from 'src/actions/courses/getCourses';
+import { clearCourses } from 'src/actions/courses/utility';
 
 function FacultyFilterOptions(props) {
-  const { error, faculties, updateFilter: updateFilterAction, getFaculties } = props;
+  const { faculties, getFaculties, getCourses, error, clearCourses: clearCoursesAction } = props;
 
-  const [wasFacultySelect, setFacultySelect] = useState(false);
+  const [wasCourseSelect, setCourseSelect] = useState(false);
 
   useEffect(() => {
     getFaculties();
-  }, [getFaculties]);
+    return () => {
+      clearCoursesAction();
+    };
+  }, [getFaculties, clearCoursesAction]);
 
   const changeFaculty = obj => {
-    updateFilterAction({
-      faculty: obj && obj.value,
-    });
-    setFacultySelect(!!obj);
+    clearCoursesAction();
+    if (obj) {
+      getCourses(obj.value);
+    }
+    setCourseSelect(!!obj);
   };
 
   return (
@@ -32,24 +37,19 @@ function FacultyFilterOptions(props) {
       options={faculties}
       message={I18n.t('components.filter.labels.faculty')}
       onChange={changeFaculty}
-      error={!wasFacultySelect && error}
       textClassName="simple-label__text"
+      isClearable={false}
+      error={!wasCourseSelect && error}
     />
   );
 }
 
 FacultyFilterOptions.propTypes = {
-  error: PropTypes.bool,
-  faculties: PropTypes.arrayOf(PropTypes.shape({})),
-  updateFilter: PropTypes.func,
-  getFaculties: PropTypes.func,
-};
-
-FacultyFilterOptions.defaultProps = {
-  error: false,
-  faculties: [],
-  updateFilter: () => {},
-  getFaculties: () => {},
+  error: PropTypes.bool.isRequired,
+  faculties: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  getCourses: PropTypes.func.isRequired,
+  getFaculties: PropTypes.func.isRequired,
+  clearCourses: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -57,8 +57,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateFilter: bindActionCreators(updateFilter, dispatch),
   getFaculties: bindActionCreators(getFacultiesFetch, dispatch),
+  getCourses: bindActionCreators(getCoursesFetch, dispatch),
+  clearCourses: bindActionCreators(clearCourses, dispatch),
 });
 
 export default connect(

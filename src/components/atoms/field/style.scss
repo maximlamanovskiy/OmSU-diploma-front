@@ -34,7 +34,9 @@
   box-sizing: border-box;
   color: #000;
   height: 6.3vh;
+  margin-top: 0;
   min-height: 20px;
+  z-index: 1;
 
   &:focus {
     border-color: #087f24;
@@ -56,6 +58,11 @@
   font-size: 1.4vw;
   height: 6.5vh;
   width: 100%;
+}
+
+.date-picker__small {
+  font-size: 2vh;
+  height: 4.5vh;
 }
 
 .time-and-interval__time {

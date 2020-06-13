@@ -7,7 +7,7 @@ import {
 
 export const getLessonFetch = id => ({
   type: GET_LESSON_FETCH,
-  url: `${process.env.REACT_APP_API_URLS}/lessons/${id}`,
+  url: `${process.env.REACT_APP_API_URLS}/schedules/items/${id}`,
   id,
 });
 

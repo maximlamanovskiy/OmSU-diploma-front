@@ -8,7 +8,16 @@ import FieldWithLabel from 'src/components/atoms/fieldWithLabel/FieldWithLabel';
 import './style.scss';
 
 export default function DateRangeSelector(props) {
-  const { dateFrom, dateTo, updateDateFrom, updateDateTo, disabled, error } = props;
+  const {
+    dateFrom,
+    dateTo,
+    updateDateFrom,
+    updateDateTo,
+    disabled,
+    error,
+    labelClassname,
+    fieldClassname,
+  } = props;
 
   const handleChangeInStartDate = event => {
     const date = event.target.value;
@@ -30,8 +39,8 @@ export default function DateRangeSelector(props) {
       <FieldWithLabel
         labelValue={I18n.t('components.date-range-selector.start-date')}
         classNameLabel="simple-label"
-        classNameField="date-range__date-picker base-field simple-label__input"
-        classNameText="simple-label__text"
+        classNameField={`date-range__date-picker base-field simple-label__input ${fieldClassname}`}
+        classNameText={`simple-label__text ${labelClassname}`}
         type="date"
         value={dateFrom}
         onChange={handleChangeInStartDate}
@@ -41,8 +50,8 @@ export default function DateRangeSelector(props) {
       <FieldWithLabel
         labelValue={I18n.t('components.date-range-selector.end-date')}
         classNameLabel="simple-label"
-        classNameField="date-range__date-picker base-field simple-label__input"
-        classNameText="simple-label__text"
+        classNameField={`date-range__date-picker base-field simple-label__input ${fieldClassname}`}
+        classNameText={`simple-label__text ${labelClassname}`}
         type="date"
         value={dateTo}
         onChange={handleChangeInEndDate}
@@ -56,6 +65,8 @@ export default function DateRangeSelector(props) {
 DateRangeSelector.propTypes = {
   dateFrom: PropTypes.string,
   dateTo: PropTypes.string,
+  labelClassname: PropTypes.string,
+  fieldClassname: PropTypes.string,
   updateDateFrom: PropTypes.func.isRequired,
   updateDateTo: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -65,6 +76,8 @@ DateRangeSelector.propTypes = {
 DateRangeSelector.defaultProps = {
   dateFrom: '',
   dateTo: '',
+  labelClassname: '',
+  fieldClassname: '',
 };
 
 DateRangeSelector.defaultProps = {

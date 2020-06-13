@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { I18n } from 'react-redux-i18n';
@@ -37,9 +37,9 @@ function EventMenu(props) {
     selectEvent: selectEventAction,
     selectTime: selectTimeAction,
     changeIsFree: changeIsFreeAction,
+    interval,
+    setInterval,
   } = props;
-
-  const [comment, changeComment] = useState(eventProp.comment);
 
   const selectedEvent = !isFree
     ? events.find(event => event.eventPeriods.some(isOccupiedFunc, timeBlocks[timeIndex]))
@@ -81,8 +81,7 @@ function EventMenu(props) {
     setDateTo(newDateTo);
     updateEventAction({ dateTo: newDateTo });
   };
-  const handleChangeInComment = event => changeComment(event.target.value);
-  const onBlurComment = () => updateEventAction({ comment });
+  const handleChangeInComment = event => updateEventAction({ comment: event.target.value });
   const handleChangeInLecturer = obj => updateEventAction({ lecturerId: obj ? obj.value : -1 });
   const handleChangeInDate = event => updateDate(event.target.value);
   const handleChangeInRequired = () => updateEventAction({ required: !eventProp.required });
@@ -90,11 +89,12 @@ function EventMenu(props) {
   return (
     <section className="event-menu">
       <TimeAndIntervalSelector
-        interval={!isFree && !!selectedDate ? selectedDate.interval : eventProp.interval}
+        interval={!isFree && !!selectedDate ? selectedDate.interval : interval}
         error={isFree && error}
         timeIndex={timeIndex}
+        setInterval={setInterval}
       />
-      {(isFree && eventProp.interval !== intervalsValue[0]) ||
+      {(isFree && interval !== intervalsValue[0]) ||
       (!isFree && selectedDate.interval !== intervalsValue[0]) ? (
         <DateRangeSelector
           dateFrom={!isFree && !!selectedDate ? selectedDate.dateFrom : dateFrom}
@@ -116,7 +116,7 @@ function EventMenu(props) {
       )}
       <DropdownOption
         name="lecturer"
-        message={I18n.t('pages.classroom.occupation.lecturer')}
+        message={I18n.t('components.labels.lecturer')}
         options={lecturers}
         wrapperClassName="event-menu__drop-down-wrapper"
         textClassName="simple-label__text"
@@ -129,18 +129,16 @@ function EventMenu(props) {
       <TextArea
         wrapperClassName="simple-label simple-label_full"
         headerClassName="simple-label__text"
-        headerValue={I18n.t('pages.classroom.occupation.comment')}
+        headerValue={I18n.t('components.labels.comment')}
         textClassName="event-menu__input base-field base-field__text simple-label__input event-menu__textarea"
         textName="comment"
-        textValue={!isFree && !!selectedEvent ? selectedEvent.comment : comment}
+        textValue={!isFree && !!selectedEvent ? selectedEvent.comment : eventProp.comment}
         textOnChange={handleChangeInComment}
-        textOnBlur={onBlurComment}
         disabled={!isFree}
-        hasError={isFree && !comment && error}
       />
       <Checkbox
         id="required"
-        text={I18n.t('pages.classroom.occupation.require')}
+        text={I18n.t('components.labels.require')}
         value={!isFree && !!selectedEvent ? selectedEvent.required : eventProp.required}
         onChange={handleChangeInRequired}
         disabled={!isFree}
@@ -152,6 +150,7 @@ function EventMenu(props) {
 EventMenu.propTypes = {
   dateFrom: PropTypes.string.isRequired,
   dateTo: PropTypes.string.isRequired,
+  interval: PropTypes.string.isRequired,
   isFree: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
   timeIndex: PropTypes.number.isRequired,
@@ -175,15 +174,16 @@ EventMenu.propTypes = {
   selectEvent: PropTypes.func.isRequired,
   selectTime: PropTypes.func.isRequired,
   changeIsFree: PropTypes.func.isRequired,
+  setInterval: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  eventProp: state.eventReducer.event,
-  lecturers: state.lecturersReducer.lecturers,
-  isFree: state.eventReducer.isFree,
   timeIndex: state.eventReducer.timeIndex,
+  eventProp: state.eventReducer.event,
   timeBlocks: state.timeblocksReducer.timeBlocks,
   events: state.classroomsReducer.events,
+  isFree: state.eventReducer.isFree,
+  lecturers: state.lecturersReducer.lecturers,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,7 +2,11 @@ import * as types from 'src/actions/utility/actionTypes';
 
 const initialState = {
   date: new Date().toISOString().split('T')[0],
-  isOpen: false,
+  isEventDialogOpen: false,
+  isScheduleDialogOpen: false,
+  isRescheduleDialogOpen: false,
+  isScheduleItemDialogOpen: false,
+  isScheduleEditorOpen: false,
   header: '',
 };
 
@@ -14,16 +18,43 @@ export default (state = initialState, action) => {
         date: action.date,
       };
     }
-    case types.OPEN_DIALOG_WINDOW: {
+    case types.OPEN_EVENT_DIALOG_WINDOW: {
       return {
         ...state,
-        isOpen: true,
+        isEventDialogOpen: true,
+      };
+    }
+    case types.OPEN_SCHEDULE_DIALOG_WINDOW: {
+      return {
+        ...state,
+        isScheduleDialogOpen: true,
+      };
+    }
+    case types.OPEN_RESCHEDULE_DIALOG_WINDOW: {
+      return {
+        ...state,
+        isRescheduleDialogOpen: true,
+      };
+    }
+    case types.OPEN_SCHEDULE_ITEM_DIALOG: {
+      return {
+        ...state,
+        isScheduleItemDialogOpen: true,
       };
     }
     case types.CLOSE_DIALOG_WINDOW: {
       return {
         ...state,
-        isOpen: false,
+        isEventDialogOpen: false,
+        isScheduleDialogOpen: false,
+        isRescheduleDialogOpen: false,
+        isScheduleItemDialogOpen: false,
+      };
+    }
+    case types.SET_SCHEDULE_EDITOR_OPEN: {
+      return {
+        ...state,
+        isScheduleEditorOpen: action.isOpen,
       };
     }
     default: {

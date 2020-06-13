@@ -26,37 +26,87 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route
+          exact
           path={paths.login}
-          render={() => (
+          render={props => (
             <NonAuth>
-              <Route path={paths.login} component={Login} />
+              <Login {...props} />
             </NonAuth>
           )}
         />
-
         <Route
+          exact
           path={paths.register}
-          render={() => (
+          render={props => (
             <NonAuth>
-              <Route path={paths.register} component={Register} />
+              <Register {...props} />
             </NonAuth>
           )}
         />
-
         <Route
-          path={paths.root}
-          render={() => (
+          exact
+          path={paths.classrooms}
+          render={props => (
             <Base>
-              <Route path={paths.classrooms} component={Classrooms} />
-              <Route path={paths.classroom} component={Classroom} />
-              <Route path={paths.editClassroom} component={EditAuditory} />
-              <Route path={paths.schedule} component={Schedule} />
-              <Route path={paths.event} component={Event} />
-              <Route path={paths.scheduleEditor} component={ScheduleEditor} />
-              <Redirect to={paths.classrooms} />
+              <Classrooms {...props} />
             </Base>
           )}
         />
+        <Route
+          exact
+          path={paths.classrooms}
+          render={props => (
+            <Base>
+              <Classrooms {...props} />
+            </Base>
+          )}
+        />
+        <Route
+          exact
+          path={paths.classroom}
+          render={props => (
+            <Base>
+              <Classroom {...props} />
+            </Base>
+          )}
+        />
+        <Route
+          exact
+          path={paths.editClassroom}
+          render={props => (
+            <Base>
+              <EditAuditory {...props} />
+            </Base>
+          )}
+        />
+        <Route
+          exact
+          path={paths.schedule}
+          render={props => (
+            <Base>
+              <Schedule {...props} />
+            </Base>
+          )}
+        />
+        <Route
+          exact
+          path={paths.event}
+          render={props => (
+            <Base>
+              <Event {...props} />
+            </Base>
+          )}
+        />
+        <Route
+          exact
+          path={paths.scheduleEditor}
+          render={props => (
+            <Base>
+              <ScheduleEditor {...props} />
+            </Base>
+          )}
+        />
+        <Redirect to={paths.classrooms} />
       </Switch>
     </Router>
   </Provider>,

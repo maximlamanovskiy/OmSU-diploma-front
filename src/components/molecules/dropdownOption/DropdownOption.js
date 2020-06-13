@@ -29,11 +29,13 @@ export default function DropdownOption(props) {
     curValue,
     disabled,
     isClearable,
+    isMulti,
+    curValues,
   } = props;
 
   useEffect(() => {
-    setValue(curValue);
-  }, [curValue]);
+    setValue(isMulti ? curValues : curValue);
+  }, [isMulti, curValue, curValues]);
 
   const prefix = error ? 'dropdown-error' : 'dropdown';
 
@@ -62,6 +64,7 @@ export default function DropdownOption(props) {
         classNamePrefix={prefix}
         placeholder={I18n.t('components.filter.default-select-message')}
         isClearable={isClearable}
+        isMulti={isMulti}
         isSearchable
         name={name}
         options={options}
@@ -83,6 +86,11 @@ DropdownOption.propTypes = {
   curValue: PropTypes.shape({
     label: PropTypes.string,
   }),
+  curValues: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+    })
+  ),
   wrapperClassName: PropTypes.string,
   selectClassName: PropTypes.string,
   textClassName: PropTypes.string,
@@ -91,6 +99,7 @@ DropdownOption.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   isClearable: PropTypes.bool,
+  isMulti: PropTypes.bool,
 };
 
 DropdownOption.defaultProps = {
@@ -101,6 +110,8 @@ DropdownOption.defaultProps = {
   message: '',
   error: false,
   disabled: false,
+  curValues: [],
   onChange: () => {},
   isClearable: true,
+  isMulti: false,
 };

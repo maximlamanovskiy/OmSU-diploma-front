@@ -16,22 +16,26 @@
 
 .lesson-compact__message {
   color: #000;
+  font-size: 1.2vh;
+  line-height: 1.6vh;
 }
 
 .lesson-compact__type {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: calc(5px + 1vh);
+  line-height: calc(7px + 1vh);
   margin-bottom: 0;
   min-height: 0;
+  text-transform: lowercase;
 }
 
 .lesson-compact__name {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: calc(10px + 1vh);
+  line-height: calc(14px + 1vh);
   margin-top: 0;
 }
 
 .lesson-compact__lecturer {
-  font-size: 14px;
+  font-size: calc(8px + 1vh);
+  line-height: calc(10px + 1vh);
   margin: 0;
 }

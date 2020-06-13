@@ -9,6 +9,10 @@ import NavigationOptions from './components/navigationOptions/NavigationOptions'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import SideMenu from './components/sideMenu/SideMenu';
+import LessonDialog from './components/lessonDialog/LessonDialog';
+import EditEventDialog from './components/editEventDialog/editEventDialog/EditEventDialog';
+import RescheduleEventDialog from './components/rescheduleEventDialog/RescheduleEventDialog';
+import ScheduleItemDialog from './components/scheduleItemDialog/scheduleItemDialog/ScheduleItemDialog';
 
 import './style.scss';
 
@@ -27,6 +31,10 @@ function Base(props) {
     isGroupsLoading,
     isScheduleLoading,
     isBuildingsLoading,
+    isDisciplineLoading,
+    isEventLoading,
+    isRescheduleLoading,
+    isTimeBlocksLoading,
   } = props;
 
   return (
@@ -39,6 +47,10 @@ function Base(props) {
         <section className="base-main__content">{children}</section>
       </main>
       <Footer />
+      <EditEventDialog />
+      <RescheduleEventDialog />
+      <LessonDialog />
+      <ScheduleItemDialog />
       <Spinner
         disable={
           !isUserLoading &&
@@ -48,7 +60,11 @@ function Base(props) {
           !isLecturersLoading &&
           !isGroupsLoading &&
           !isScheduleLoading &&
-          !isBuildingsLoading
+          !isBuildingsLoading &&
+          !isDisciplineLoading &&
+          !isEventLoading &&
+          !isRescheduleLoading &&
+          !isTimeBlocksLoading
         }
       />
     </React.Fragment>
@@ -57,36 +73,33 @@ function Base(props) {
 
 Base.propTypes = {
   children: PropTypes.node.isRequired,
-  isUserLoading: PropTypes.bool,
-  isClassroomLoading: PropTypes.bool,
-  isDepartmentsLoading: PropTypes.bool,
-  isFacultiesLoading: PropTypes.bool,
-  isLecturersLoading: PropTypes.bool,
-  isGroupsLoading: PropTypes.bool,
-  isScheduleLoading: PropTypes.bool,
-  isBuildingsLoading: PropTypes.bool,
-};
-
-Base.defaultProps = {
-  isUserLoading: false,
-  isClassroomLoading: false,
-  isLecturersLoading: false,
-  isDepartmentsLoading: false,
-  isFacultiesLoading: false,
-  isGroupsLoading: false,
-  isScheduleLoading: false,
-  isBuildingsLoading: false,
+  isBuildingsLoading: PropTypes.bool.isRequired,
+  isClassroomLoading: PropTypes.bool.isRequired,
+  isDepartmentsLoading: PropTypes.bool.isRequired,
+  isDisciplineLoading: PropTypes.bool.isRequired,
+  isEventLoading: PropTypes.bool.isRequired,
+  isFacultiesLoading: PropTypes.bool.isRequired,
+  isGroupsLoading: PropTypes.bool.isRequired,
+  isLecturersLoading: PropTypes.bool.isRequired,
+  isRescheduleLoading: PropTypes.bool.isRequired,
+  isScheduleLoading: PropTypes.bool.isRequired,
+  isTimeBlocksLoading: PropTypes.bool.isRequired,
+  isUserLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  isUserLoading: state.userReducer.isLoading,
+  isBuildingsLoading: state.buildingReducer.isLoading,
   isClassroomLoading: state.classroomsReducer.isLoading,
-  isLecturersLoading: state.lecturersReducer.isLoading,
   isDepartmentsLoading: state.departmentsReducer.isLoading,
+  isDisciplineLoading: state.disciplinesReducer.isLoading,
+  isEventLoading: state.eventReducer.isLoading,
   isFacultiesLoading: state.facultiesReducer.isLoading,
   isGroupsLoading: state.groupsReducer.isLoading,
+  isLecturersLoading: state.lecturersReducer.isLoading,
+  isRescheduleLoading: state.rescheduleReducer.isLoading,
   isScheduleLoading: state.scheduleReducer.isLoading,
-  isBuildingsLoading: state.buildingReducer.isLoading,
+  isTimeBlocksLoading: state.timeblocksReducer.isLoading,
+  isUserLoading: state.userReducer.isLoading,
 });
 
 export default connect(

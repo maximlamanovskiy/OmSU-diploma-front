@@ -12,7 +12,9 @@ function* getSchedule(payload) {
   try {
     yield put(getScheduleRequest());
     const response = yield call(get, payload.url);
-    yield put(getScheduleSuccess({ schedule: response.scheduleItems }));
+    yield put(
+      getScheduleSuccess({ schedule: response.schedules ? response.schedules : response.schedule })
+    );
   } catch (error) {
     yield put(getScheduleFail(error));
   }

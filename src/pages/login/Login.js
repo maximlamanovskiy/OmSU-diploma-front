@@ -71,7 +71,7 @@ function Login(props) {
   };
 
   const checkPassword = () => {
-    changeError(!password || password.length <= 5 || password.includes(' '));
+    changeError(!password || password.includes(' '));
   };
 
   return (

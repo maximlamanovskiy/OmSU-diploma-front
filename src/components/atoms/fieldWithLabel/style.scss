@@ -41,17 +41,14 @@
 }
 
 .simple-label__text {
-  background: linear-gradient(180deg, rgba(247, 247, 247, 1) 30%, rgba(255, 255, 255, 1) 50%);
-  left: 10px;
   position: relative;
   text-transform: uppercase;
-  top: 1em;
   width: max-content;
-  z-index: 2;
 }
 
-.simple-label__input {
-  padding-top: 10px;
+.simple-label__text_small {
+  font-size: 2vh;
+  line-height: 2.5vh;
 }
 
 .label-block_error .simple-label__text {

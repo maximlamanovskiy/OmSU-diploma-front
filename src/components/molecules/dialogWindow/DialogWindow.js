@@ -56,15 +56,11 @@ DialogWindow.defaultProps = {
   closeDialogWindow: () => {},
 };
 
-const mapStateToProps = state => ({
-  isOpen: state.utilityReducer.isOpen,
-});
-
 const mapDispatchToProps = dispatch => ({
   closeDialogWindow: bindActionCreators(closeDialogWindow, dispatch),
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(DialogWindow);
